@@ -1,0 +1,45 @@
+#summary Different statistics.
+
+= Here you can view stats =
+
+== 10.07.09 ==
+# Before rand() usage:
+
+./run.rb | grep -e "\(Orig\|Random\|Stats\|Matched\|Literal\|total\|Execution\)"
+                      
+	 Stats for *Orig* rsync on ident test pair:
+total: matches=1010  hash_hits=1011  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+total size is 1018267  speedup is 97.77
+Execution time: 0.942389965057373
+	 Stats for *Random* rsync on ident test pair:
+total: matches=1010  hash_hits=1010  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+total size is 1018267  speedup is 97.69
+Execution time: 0.226105928421021
+	 Stats for *Orig* rsync on rsync test pair:
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+Literal data: 808580 bytes
+Matched data: 0 bytes
+total size is 808580  speedup is 0.99
+Execution time: 0.254215002059937
+	 Stats for *Random* rsync on rsync test pair:
+total: matches=0  hash_hits=11078  false_alarms=0 data=808580
+Literal data: 808580 bytes
+Matched data: 0 bytes
+total size is 808580  speedup is 0.99
+Execution time: 0.275254011154175
+	 Stats for *Orig* rsync on samba test pair:
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+Literal data: 44809008 bytes
+Matched data: 66458832 bytes
+total size is 111267840  speedup is 2.48
+Execution time: 34.675952911377
+	 Stats for *Random* rsync on samba test pair:
+total: matches=6303  hash_hits=6679634  false_alarms=25408 data=44809008
+Literal data: 44809008 bytes
+Matched data: 66458832 bytes
+total size is 111267840  speedup is 2.48
+Execution time: 36.6014800071716
