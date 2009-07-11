@@ -1,0 +1,651 @@
+Starting command: /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync' /home/fenix/docs/tmp/bmtmp/source/rsync_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsync_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsync_old 
+sending incremental file list
+delta-transmission enabled
+rsync_new
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+
+rsync[2306] (sender) heap statistics:
+  arena:         647168   (bytes from sbrk)
+  ordblks:            2   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        913408   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      512784   (bytes used)
+  fordblks:      134384   (bytes free)
+  keepcost:       98608   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 808580 bytes
+Total transferred file size: 808580 bytes
+Literal data: 808580 bytes
+Matched data: 0 bytes
+File list size: 39
+File list generation time: 0.036 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 808931
+Total bytes received: 5347
+
+sent 808931 bytes  received 5347 bytes  325711.20 bytes/sec
+total size is 808580  speedup is 0.99
+
+orig rsync on rsync testpair execution time:
+1.79390597343445
+Starting command: /home/fenix/progs/projects/varsync/trunk/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/rsync' --random /home/fenix/docs/tmp/bmtmp/source/rsync_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsync_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsync_old 
+sending incremental file list
+delta-transmission enabled
+rsync_new
+total: matches=0  hash_hits=10864  false_alarms=0 data=808580
+
+rsync[2314] (sender) heap statistics:
+  arena:         647168   (bytes from sbrk)
+  ordblks:            2   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        913408   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      512800   (bytes used)
+  fordblks:      134368   (bytes free)
+  keepcost:       98592   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 808580 bytes
+Total transferred file size: 808580 bytes
+Literal data: 808580 bytes
+Matched data: 0 bytes
+File list size: 39
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 808931
+Total bytes received: 5347
+
+sent 808931 bytes  received 5347 bytes  542852.00 bytes/sec
+total size is 808580  speedup is 0.99
+
+random rsync on rsync testpair execution time:
+1.64493703842163
+Starting command: /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync' /home/fenix/docs/tmp/bmtmp/source/rsyncdir_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsyncdir_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsyncdir_old 
+sending incremental file list
+delta-transmission enabled
+rsyncdir_new/.gitignore
+rsyncdir_new/COPYING is uptodate
+rsyncdir_new/Doxyfile is uptodate
+rsyncdir_new/INSTALL is uptodate
+rsyncdir_new/Makefile.in
+rsyncdir_new/NEWS
+rsyncdir_new/OLDNEWS
+rsyncdir_new/README
+rsyncdir_new/TODO
+rsyncdir_new/access.c
+rsyncdir_new/aclocal.m4
+rsyncdir_new/acls.c
+rsyncdir_new/authenticate.c is uptodate
+rsyncdir_new/backup.c
+rsyncdir_new/batch.c
+rsyncdir_new/byteorder.h
+rsyncdir_new/case_N.h is uptodate
+rsyncdir_new/checksum.c
+rsyncdir_new/chmod.c is uptodate
+rsyncdir_new/cleanup.c
+rsyncdir_new/clientname.c
+rsyncdir_new/clientserver.c
+rsyncdir_new/compat.c
+rsyncdir_new/config.guess
+rsyncdir_new/config.h.in
+rsyncdir_new/config.sub
+rsyncdir_new/configure
+rsyncdir_new/configure.in
+rsyncdir_new/configure.sh
+rsyncdir_new/connection.c is uptodate
+rsyncdir_new/csprotocol.txt is uptodate
+rsyncdir_new/delete.c
+rsyncdir_new/errcode.h is uptodate
+rsyncdir_new/exclude.c
+rsyncdir_new/fileio.c
+rsyncdir_new/flist.c
+rsyncdir_new/generator.c
+rsyncdir_new/getfsdev.c is uptodate
+rsyncdir_new/getgroups.c is uptodate
+rsyncdir_new/hashtable.c
+rsyncdir_new/hlink.c
+rsyncdir_new/ifuncs.h
+rsyncdir_new/install-sh
+rsyncdir_new/inums.h
+rsyncdir_new/io.c
+rsyncdir_new/io.h
+rsyncdir_new/itypes.h
+rsyncdir_new/loadparm.c
+rsyncdir_new/log.c
+rsyncdir_new/main.c
+rsyncdir_new/match.c
+rsyncdir_new/mkproto.pl is uptodate
+rsyncdir_new/options.c
+rsyncdir_new/params.c
+rsyncdir_new/pipe.c
+rsyncdir_new/prepare-source
+rsyncdir_new/prepare-source.mak is uptodate
+rsyncdir_new/progress.c
+rsyncdir_new/proto.h
+rsyncdir_new/proto.h-tstamp is uptodate
+rsyncdir_new/receiver.c
+rsyncdir_new/rounding.c is uptodate
+rsyncdir_new/rsync.1
+rsyncdir_new/rsync.c
+rsyncdir_new/rsync.h
+rsyncdir_new/rsync.yo
+rsyncdir_new/rsync3.txt
+rsyncdir_new/rsyncd.conf.5
+rsyncdir_new/rsyncd.conf.yo
+rsyncdir_new/rsyncsh.txt
+rsyncdir_new/runtests.sh
+rsyncdir_new/sender.c
+rsyncdir_new/shconfig.in
+rsyncdir_new/socket.c
+rsyncdir_new/syscall.c
+rsyncdir_new/t_stub.c
+rsyncdir_new/t_unsafe.c
+rsyncdir_new/tech_report.tex is uptodate
+rsyncdir_new/tls.c
+rsyncdir_new/token.c is uptodate
+rsyncdir_new/trimslash.c
+rsyncdir_new/tweak_manpage is uptodate
+rsyncdir_new/uidlist.c
+rsyncdir_new/util.c
+rsyncdir_new/wildtest.c
+rsyncdir_new/wildtest.txt
+rsyncdir_new/xattrs.c
+rsyncdir_new/doc/
+rsyncdir_new/doc/README-SGML
+rsyncdir_new/doc/profile.txt
+rsyncdir_new/doc/rsync.sgml
+rsyncdir_new/lib/
+rsyncdir_new/lib/addrinfo.h
+rsyncdir_new/lib/compat.c
+rsyncdir_new/lib/dummy.in
+rsyncdir_new/lib/getaddrinfo.c
+rsyncdir_new/lib/inet_ntop.c
+rsyncdir_new/lib/inet_pton.c
+rsyncdir_new/lib/md5.c
+rsyncdir_new/lib/mdfour.c
+rsyncdir_new/lib/mdigest.h
+rsyncdir_new/lib/permstring.c
+rsyncdir_new/lib/permstring.h
+rsyncdir_new/lib/pool_alloc.3
+rsyncdir_new/lib/pool_alloc.c
+rsyncdir_new/lib/pool_alloc.h
+rsyncdir_new/lib/snprintf.c
+rsyncdir_new/lib/sysacls.c
+rsyncdir_new/lib/sysacls.h
+rsyncdir_new/lib/sysxattrs.c
+rsyncdir_new/lib/sysxattrs.h
+rsyncdir_new/lib/wildmatch.c
+rsyncdir_new/lib/wildmatch.h
+rsyncdir_new/packaging/cull_options is uptodate
+rsyncdir_new/packaging/nightly-rsync
+rsyncdir_new/packaging/patch-update
+rsyncdir_new/packaging/release-rsync
+rsyncdir_new/packaging/var-checker
+rsyncdir_new/packaging/bin/gpg is uptodate
+rsyncdir_new/packaging/lsb/rsync.spec is uptodate
+rsyncdir_new/packaging/lsb/rsync.xinetd is uptodate
+rsyncdir_new/packaging/solaris/build_pkg.sh is uptodate
+rsyncdir_new/popt/
+rsyncdir_new/popt/CHANGES
+rsyncdir_new/popt/COPYING
+rsyncdir_new/popt/README
+rsyncdir_new/popt/README.rsync
+rsyncdir_new/popt/dummy.in
+rsyncdir_new/popt/findme.c
+rsyncdir_new/popt/findme.h
+rsyncdir_new/popt/popt.c
+rsyncdir_new/popt/popt.h
+rsyncdir_new/popt/poptconfig.c
+rsyncdir_new/popt/popthelp.c
+rsyncdir_new/popt/poptint.h
+rsyncdir_new/popt/poptparse.c
+rsyncdir_new/popt/system.h
+rsyncdir_new/support/Makefile
+rsyncdir_new/support/atomic-rsync
+rsyncdir_new/support/cvs2includes is uptodate
+rsyncdir_new/support/deny-rsync is uptodate
+rsyncdir_new/support/file-attr-restore is uptodate
+rsyncdir_new/support/files-to-excludes
+rsyncdir_new/support/git-set-file-times
+rsyncdir_new/support/instant-rsyncd
+rsyncdir_new/support/logfilter
+rsyncdir_new/support/lsh
+rsyncdir_new/support/mapfrom
+rsyncdir_new/support/mapto
+rsyncdir_new/support/mnt-excl
+rsyncdir_new/support/munge-symlinks
+rsyncdir_new/support/rrsync
+rsyncdir_new/support/rsyncstats
+rsyncdir_new/support/savetransfer.c is uptodate
+rsyncdir_new/testhelp/
+rsyncdir_new/testhelp/maketree.py
+rsyncdir_new/testsuite/00-hello.test
+rsyncdir_new/testsuite/README.testsuite is uptodate
+rsyncdir_new/testsuite/acls.test is uptodate
+rsyncdir_new/testsuite/backup.test
+rsyncdir_new/testsuite/batch-mode.test is uptodate
+rsyncdir_new/testsuite/chgrp.test is uptodate
+rsyncdir_new/testsuite/chmod-option.test is uptodate
+rsyncdir_new/testsuite/chmod-temp-dir.test
+rsyncdir_new/testsuite/chmod.test is uptodate
+rsyncdir_new/testsuite/chown.test is uptodate
+rsyncdir_new/testsuite/compare-dest.test is uptodate
+rsyncdir_new/testsuite/daemon-gzip-download.test is uptodate
+rsyncdir_new/testsuite/daemon-gzip-upload.test is uptodate
+rsyncdir_new/testsuite/daemon.test
+rsyncdir_new/testsuite/default-acls.test is uptodate
+rsyncdir_new/testsuite/delete.test is uptodate
+rsyncdir_new/testsuite/devices.test is uptodate
+rsyncdir_new/testsuite/dir-sgid.test is uptodate
+rsyncdir_new/testsuite/duplicates.test is uptodate
+rsyncdir_new/testsuite/exclude.test is uptodate
+rsyncdir_new/testsuite/executability.test is uptodate
+rsyncdir_new/testsuite/files-from.test is uptodate
+rsyncdir_new/testsuite/fuzzy.test is uptodate
+rsyncdir_new/testsuite/hands.test
+rsyncdir_new/testsuite/hardlinks.test
+rsyncdir_new/testsuite/itemize.test is uptodate
+rsyncdir_new/testsuite/longdir.test is uptodate
+rsyncdir_new/testsuite/merge.test is uptodate
+rsyncdir_new/testsuite/missing.test is uptodate
+rsyncdir_new/testsuite/relative.test is uptodate
+rsyncdir_new/testsuite/rsync.fns
+rsyncdir_new/testsuite/ssh-basic.test is uptodate
+rsyncdir_new/testsuite/symlink-ignore.test is uptodate
+rsyncdir_new/testsuite/trimslash.test is uptodate
+rsyncdir_new/testsuite/unsafe-byname.test is uptodate
+rsyncdir_new/testsuite/unsafe-links.test is uptodate
+rsyncdir_new/testsuite/wildmatch.test is uptodate
+rsyncdir_new/testsuite/xattrs.test
+rsyncdir_new/zlib/
+rsyncdir_new/zlib/ChangeLog
+rsyncdir_new/zlib/README
+rsyncdir_new/zlib/README.rsync
+rsyncdir_new/zlib/adler32.c
+rsyncdir_new/zlib/compress.c
+rsyncdir_new/zlib/crc32.c
+rsyncdir_new/zlib/crc32.h
+rsyncdir_new/zlib/deflate.c
+rsyncdir_new/zlib/deflate.h
+rsyncdir_new/zlib/dummy.in
+rsyncdir_new/zlib/inffast.c
+rsyncdir_new/zlib/inffast.h
+rsyncdir_new/zlib/inffixed.h
+rsyncdir_new/zlib/inflate.c
+rsyncdir_new/zlib/inflate.h
+rsyncdir_new/zlib/inftrees.c
+rsyncdir_new/zlib/inftrees.h
+rsyncdir_new/zlib/trees.c
+rsyncdir_new/zlib/trees.h
+rsyncdir_new/zlib/zconf.h
+rsyncdir_new/zlib/zlib.h
+rsyncdir_new/zlib/zutil.c
+rsyncdir_new/zlib/zutil.h
+total: matches=3434  hash_hits=3984  false_alarms=0 data=481425
+
+rsync[2347] (sender) heap statistics:
+  arena:         962560   (bytes from sbrk)
+  ordblks:            5   (chunks not in use)
+  smblks:            15
+  hblks:              3   (chunks from mmap)
+  hblkhd:        667648   (bytes from mmap)
+  allmem:       1630208   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:         1360
+  uordblks:      513232   (bytes used)
+  fordblks:      449328   (bytes free)
+  keepcost:      423616   (bytes in releasable chunk)
+
+Number of files: 225
+Number of files transferred: 156
+Total file size: 3015432 bytes
+Total transferred file size: 2840560 bytes
+Literal data: 481425 bytes
+Matched data: 2359135 bytes
+File list size: 3658
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 172335
+Total bytes received: 27207
+
+sent 172335 bytes  received 27207 bytes  133028.00 bytes/sec
+total size is 3015432  speedup is 15.11
+
+orig rsync on rsyncdir testpair execution time:
+0.454245090484619
+Starting command: /home/fenix/progs/projects/varsync/trunk/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/rsync' --random /home/fenix/docs/tmp/bmtmp/source/rsyncdir_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsyncdir_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsyncdir_old 
+sending incremental file list
+delta-transmission enabled
+rsyncdir_new/.gitignore is uptodate
+rsyncdir_new/COPYING is uptodate
+rsyncdir_new/Doxyfile is uptodate
+rsyncdir_new/INSTALL is uptodate
+rsyncdir_new/Makefile.in
+rsyncdir_new/NEWS
+rsyncdir_new/OLDNEWS
+rsyncdir_new/README is uptodate
+rsyncdir_new/TODO is uptodate
+rsyncdir_new/access.c
+rsyncdir_new/aclocal.m4 is uptodate
+rsyncdir_new/acls.c
+rsyncdir_new/authenticate.c is uptodate
+rsyncdir_new/backup.c
+rsyncdir_new/batch.c
+rsyncdir_new/byteorder.h is uptodate
+rsyncdir_new/case_N.h is uptodate
+rsyncdir_new/checksum.c
+rsyncdir_new/chmod.c is uptodate
+rsyncdir_new/cleanup.c
+rsyncdir_new/clientname.c is uptodate
+rsyncdir_new/clientserver.c
+rsyncdir_new/compat.c
+rsyncdir_new/config.guess is uptodate
+rsyncdir_new/config.h.in
+rsyncdir_new/config.sub is uptodate
+rsyncdir_new/configure is uptodate
+rsyncdir_new/configure.in
+rsyncdir_new/configure.sh
+rsyncdir_new/connection.c is uptodate
+rsyncdir_new/csprotocol.txt is uptodate
+rsyncdir_new/delete.c
+rsyncdir_new/errcode.h is uptodate
+rsyncdir_new/exclude.c
+rsyncdir_new/fileio.c
+rsyncdir_new/flist.c
+rsyncdir_new/generator.c
+rsyncdir_new/getfsdev.c is uptodate
+rsyncdir_new/getgroups.c is uptodate
+rsyncdir_new/hashtable.c
+rsyncdir_new/hlink.c
+rsyncdir_new/ifuncs.h
+rsyncdir_new/install-sh is uptodate
+rsyncdir_new/inums.h
+rsyncdir_new/io.c
+rsyncdir_new/io.h is uptodate
+rsyncdir_new/itypes.h
+rsyncdir_new/loadparm.c
+rsyncdir_new/log.c
+rsyncdir_new/main.c
+rsyncdir_new/match.c
+rsyncdir_new/mkproto.pl is uptodate
+rsyncdir_new/options.c
+rsyncdir_new/params.c
+rsyncdir_new/pipe.c
+rsyncdir_new/prepare-source is uptodate
+rsyncdir_new/prepare-source.mak is uptodate
+rsyncdir_new/progress.c
+rsyncdir_new/proto.h
+rsyncdir_new/proto.h-tstamp is uptodate
+rsyncdir_new/receiver.c
+rsyncdir_new/rounding.c is uptodate
+rsyncdir_new/rsync.1
+rsyncdir_new/rsync.c
+rsyncdir_new/rsync.h
+rsyncdir_new/rsync.yo
+rsyncdir_new/rsync3.txt is uptodate
+rsyncdir_new/rsyncd.conf.5
+rsyncdir_new/rsyncd.conf.yo
+rsyncdir_new/rsyncsh.txt is uptodate
+rsyncdir_new/runtests.sh is uptodate
+rsyncdir_new/sender.c
+rsyncdir_new/shconfig.in is uptodate
+rsyncdir_new/socket.c
+rsyncdir_new/syscall.c is uptodate
+rsyncdir_new/t_stub.c
+rsyncdir_new/t_unsafe.c
+rsyncdir_new/tech_report.tex is uptodate
+rsyncdir_new/tls.c
+rsyncdir_new/token.c is uptodate
+rsyncdir_new/trimslash.c
+rsyncdir_new/tweak_manpage is uptodate
+rsyncdir_new/uidlist.c
+rsyncdir_new/util.c
+rsyncdir_new/wildtest.c
+rsyncdir_new/wildtest.txt is uptodate
+rsyncdir_new/xattrs.c
+rsyncdir_new/doc/README-SGML is uptodate
+rsyncdir_new/doc/profile.txt is uptodate
+rsyncdir_new/doc/rsync.sgml is uptodate
+rsyncdir_new/lib/addrinfo.h is uptodate
+rsyncdir_new/lib/compat.c
+rsyncdir_new/lib/dummy.in is uptodate
+rsyncdir_new/lib/getaddrinfo.c is uptodate
+rsyncdir_new/lib/inet_ntop.c is uptodate
+rsyncdir_new/lib/inet_pton.c is uptodate
+rsyncdir_new/lib/md5.c is uptodate
+rsyncdir_new/lib/mdfour.c is uptodate
+rsyncdir_new/lib/mdigest.h is uptodate
+rsyncdir_new/lib/permstring.c is uptodate
+rsyncdir_new/lib/permstring.h is uptodate
+rsyncdir_new/lib/pool_alloc.3
+rsyncdir_new/lib/pool_alloc.c
+rsyncdir_new/lib/pool_alloc.h
+rsyncdir_new/lib/snprintf.c is uptodate
+rsyncdir_new/lib/sysacls.c is uptodate
+rsyncdir_new/lib/sysacls.h is uptodate
+rsyncdir_new/lib/sysxattrs.c is uptodate
+rsyncdir_new/lib/sysxattrs.h is uptodate
+rsyncdir_new/lib/wildmatch.c is uptodate
+rsyncdir_new/lib/wildmatch.h is uptodate
+rsyncdir_new/packaging/cull_options is uptodate
+rsyncdir_new/packaging/nightly-rsync
+rsyncdir_new/packaging/patch-update
+rsyncdir_new/packaging/release-rsync
+rsyncdir_new/packaging/var-checker
+rsyncdir_new/packaging/bin/gpg is uptodate
+rsyncdir_new/packaging/lsb/rsync.spec is uptodate
+rsyncdir_new/packaging/lsb/rsync.xinetd is uptodate
+rsyncdir_new/packaging/solaris/build_pkg.sh is uptodate
+rsyncdir_new/popt/CHANGES is uptodate
+rsyncdir_new/popt/COPYING is uptodate
+rsyncdir_new/popt/README is uptodate
+rsyncdir_new/popt/README.rsync is uptodate
+rsyncdir_new/popt/dummy.in is uptodate
+rsyncdir_new/popt/findme.c is uptodate
+rsyncdir_new/popt/findme.h is uptodate
+rsyncdir_new/popt/popt.c is uptodate
+rsyncdir_new/popt/popt.h is uptodate
+rsyncdir_new/popt/poptconfig.c is uptodate
+rsyncdir_new/popt/popthelp.c is uptodate
+rsyncdir_new/popt/poptint.h is uptodate
+rsyncdir_new/popt/poptparse.c is uptodate
+rsyncdir_new/popt/system.h is uptodate
+rsyncdir_new/support/Makefile is uptodate
+rsyncdir_new/support/atomic-rsync is uptodate
+rsyncdir_new/support/cvs2includes is uptodate
+rsyncdir_new/support/deny-rsync is uptodate
+rsyncdir_new/support/file-attr-restore is uptodate
+rsyncdir_new/support/files-to-excludes is uptodate
+rsyncdir_new/support/git-set-file-times
+rsyncdir_new/support/instant-rsyncd
+rsyncdir_new/support/logfilter is uptodate
+rsyncdir_new/support/lsh is uptodate
+rsyncdir_new/support/mapfrom
+rsyncdir_new/support/mapto
+rsyncdir_new/support/mnt-excl
+rsyncdir_new/support/munge-symlinks is uptodate
+rsyncdir_new/support/rrsync
+rsyncdir_new/support/rsyncstats is uptodate
+rsyncdir_new/support/savetransfer.c is uptodate
+rsyncdir_new/testhelp/maketree.py is uptodate
+rsyncdir_new/testsuite/00-hello.test
+rsyncdir_new/testsuite/README.testsuite is uptodate
+rsyncdir_new/testsuite/acls.test is uptodate
+rsyncdir_new/testsuite/backup.test
+rsyncdir_new/testsuite/batch-mode.test is uptodate
+rsyncdir_new/testsuite/chgrp.test is uptodate
+rsyncdir_new/testsuite/chmod-option.test is uptodate
+rsyncdir_new/testsuite/chmod-temp-dir.test
+rsyncdir_new/testsuite/chmod.test is uptodate
+rsyncdir_new/testsuite/chown.test is uptodate
+rsyncdir_new/testsuite/compare-dest.test is uptodate
+rsyncdir_new/testsuite/daemon-gzip-download.test is uptodate
+rsyncdir_new/testsuite/daemon-gzip-upload.test is uptodate
+rsyncdir_new/testsuite/daemon.test
+rsyncdir_new/testsuite/default-acls.test is uptodate
+rsyncdir_new/testsuite/delete.test is uptodate
+rsyncdir_new/testsuite/devices.test is uptodate
+rsyncdir_new/testsuite/dir-sgid.test is uptodate
+rsyncdir_new/testsuite/duplicates.test is uptodate
+rsyncdir_new/testsuite/exclude.test is uptodate
+rsyncdir_new/testsuite/executability.test is uptodate
+rsyncdir_new/testsuite/files-from.test is uptodate
+rsyncdir_new/testsuite/fuzzy.test is uptodate
+rsyncdir_new/testsuite/hands.test
+rsyncdir_new/testsuite/hardlinks.test
+rsyncdir_new/testsuite/itemize.test is uptodate
+rsyncdir_new/testsuite/longdir.test is uptodate
+rsyncdir_new/testsuite/merge.test is uptodate
+rsyncdir_new/testsuite/missing.test is uptodate
+rsyncdir_new/testsuite/relative.test is uptodate
+rsyncdir_new/testsuite/rsync.fns
+rsyncdir_new/testsuite/ssh-basic.test is uptodate
+rsyncdir_new/testsuite/symlink-ignore.test is uptodate
+rsyncdir_new/testsuite/trimslash.test is uptodate
+rsyncdir_new/testsuite/unsafe-byname.test is uptodate
+rsyncdir_new/testsuite/unsafe-links.test is uptodate
+rsyncdir_new/testsuite/wildmatch.test is uptodate
+rsyncdir_new/testsuite/xattrs.test
+rsyncdir_new/zlib/ChangeLog is uptodate
+rsyncdir_new/zlib/README is uptodate
+rsyncdir_new/zlib/README.rsync is uptodate
+rsyncdir_new/zlib/adler32.c is uptodate
+rsyncdir_new/zlib/compress.c is uptodate
+rsyncdir_new/zlib/crc32.c is uptodate
+rsyncdir_new/zlib/crc32.h is uptodate
+rsyncdir_new/zlib/deflate.c is uptodate
+rsyncdir_new/zlib/deflate.h is uptodate
+rsyncdir_new/zlib/dummy.in is uptodate
+rsyncdir_new/zlib/inffast.c is uptodate
+rsyncdir_new/zlib/inffast.h is uptodate
+rsyncdir_new/zlib/inffixed.h is uptodate
+rsyncdir_new/zlib/inflate.c is uptodate
+rsyncdir_new/zlib/inflate.h is uptodate
+rsyncdir_new/zlib/inftrees.c is uptodate
+rsyncdir_new/zlib/inftrees.h is uptodate
+rsyncdir_new/zlib/trees.c is uptodate
+rsyncdir_new/zlib/trees.h is uptodate
+rsyncdir_new/zlib/zconf.h is uptodate
+rsyncdir_new/zlib/zlib.h is uptodate
+rsyncdir_new/zlib/zutil.c is uptodate
+rsyncdir_new/zlib/zutil.h is uptodate
+total: matches=0  hash_hits=6275  false_alarms=0 data=1987727
+
+rsync[2355] (sender) heap statistics:
+  arena:        1224704   (bytes from sbrk)
+  ordblks:            5   (chunks not in use)
+  smblks:            15
+  hblks:              2   (chunks from mmap)
+  hblkhd:        401408   (bytes from mmap)
+  allmem:       1626112   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:         1360
+  uordblks:      775408   (bytes used)
+  fordblks:      449296   (bytes free)
+  keepcost:      423584   (bytes in releasable chunk)
+
+Number of files: 225
+Number of files transferred: 73
+Total file size: 3015432 bytes
+Total transferred file size: 1987727 bytes
+Literal data: 1987727 bytes
+Matched data: 0 bytes
+File list size: 3658
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 543996
+Total bytes received: 18331
+
+sent 543996 bytes  received 18331 bytes  160664.86 bytes/sec
+total size is 3015432  speedup is 5.36
+
+random rsync on rsyncdir testpair execution time:
+2.71067190170288
+Starting command: /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync' /home/fenix/docs/tmp/bmtmp/source/samba_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/samba_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/samba_old 
+sending incremental file list
+delta-transmission enabled
+samba_new
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+
+rsync[2366] (sender) heap statistics:
+  arena:         614400   (bytes from sbrk)
+  ordblks:            1   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        880640   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      512784   (bytes used)
+  fordblks:      101616   (bytes free)
+  keepcost:      101296   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 111267840 bytes
+Total transferred file size: 111267840 bytes
+Literal data: 44809008 bytes
+Matched data: 66458832 bytes
+File list size: 40
+File list generation time: 0.026 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 14275538
+Total bytes received: 73895
+
+sent 14275538 bytes  received 73895 bytes  441521.02 bytes/sec
+total size is 111267840  speedup is 7.75
+
+orig rsync on samba testpair execution time:
+36.0796191692352
+Starting command: /home/fenix/progs/projects/varsync/trunk/rsync -azvv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/rsync' --random /home/fenix/docs/tmp/bmtmp/source/samba_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/samba_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/rsync --server -vvlogDtprze.iLs . /home/fenix/docs/tmp/bmtmp/destination/samba_old 
+sending incremental file list
+delta-transmission enabled
+samba_new
+total: matches=0  hash_hits=16276564  false_alarms=167 data=111267840
+
+rsync[2375] (sender) heap statistics:
+  arena:         614400   (bytes from sbrk)
+  ordblks:            1   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        880640   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      512800   (bytes used)
+  fordblks:      101600   (bytes free)
+  keepcost:      101280   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 111267840 bytes
+Total transferred file size: 111267840 bytes
+Literal data: 111267840 bytes
+Matched data: 0 bytes
+File list size: 40
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 35480908
+Total bytes received: 73895
+
+sent 35480908 bytes  received 73895 bytes  19339.03 bytes/sec
+total size is 111267840  speedup is 3.13
+
+random rsync on samba testpair execution time:
+1842.07121300697
