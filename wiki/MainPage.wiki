@@ -2,4 +2,4 @@
 
 = Welcome to the varsync wiki! =
 
-Stats can be viewed here.
+Stats can be viewed [http://code.google.com/p/varsync/wiki/stats here].
