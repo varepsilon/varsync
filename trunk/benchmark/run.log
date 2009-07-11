@@ -1,0 +1,152 @@
+
+Starting command: /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync -avv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync' /home/fenix/docs/tmp/bmtmp/source/rsync_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsync_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync --server -vvlogDtpre.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsync_old 
+sending incremental file list
+delta-transmission enabled
+rsync_new
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+
+rsync[4743] (sender) heap statistics:
+  arena:         270336   (bytes from sbrk)
+  ordblks:            2   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        536576   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      210352   (bytes used)
+  fordblks:       59984   (bytes free)
+  keepcost:       24208   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 808580 bytes
+Total transferred file size: 808580 bytes
+Literal data: 808580 bytes
+Matched data: 0 bytes
+File list size: 39
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 808767
+Total bytes received: 5347
+
+sent 808767 bytes  received 5347 bytes  1628228.00 bytes/sec
+total size is 808580  speedup is 0.99
+
+orig rsync on rsync testpair execution time:
+0.238411903381348
+
+Starting command: /home/fenix/progs/projects/varsync/trunk/rsync -avv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/rsync' --random /home/fenix/docs/tmp/bmtmp/source/rsync_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/rsync_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/rsync --server -vvlogDtpre.iLs . /home/fenix/docs/tmp/bmtmp/destination/rsync_old 
+sending incremental file list
+delta-transmission enabled
+rsync_new
+total: matches=0  hash_hits=10864  false_alarms=0 data=808580
+
+rsync[4751] (sender) heap statistics:
+  arena:         270336   (bytes from sbrk)
+  ordblks:            2   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        536576   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      210368   (bytes used)
+  fordblks:       59968   (bytes free)
+  keepcost:       24192   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 808580 bytes
+Total transferred file size: 808580 bytes
+Literal data: 808580 bytes
+Matched data: 0 bytes
+File list size: 39
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 808767
+Total bytes received: 5347
+
+sent 808767 bytes  received 5347 bytes  325645.60 bytes/sec
+total size is 808580  speedup is 0.99
+
+random rsync on rsync testpair execution time:
+1.34322786331177
+
+Starting command: /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync -avv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync' /home/fenix/docs/tmp/bmtmp/source/ident_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/ident_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/orig/rsync-3.0.6/rsync --server -vvlogDtpre.iLs . /home/fenix/docs/tmp/bmtmp/destination/ident_old 
+sending incremental file list
+delta-transmission enabled
+ident_new
+total: matches=4432  hash_hits=4438  false_alarms=0 data=416
+
+rsync[4759] (sender) heap statistics:
+  arena:         270336   (bytes from sbrk)
+  ordblks:            1   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        536576   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      210352   (bytes used)
+  fordblks:       59984   (bytes free)
+  keepcost:       59664   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 19607584 bytes
+Total transferred file size: 19607584 bytes
+Literal data: 416 bytes
+Matched data: 19607168 bytes
+File list size: 40
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 18236
+Total bytes received: 26629
+
+sent 18236 bytes  received 26629 bytes  89730.00 bytes/sec
+total size is 19607584  speedup is 437.04
+
+orig rsync on ident testpair execution time:
+0.620800971984863
+
+Starting command: /home/fenix/progs/projects/varsync/trunk/rsync -avv --stats --rsync-path='/home/fenix/progs/projects/varsync/trunk/rsync' --random /home/fenix/docs/tmp/bmtmp/source/ident_new fenix@localhost:/home/fenix/docs/tmp/bmtmp/destination/ident_old
+opening connection using: ssh -l fenix localhost /home/fenix/progs/projects/varsync/trunk/rsync --server -vvlogDtpre.iLs . /home/fenix/docs/tmp/bmtmp/destination/ident_old 
+sending incremental file list
+delta-transmission enabled
+ident_new
+total: matches=0  hash_hits=1253457  false_alarms=9 data=19607584
+
+rsync[4767] (sender) heap statistics:
+  arena:         270336   (bytes from sbrk)
+  ordblks:            1   (chunks not in use)
+  smblks:             4
+  hblks:              1   (chunks from mmap)
+  hblkhd:        266240   (bytes from mmap)
+  allmem:        536576   (bytes from sbrk + mmap)
+  usmblks:            0
+  fsmblks:          320
+  uordblks:      210368   (bytes used)
+  fordblks:       59968   (bytes free)
+  keepcost:       59648   (bytes in releasable chunk)
+
+Number of files: 1
+Number of files transferred: 1
+Total file size: 19607584 bytes
+Total transferred file size: 19607584 bytes
+Literal data: 19607584 bytes
+Matched data: 0 bytes
+File list size: 40
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 19610068
+Total bytes received: 26629
+
+sent 19610068 bytes  received 26629 bytes  141781.21 bytes/sec
+total size is 19607584  speedup is 1.00
+
+random rsync on ident testpair execution time:
+138.096187829971
