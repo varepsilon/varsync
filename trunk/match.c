@@ -144,7 +144,7 @@ static void hash_search(int f, struct sum_struct *s,
 	OFF_T offset, end;
 	int32 k, want_i, backup;
 	char sum2[SUM_LENGTH];
-	uint32 s1, s2, sum;
+	uint32 s1, s2, sum; /* TODO: s1 and s2 should be incapsulated */
 	int more;
 	schar *map;
 
@@ -219,10 +219,10 @@ static void hash_search(int f, struct sum_struct *s,
 					"potential match at %.0f i=%ld sum=%08x\n",
 					(double)offset, (long)i, sum);
 			}
-
+            // TODO: update for usage with use_random2
 			if (!done_csum2) {
 				map = (schar *)map_ptr(buf,offset,l);
-				get_checksum2((char *)map,l,sum2);
+				get_checksum2((char *)map,l,sum2,s->sums[i].p);
 				done_csum2 = 1;
 			}
             // compare strong checksums
@@ -286,7 +286,6 @@ static void hash_search(int f, struct sum_struct *s,
 		if (backup < 0)
 			backup = 0;
 
-        // TODO: adapt this to use with --random option
 		more = (offset + k) < len;  // round brackets were added for clarity
 		map = (schar *)map_ptr(buf, offset - backup, k + more + backup)
 		    + backup;

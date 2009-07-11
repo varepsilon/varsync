@@ -582,7 +582,9 @@ struct ht_int64_node {
 #define MAXHOSTNAMELEN 256
 #endif
 
+/* Different sum lengths in bytes */
 #define SUM_LENGTH 16
+#define RANDOM_SUM_LENGTH 4
 #define SHORT_SUM_LENGTH 2
 #define BLOCKSUM_BIAS 10
 
@@ -750,6 +752,7 @@ struct sum_buf {
 	uint32 sum1;	        /**< simple checksum */
 	int32 chain;		/**< next hash-table collision */
 	short flags;		/**< flag bits */
+    uint32 p;       /**< random point for random-generated sum2 */
 	char sum2[SUM_LENGTH];	/**< checksum  */
 };
 

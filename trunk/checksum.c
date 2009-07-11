@@ -30,8 +30,9 @@ extern int use_random2;
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
 extern uint32 p2;
-const uint32 base = 1<<16;       // TODO: base which is not power of 2 may cause
-                                 // problems
+const uint32 base = 1<<16;       // TODO: base which is not power of 2 may
+                                  // may cause problems
+const uint32 base2 = 1<<16;
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
@@ -99,7 +100,6 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
     else {
         uint32 p1_k = 1;   // p_1 to the power of k
         uint32 p2_k = 1;
-        int32 i;
         p1_k = getpower(1, k);
         p2_k = getpower(2, k); 
 
@@ -115,56 +115,84 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
     }
 }
 
+/* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
+ * returned (p is ignored).
+ * 2) Random-based checksum calculated in the point p will be written in the sum buffer. If p is equal to 0 it will be random-generated.
 
-void get_checksum2(char *buf, int32 len, char *sum)
+ */
+
+uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 {
-	md_context m;
+    if (!use_random2) { 
+        md_context m;
 
-	if (protocol_version >= 30) {
-		uchar seedbuf[4];
-		md5_begin(&m);
-		md5_update(&m, (uchar *)buf, len);
-		if (checksum_seed) {
-			SIVAL(seedbuf, 0, checksum_seed);
-			md5_update(&m, seedbuf, 4);
-		}
-		md5_result(&m, (uchar *)sum);
-	} else {
-		int32 i;
-		static char *buf1;
-		static int32 len1;
+        if (protocol_version >= 30) {
+            uchar seedbuf[4];
+            md5_begin(&m);
+            md5_update(&m, (uchar *)buf, len);
+            if (checksum_seed) {
+                SIVAL(seedbuf, 0, checksum_seed);
+                md5_update(&m, seedbuf, 4);
+            }
+            md5_result(&m, (uchar *)sum);
+        } else {
+            int32 i;
+            static char *buf1;
+            static int32 len1;
 
-		mdfour_begin(&m);
+            mdfour_begin(&m);
 
-		if (len > len1) {
-			if (buf1)
-				free(buf1);
-			buf1 = new_array(char, len+4);
-			len1 = len;
-			if (!buf1)
-				out_of_memory("get_checksum2");
-		}
+            if (len > len1) {
+                if (buf1)
+                    free(buf1);
+                buf1 = new_array(char, len+4);
+                len1 = len;
+                if (!buf1)
+                    out_of_memory("get_checksum2");
+            }
 
-		memcpy(buf1, buf, len);
-		if (checksum_seed) {
-			SIVAL(buf1,len,checksum_seed);
-			len += 4;
-		}
+            memcpy(buf1, buf, len);
+            if (checksum_seed) {
+                SIVAL(buf1,len,checksum_seed);
+                len += 4;
+            }
 
-		for (i = 0; i + CSUM_CHUNK <= len; i += CSUM_CHUNK)
-			mdfour_update(&m, (uchar *)(buf1+i), CSUM_CHUNK);
+            for (i = 0; i + CSUM_CHUNK <= len; i += CSUM_CHUNK)
+                mdfour_update(&m, (uchar *)(buf1+i), CSUM_CHUNK);
 
-		/*
-		 * Prior to version 27 an incorrect MD4 checksum was computed
-		 * by failing to call mdfour_tail() for block sizes that
-		 * are multiples of 64.  This is fixed by calling mdfour_update()
-		 * even when there are no more bytes.
-		 */
-		if (len - i > 0 || protocol_version >= 27)
-			mdfour_update(&m, (uchar *)(buf1+i), len-i);
+            /*
+             * Prior to version 27 an incorrect MD4 checksum was computed
+             * by failing to call mdfour_tail() for block sizes that
+             * are multiples of 64.  This is fixed by calling mdfour_update()
+             * even when there are no more bytes.
+             */
+            if (len - i > 0 || protocol_version >= 27)
+                mdfour_update(&m, (uchar *)(buf1+i), len-i);
 
-		mdfour_result(&m, (uchar *)sum);
-	}
+            mdfour_result(&m, (uchar *)sum);
+        }
+        return 0;
+    }
+    else {
+        uint32 s;
+        int32 i;
+        schar *buf1 = (schar *)buf; 
+
+        if (p == 0) {
+            /* generate p */
+            uint32 randinit;
+            randinit = time(0);
+            srand(randinit);
+            p = rand() % base2;
+        }
+
+        s = 0;
+        for (i = 0; i < len; i++) {
+            s = (p * s + buf1[i]) % base2;
+        }
+        snprintf(sum, RANDOM_SUM_LENGTH, "%Lu", s);
+        return p;
+    }
 }
 
 void file_checksum(char *fname, char *sum, OFF_T size)
