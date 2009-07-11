@@ -22,6 +22,8 @@
 
 #include "rsync.h"
 
+extern int use_random;
+extern int use_random2;
 extern int verbose;
 extern int dry_run;
 extern int do_xfers;
@@ -788,10 +790,14 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 		s2length = csum_length;
 	} else if (csum_length == SUM_LENGTH) {
 		s2length = SUM_LENGTH;
-	} else {
+    } else if (use_random2) {
+        s2length = RANDOM_SUM_LENGTH;
+	}  else {
 		int32 c;
 		int b = BLOCKSUM_BIAS;
+        /* calculate log2(file_length) */
 		for (l = len; l >>= 1; b += 2) {}
+        /* calculate log2(block_length) */
 		for (c = blength; (c >>= 1) && b; b--) {}
 		/* add a bit, subtract rollsum, round up. */
 		s2length = (b + 1 - 32 + 7) / 8; /* --optimize in compiler-- */
@@ -799,11 +805,11 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 		s2length = MIN(s2length, SUM_LENGTH);
 	}
 
-	sum->flength	= len;
-	sum->blength	= blength;
-	sum->s2length	= s2length;
-	sum->remainder	= (int32)(len % blength);
-	sum->count	= (int32)(l = (len / blength) + (sum->remainder != 0));
+	sum->flength = len;
+	sum->blength = blength;
+	sum->s2length = s2length;
+	sum->remainder = (int32)(len % blength);
+	sum->count = (int32)(l = (len / blength) + (sum->remainder != 0));
 
 	if ((int64)sum->count != l)
 		sum->count = -1;
@@ -847,6 +853,7 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 		char *map = map_ptr(mapbuf, offset, n1);
 		char sum2[SUM_LENGTH];
 		uint32 sum1;
+        uint32 p;
 
 		len -= n1;
 		offset += n1;
@@ -858,7 +865,7 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 		}
 
 		sum1 = get_checksum1(map, n1);
-		get_checksum2(map, n1, sum2);
+		p = get_checksum2(map, n1, sum2, 0);
 
 		if (verbose > 3) {
 			rprintf(FINFO,
@@ -866,8 +873,11 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 				(double)i, (double)offset - n1, (long)n1,
 				(unsigned long)sum1);
 		}
-		write_int(f_out, sum1);
-		write_buf(f_out, sum2, sum.s2length);
+        write_int(f_out, sum1);
+        if (use_random2) {
+            write_int(f_out, p); /* write random-generated point p */
+        } 
+        write_buf(f_out, sum2, sum.s2length);
 	}
 
 	if (mapbuf)

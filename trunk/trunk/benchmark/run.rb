@@ -19,12 +19,13 @@ RSYNC_TYPES_LIST = ["orig", "random"]
 # "opera" --- opera qt3_amd64 binaries (.deb) [9.50 -> 9.51.2061, 8.9 MB]
 # "samba" --- samba sources (.tar) [3.4.0rc1 -> 3.4.0, 111.3 MB]
 # "ident" --- almost identical files (.xml)
-TEST_PAIRS_LIST = ["ident", "rsync", "samba"]     
+TEST_PAIRS_LIST = ["rsync"]     
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_ORIG_OPTS = "-avv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
-RSYNC_RANDOM_OPTS = "-avv --stats --rsync-path='#{RSYNC_RANDOM_BIN} --random' --random"
+RSYNC_RANDOM_OPTS = "-avv --stats" \
+                    " --rsync-path='#{RSYNC_RANDOM_BIN} --random' --random"
 #==============================================================================
 
 require 'benchmark'
@@ -36,7 +37,8 @@ require 'open3'
 TEST_PAIRS_LIST.each do |test_pair|
   # compare original rsync with other methods
   RSYNC_TYPES_LIST.each do |rsync_type|
-    printf("\t Stats for %s rsync on %s test pair:\n", rsync_type.capitalize, test_pair)
+    printf("\t Stats for %s rsync on %s test pair:\n", 
+           rsync_type.capitalize, test_pair)
     # prepare test_pair:
     # TODO: correct directory handling (trailing slash)
     # (now we need to place directory named rsync_new in rsync_old)

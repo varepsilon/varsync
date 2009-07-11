@@ -21,6 +21,8 @@
 
 #include "rsync.h"
 
+extern int use_random;
+extern int use_random2;
 extern int verbose;
 extern int do_xfers;
 extern int am_server;
@@ -89,8 +91,10 @@ static struct sum_struct *receive_sums(int f)
 		out_of_memory("receive_sums");
 
 	for (i = 0; i < s->count; i++) {
-        // read weak and strong checksums
 		s->sums[i].sum1 = read_int(f);
+        if (use_random2) {
+    		s->sums[i].p = read_int(f);     /* read random-generated point p */
+        }
 		read_buf(f, s->sums[i].sum2, s->s2length);
 
 		s->sums[i].offset = offset;
@@ -322,7 +326,7 @@ void send_files(int f_in, int f_out)
 
 		write_ndx_and_attrs(f_out, ndx, iflags, fname, file,
 				    fnamecmp_type, xname, xlen);
-		write_sum_head(f_xfer, s);
+		write_sum_head(f_xfer, s);  
 
 		if (verbose > 2)
 			rprintf(FINFO, "calling match_sums %s%s%s\n", path,slash,fname);
@@ -334,7 +338,7 @@ void send_files(int f_in, int f_out)
 
 		set_compression(fname);
 
-		match_sums(f_xfer, s, mbuf, st.st_size);
+		match_sums(f_xfer, s, mbuf, st.st_size); // TODO: adapt to use_random2 
 		if (do_progress)
 			end_progress(st.st_size);
 

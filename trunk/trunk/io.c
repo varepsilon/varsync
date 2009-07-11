@@ -1201,7 +1201,7 @@ int recv_random_data(int f)
 
 int send_random_data(int f)
 {
-    unsigned int randInit;
+    uint32 randInit;
     if (verbose) {
         rprintf(FCLIENT, "sending random data\n");
     }
