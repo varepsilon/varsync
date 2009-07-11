@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Varsync wiki (main page).
 
 = Welcome to the varsync wiki! =
 
