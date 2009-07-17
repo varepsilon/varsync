@@ -338,7 +338,7 @@ void send_files(int f_in, int f_out)
 
 		set_compression(fname);
 
-		match_sums(f_xfer, s, mbuf, st.st_size); // TODO: adapt to use_random2 
+		match_sums(f_xfer, s, mbuf, st.st_size); 
 		if (do_progress)
 			end_progress(st.st_size);
 

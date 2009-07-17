@@ -28,7 +28,7 @@ void file_checksum(char *fname, char *sum, OFF_T size);
 void sum_init(int seed);
 void sum_update(const char *p, int32 len);
 int sum_end(char *sum);
-uint32 getpower(int j, int32 k);
+uint32 getminuspower(int j, int32 k);
 struct chmod_mode_struct *parse_chmod(const char *modestr,
 				      struct chmod_mode_struct **root_mode_ptr);
 int tweak_mode(int mode, struct chmod_mode_struct *chmod_modes);
