@@ -199,9 +199,13 @@ static void hash_search(int f, struct sum_struct *s,
         // iterate through the list of sums with the same hashes
 		do {
 			int32 l;
-            // compare rolling (weak) checksums
-			if (sum != s->sums[i].sum1)
+            /* compare rolling (weak) checksums */
+			if (sum != s->sums[i].sum1) {
+                if (verbose > 4)
+                rprintf(FINFO, "Rolling checksum differ! %08x != %08x\n",
+                        sum, s->sums[i].sum1);
 				continue;
+            }
 
 			/* also make sure the two blocks are the same length */
 			l = (int32)MIN((OFF_T)s->blength, len-offset);
@@ -219,14 +223,19 @@ static void hash_search(int f, struct sum_struct *s,
 					"potential match at %.0f i=%ld sum=%08x\n",
 					(double)offset, (long)i, sum);
 			}
-            // TODO: update for usage with use_random2
 			if (!done_csum2) {
 				map = (schar *)map_ptr(buf,offset,l);
 				get_checksum2((char *)map,l,sum2,s->sums[i].p);
 				done_csum2 = 1;
 			}
-            // compare strong checksums
+            /* compare strong checksums */
 			if (memcmp(sum2,s->sums[i].sum2,s->s2length) != 0) {
+                if (verbose > 3) {
+                    rprintf(FINFO,
+                            "False alarm! Original sum2 = %s " \
+                            "while obtained sum2 = %s\n",
+                            s->sums[i].sum2, sum2);
+                }
 				false_alarms++;
 				continue;
 			}
