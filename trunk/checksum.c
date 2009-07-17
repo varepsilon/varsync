@@ -30,9 +30,10 @@ extern int use_random2;
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
 extern uint32 p2;
-const uint32 base = 1<<16;       // TODO: base which is not power of 2 may
-                                  // may cause problems
-const uint32 base2 = 1<<16;
+
+  /* TODO:  bases must be chosen in a more cleaver way */
+const uint32 base = 65536;  /* 2^16+1 (prime) */     
+const uint32 base2 = 65536; /* 2147483647; */ /* 2^31-1 (prime)*/
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
@@ -67,9 +68,7 @@ uint32 get_checksum1(char *buf1, int32 len)
     }
     else
     {
-        /* TODO:  base must be chosen in a more cleaver way
-         */
-                              
+                                    
         int32 i;
         uint32 s1, s2;
         schar *buf = (schar *)buf1; 
@@ -190,7 +189,8 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         for (i = 0; i < len; i++) {
             s = (p * s + buf1[i]) % base2;
         }
-        snprintf(sum, RANDOM_SUM_LENGTH, "%Lu", s);
+        /* snprintf takes '\0' into account */
+        snprintf(sum, RANDOM_SUM_LENGTH+1, "%016x", s);   
         return p;
     }
 }
