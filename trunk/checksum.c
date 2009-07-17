@@ -31,9 +31,8 @@ int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
 extern uint32 p2;
 
-  /* TODO:  bases must be chosen in a more cleaver way */
-const uint32 base = 65536;  /* 2^16+1 (prime) */     
-const uint32 base2 = 65536; /* 2147483647; */ /* 2^31-1 (prime)*/
+const uint32 base = 65521;  /* prime */     
+const uint32 base2 = 2147483647; /* prime */ // TODO: base2 must be stronger!!!
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
@@ -71,12 +70,12 @@ uint32 get_checksum1(char *buf1, int32 len)
                                     
         int32 i;
         uint32 s1, s2;
-        schar *buf = (schar *)buf1; 
+        unsigned char *buf = (unsigned char *)buf1; 
 
         s1 = s2 = 0;
         for (i = 0; i < len; i++) {
-            s1 = (p1 * s1 + buf[i]) % base;
-            s2 = (p2 * s2 + buf[i]) % base;
+            s1 = ((p1 * s1) % base + buf[i]) % base;
+            s2 = ((p2 * s2) % base + buf[i]) % base;
         }
         return (s1 & 0xffff) + (s2 << 16);
     }
@@ -97,18 +96,21 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
         return (s1 & 0xffff) | (s2 << 16);
     }
     else {
-        uint32 p1_k = 1;   // p_1 to the power of k
-        uint32 p2_k = 1;
-        p1_k = getpower(1, k);
-        p2_k = getpower(2, k); 
+        uint32 minus_p1_k;   // p_1 to the power of k
+        uint32 minus_p2_k;
+        unsigned char *map1 = (unsigned char *)map;
 
-        s1 = (s1 * p1 - p1_k * map[0]) % base;
-        s2 = (s2 * p2 - p2_k * map[0]) % base;
+        minus_p1_k = getminuspower(1, k);
+        minus_p2_k = getminuspower(2, k); 
+
+        /* We must avoid using "-" sign due to C bug with negative residues */
+        s1 = ((s1 * p1) % base + (minus_p1_k * map1[0]) % base) % base;
+        s2 = ((s2 * p2) % base + (minus_p2_k * map1[0]) % base) % base;
 
         /* Add on the next byte (if there is one) to the checksum */
 		if (more) {
-			s1 = (s1 + map[k]) % base;
-			s2 = (s2 + map[k]) % base;
+			s1 = (s1 + map1[k]) % base;
+			s2 = (s2 + map1[k]) % base;
 		}
         return (s1 & 0xffff) | (s2 << 16);
     }
@@ -116,8 +118,8 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
 
 /* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
  * returned (p is ignored).
- * 2) Random-based checksum calculated in the point p will be written in the sum buffer. If p is equal to 0 it will be random-generated.
-
+ * 2) Random-based checksum calculated in the point p will be written in the sum buffer. 
+ * If p is equal to 0 it will be random-generated
  */
 
 uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
@@ -173,9 +175,9 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         return 0;
     }
     else {
-        uint32 s;
+        uint64 s; // TODO: still doesn't work sometimes...
         int32 i;
-        schar *buf1 = (schar *)buf; 
+        unsigned char *buf1 = (unsigned char *)buf; 
 
         if (p == 0) {
             /* generate p */
@@ -187,10 +189,11 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 
         s = 0;
         for (i = 0; i < len; i++) {
-            s = (p * s + buf1[i]) % base2;
+            s = ((p * s) % base2 + buf1[i]) % base2;
         }
+        //TODO:need better solution   
         /* snprintf takes '\0' into account */
-        snprintf(sum, RANDOM_SUM_LENGTH+1, "%016x", s);   
+        snprintf(sum, RANDOM_SUM_LENGTH+1, "%0lx", s);    
         return p;
     }
 }
@@ -319,13 +322,16 @@ int sum_end(char *sum)
 	return MD4_DIGEST_LEN;
 }
 
-/* In order to avoid recalculations powers must be calculated in advance */
-uint32 getpower(int j, int32 k)
+/* 
+ * Function to calculate (-p1^k) % base.
+ * In order to avoid recalculations powers must be calculated in advance. 
+ */
+uint32 getminuspower(int j, int32 k)
 {
     if (pow_avail < BLOCK_SIZE) {
         int32 i;
-        powers[0][0] = 1;
-        powers[1][0] = 1;
+        powers[0][0] = base - 1;      /* -1 mod base */
+        powers[1][0] = base - 1;
         for (i = 0; i < BLOCK_SIZE; i++) {
             powers[0][i+1] = (powers[0][i] * p1) % base;
             powers[1][i+1] = (powers[1][i] * p2) % base;
