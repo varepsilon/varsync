@@ -19,14 +19,14 @@ RSYNC_TYPES_LIST = ["orig", "random"]
 # "opera" --- opera qt3_amd64 binaries (.deb) [9.50 -> 9.51.2061, 8.9 MB]
 # "samba" --- samba sources (.tar) [3.4.0rc1 -> 3.4.0, 111.3 MB]
 # "ident" --- almost identical files (.xml)
-TEST_PAIRS_LIST = ["ident", "rsync", "samba"]     
+TEST_PAIRS_LIST = ["ident", "opera"]     
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_ORIG_OPTS = "-avvv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
 RSYNC_RANDOM_OPTS = "-avvv --stats " \
-                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random --random2' " \
-                    "--random --random2"
+                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random ' " \
+                    "--random "
 #==============================================================================
 
 require 'benchmark'

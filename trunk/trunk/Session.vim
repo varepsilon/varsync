@@ -716,12 +716,12 @@ normal zo
 normal zo
 205
 normal zo
-let s:l = 178 - ((10 * winheight(0) + 17) / 34)
+let s:l = 47 - ((9 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-178
-normal! 057l
+47
+normal! 0
 tabedit ./test/checksum_test.c
 set splitbelow splitright
 set nosplitbelow
