@@ -43,3 +43,71 @@ Literal data: 44809008 bytes
 Matched data: 66458832 bytes
 total size is 111267840  speedup is 2.48
 Execution time: 36.6014800071716
+
+== 19.07.09 (--random) ==
+	 Stats for Orig rsync on ident test pair:
+total: matches=1010  hash_hits=1011  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4318
+sent 4318 bytes  received 6097 bytes  20830.00 bytes/sec
+total size is 1018267  speedup is 97.77
+Execution time: 0.218922853469849
+	 Stats for Random rsync on ident test pair:
+total: matches=1010  hash_hits=1010  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4326
+sent 4326 bytes  received 6097 bytes  20846.00 bytes/sec
+total size is 1018267  speedup is 97.69
+Execution time: 0.240277051925659
+	 Stats for Orig rsync on opera test pair:
+total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852476
+sent 8852476 bytes  received 17929 bytes  3548162.00 bytes/sec
+total size is 8860196  speedup is 1.00
+Execution time: 1.55143690109253
+	 Stats for Random rsync on opera test pair:
+total: matches=3  hash_hits=395420  false_alarms=3 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852484
+sent 8852484 bytes  received 17929 bytes  3548165.20 bytes/sec
+total size is 8860196  speedup is 1.00
+Execution time: 1.69969987869263
+
+== 19.07.09 (--random --random2) ==
+	 Stats for Orig rsync on ident test pair:
+total: matches=1010  hash_hits=1011  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4318
+sent 4318 bytes  received 6097 bytes  20830.00 bytes/sec
+total size is 1018267  speedup is 97.77
+Execution time: 0.225980997085571
+	 Stats for Random rsync on ident test pair:
+total: matches=1010  hash_hits=1012  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4326
+sent 4326 bytes  received 24295 bytes  57242.00 bytes/sec
+total size is 1018267  speedup is 35.58
+Execution time: 0.276737213134766
+	 Stats for Orig rsync on opera test pair:
+total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852476
+sent 8852476 bytes  received 17929 bytes  3548162.00 bytes/sec
+total size is 8860196  speedup is 1.00
+Execution time: 1.92580103874207
+	 Stats for Random rsync on opera test pair:
+total: matches=3  hash_hits=393960  false_alarms=8 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852484
+sent 8852484 bytes  received 71623 bytes  3569642.80 bytes/sec
+total size is 8860196  speedup is 0.99
+Execution time: 1.85641813278198
