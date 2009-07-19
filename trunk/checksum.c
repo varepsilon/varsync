@@ -24,7 +24,7 @@
 extern int checksum_seed;
 extern int protocol_version;
 extern int use_random;      /* TODO: may be it must be done using 
-                              SUBPROTOCOL_VERSION ? */
+                              (SUB)PROTOCOL_VERSION ? */
 extern int use_random2;
 
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
@@ -32,7 +32,7 @@ extern uint32 p1;
 extern uint32 p2;
 
 const uint32 base = 65521;  /* prime */     
-const uint32 base2 = 2147483647; /* prime */ // TODO: base2 must be stronger!!!
+const uint64 base2 = 2147483647; /* prime */ 
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
@@ -96,7 +96,7 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
         return (s1 & 0xffff) | (s2 << 16);
     }
     else {
-        uint32 minus_p1_k;   // p_1 to the power of k
+        uint32 minus_p1_k;   
         uint32 minus_p2_k;
         unsigned char *map1 = (unsigned char *)map;
 
@@ -189,11 +189,10 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 
         s = 0;
         for (i = 0; i < len; i++) {
-            s = ((p * s) % base2 + buf1[i]) % base2;
+            s = (((uint64)p * s) % base2 + (uint64)buf1[i]) % base2;
         }
-        //TODO:need better solution   
         /* snprintf takes '\0' into account */
-        snprintf(sum, RANDOM_SUM_LENGTH+1, "%0lx", s);    
+        snprintf(sum, RANDOM_SUM_LENGTH+1, "%016" PRIx64, s);    
         return p;
     }
 }

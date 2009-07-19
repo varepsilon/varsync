@@ -158,7 +158,7 @@ int main(int argc,char *argv[])
 {
     int32 i;
     uint32 tst;
-    uint64_t big = (uint64_t)1<<63;
+    uint64_t maxNum = UINT64_MAX;
     char *buf;
     char sum2[16];
     uint32 sum, s1, s2;
@@ -205,7 +205,7 @@ int main(int argc,char *argv[])
     }
     tst = (((base-1)*(base-2))%base + ((base-1)*(base-1))%base) % base;
     // printf (" SEE: 3 == %d\n", tst);
-    printf("uint64 size: %lu; big = %lx\n", sizeof(big), big);
+    printf("max uint64_t value in hex is %016" PRIx64 "\n", maxNum);
     free(buf);
     return 0;
 }
