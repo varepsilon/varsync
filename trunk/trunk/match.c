@@ -63,7 +63,7 @@ static void build_hash_table(struct sum_struct *s)
 	if (tablesize > alloc_size || tablesize < alloc_size - 16*1024) {
 		if (hash_table)
 			free(hash_table);
-		hash_table = new_array(int32, tablesize);       // TODO: why int32?
+		hash_table = new_array(int32, tablesize);
 		if (!hash_table)
 			out_of_memory("build_hash_table");
 		alloc_size = tablesize;
@@ -194,7 +194,7 @@ static void hash_search(int f, struct sum_struct *s,
 		}
 
 		hash_hits++;
-        // iterate through the list of sums with the same hashes
+        /* iterate through the list of sums with the same hashes */
 		do {
 			int32 l;
             /* compare rolling (weak) checksums */
@@ -272,7 +272,6 @@ static void hash_search(int f, struct sum_struct *s,
 				 * will be happy */
 				i = want_i;
 			}
-            // goto point
 		    set_want_i:
 			want_i = i + 1;
 
@@ -292,7 +291,7 @@ static void hash_search(int f, struct sum_struct *s,
 		if (backup < 0)
 			backup = 0;
 
-		more = (offset + k) < len;  // round brackets were added for clarity
+		more = (offset + k) < len;  /* round brackets were added for clarity */
 		map = (schar *)map_ptr(buf, offset - backup, k + more + backup)
 		    + backup;
         sum = update_checksum1(sum0, map, k, more);
