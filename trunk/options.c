@@ -320,6 +320,7 @@ void usage(enum logcode F)
   rprintf(F," -v, --verbose               increase verbosity\n");
   rprintf(F," -q, --quiet                 suppress non-error messages\n");
   rprintf(F,"     --random                use random implementation for rolling sum\n"); 
+//TODO: not implemented
   rprintf(F,"     --twosums              rolling sum consist of two sums "\
           "(use it with --random option, original implementation always uses two sums)\n"); 
   rprintf(F,"     --random2               use random implementation of strong checksum "\
