@@ -1,0 +1,24 @@
+= Profiling =
+Profiling results:
+
+== 20.07.09 (-O2 -pg) ==
+  * *Server*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 50.00      0.46     0.46        1   460.01   890.03  match_sums
+ 31.52      0.75     0.29  8849944     0.00     0.00  update_checksum1
+  8.70      0.83     0.08 17699888     0.00     0.00  getminuspower
+  4.35      0.87     0.04  8850498     0.00     0.00  map_ptr
+  2.17      0.89     0.02   138441     0.00     0.00  md5_process
+  2.17      0.91     0.02                             mod2
+  1.09      0.92     0.01        1    10.00    10.00  unmap_file
+}}}
+
+  * *Client*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 57.14      0.12     0.12     2983     0.04     0.04  get_checksum2
+ 42.86      0.21     0.09     2983     0.03     0.03  get_checksum1
+}}}
