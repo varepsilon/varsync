@@ -5,6 +5,8 @@
 Work is in progress now.
 == Statistics ==
 Stats can be viewed [http://code.google.com/p/varsync/wiki/stats here].
+== Profiling ==
+Profiling results can be viewed [http://code.google.com/p/varsync/wiki/profiling here].
 == Different implementations: ==
 === Random implementation ===
 Random implementation comprise two ideas:
