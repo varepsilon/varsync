@@ -26,8 +26,8 @@ RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
 RSYNC_ORIG_OPTS = "-avvv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
 RSYNC_ORIG2_OPTS = "-avvv --stats --rsync-path='#{RSYNC_RANDOM_BIN}'" 
 RSYNC_RANDOM_OPTS = "-avvv --stats " \
-                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random --random2' " \
-                    "--random --random2"
+                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random --twosums --random2' " \
+                    "--random --twosums --random2"
 #==============================================================================
 
 require 'benchmark'
