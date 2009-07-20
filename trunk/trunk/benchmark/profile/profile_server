@@ -1,0 +1,311 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 41.94      0.52     0.52 70849742     0.00     0.00  mod1
+ 23.39      0.81     0.29        1     0.29     1.21  match_sums
+ 16.94      1.02     0.21  8849944     0.00     0.00  update_checksum1
+  9.68      1.14     0.12 17699888     0.00     0.00  getminuspower
+  5.65      1.21     0.07  8850501     0.00     0.00  map_ptr
+  2.42      1.24     0.03                             child_main
+  0.00      1.24     0.00   138441     0.00     0.00  md5_process
+  0.00      1.24     0.00    47488     0.00     0.00  mod2
+  0.00      1.24     0.00     8971     0.00     0.00  readfd_unbuffered
+  0.00      1.24     0.00     8962     0.00     0.00  readfd
+  0.00      1.24     0.00     5972     0.00     0.00  read_int
+  0.00      1.24     0.00     4333     0.00     0.00  writefd_unbuffered
+  0.00      1.24     0.00     2983     0.00     0.00  read_buf
+  0.00      1.24     0.00     2284     0.00     0.00  io_flush
+  0.00      1.24     0.00     2169     0.00     0.00  msg_flush
+  0.00      1.24     0.00     2168     0.00     0.00  mplex_write
+  0.00      1.24     0.00      573     0.00     0.00  writefd
+  0.00      1.24     0.00      283     0.00     0.00  write_int
+  0.00      1.24     0.00      275     0.00     0.00  md5_update
+  0.00      1.24     0.00      275     0.00     0.00  write_buf
+  0.00      1.24     0.00      273     0.00     0.00  sum_update
+  0.00      1.24     0.00      272     0.00     0.00  matched
+  0.00      1.24     0.00      272     0.00     0.00  send_token
+  0.00      1.24     0.00       91     0.00     0.00  read_timeout
+  0.00      1.24     0.00       88     0.00     0.00  read_loop
+  0.00      1.24     0.00       85     0.00     0.00  rwrite
+  0.00      1.24     0.00       81     0.00     0.00  filtered_fwrite
+  0.00      1.24     0.00       70     0.00     0.00  iconvbufs
+  0.00      1.24     0.00       62     0.00     0.00  rprintf
+  0.00      1.24     0.00       11     0.00     0.00  human_num
+  0.00      1.24     0.00        9     0.00     0.00  strlcpy
+  0.00      1.24     0.00        8     0.00     0.00  get_checksum2
+  0.00      1.24     0.00        6     0.00     0.00  _new_array
+  0.00      1.24     0.00        6     0.00     0.00  set_nonblocking
+  0.00      1.24     0.00        5     0.00     0.00  read_ndx
+  0.00      1.24     0.00        5     0.00     0.00  read_ndx_and_attrs
+  0.00      1.24     0.00        5     0.00     0.00  send_extra_file_list
+  0.00      1.24     0.00        5     0.00     0.00  write_ndx
+  0.00      1.24     0.00        4     0.00     0.00  get_checksum1
+  0.00      1.24     0.00        4     0.00     0.00  write_byte
+  0.00      1.24     0.00        3     0.00     0.00  f_name
+  0.00      1.24     0.00        3     0.00     0.00  wait_process
+  0.00      1.24     0.00        2     0.00     0.00  _realloc_array
+  0.00      1.24     0.00        2     0.00     0.00  add_to_list
+  0.00      1.24     0.00        2     0.00     0.00  change_dir
+  0.00      1.24     0.00        2     0.00     0.00  change_pathname
+  0.00      1.24     0.00        2     0.00     0.00  check_for_hostspec
+  0.00      1.24     0.00        2     0.00     0.00  clean_fname
+  0.00      1.24     0.00        2     0.00     0.00  do_lstat
+  0.00      1.24     0.00        2     0.00     0.00  fd_pair
+  0.00      1.24     0.00        2     0.00     0.00  flist_expand
+  0.00      1.24     0.00        2     0.00     0.00  flist_new
+  0.00      1.24     0.00        2     0.00     0.00  get_stat_xattr
+  0.00      1.24     0.00        2     0.00     0.00  io_start_buffering_out
+  0.00      1.24     0.00        2     0.00     0.00  link_stat
+  0.00      1.24     0.00        2     0.00     0.00  log_item
+  0.00      1.24     0.00        2     0.00     0.00  parse_hostspec
+  0.00      1.24     0.00        2     0.00     0.00  pool_boundary
+  0.00      1.24     0.00        2     0.00     0.00  pool_create
+  0.00      1.24     0.00        2     0.00     0.00  set_msg_fd_in
+  0.00      1.24     0.00        2     0.00     0.00  who_am_i
+  0.00      1.24     0.00        2     0.00     0.00  write_shortint
+  0.00      1.24     0.00        2     0.00     0.00  write_varint
+  0.00      1.24     0.00        2     0.00     0.00  write_varlong
+  0.00      1.24     0.00        2     0.00     0.00  x_lstat
+  0.00      1.24     0.00        1     0.00     0.00  _exit_cleanup
+  0.00      1.24     0.00        1     0.00     0.00  add_dirs_to_tree
+  0.00      1.24     0.00        1     0.00     0.00  add_gid
+  0.00      1.24     0.00        1     0.00     0.00  add_uid
+  0.00      1.24     0.00        1     0.00     1.21  client_run
+  0.00      1.24     0.00        1     0.00     0.00  do_cmd
+  0.00      1.24     0.00        1     0.00     0.00  do_fork
+  0.00      1.24     0.00        1     0.00     0.00  do_fstat
+  0.00      1.24     0.00        1     0.00     0.00  do_open
+  0.00      1.24     0.00        1     0.00     0.00  f_name_buf
+  0.00      1.24     0.00        1     0.00     0.00  flist_done_allocating
+  0.00      1.24     0.00        1     0.00     0.00  flist_for_ndx
+  0.00      1.24     0.00        1     0.00     0.00  flist_free
+  0.00      1.24     0.00        1     0.00     0.00  flist_sort_and_clean
+  0.00      1.24     0.00        1     0.00     0.00  free_sums
+  0.00      1.24     0.00        1     0.00     0.00  fsort
+  0.00      1.24     0.00        1     0.00     0.00  handle_stats
+  0.00      1.24     0.00        1     0.00     0.00  human_dnum
+  0.00      1.24     0.00        1     0.00     0.00  init_flist
+  0.00      1.24     0.00        1     0.00     0.00  io_set_sock_fds
+  0.00      1.24     0.00        1     0.00     0.00  io_start_buffering_in
+  0.00      1.24     0.00        1     0.00     0.00  io_start_multiplex_in
+  0.00      1.24     0.00        1     0.00     0.00  io_start_multiplex_out
+  0.00      1.24     0.00        1     0.00     0.00  is_excluded
+  0.00      1.24     0.00        1     0.00     0.00  log_format_has
+  0.00      1.24     0.00        1     0.00     0.00  log_formatted
+  0.00      1.24     0.00        1     0.00     0.00  lp_refuse_options
+  0.00      1.24     0.00        1     0.00     0.00  make_file
+  0.00      1.24     0.00        1     0.00     0.00  map_file
+  0.00      1.24     0.00        1     0.00     0.00  match_report
+  0.00      1.24     0.00        1     0.00     0.00  maybe_emit_filelist_progress
+  0.00      1.24     0.00        1     0.00     0.00  md5_begin
+  0.00      1.24     0.00        1     0.00     0.00  md5_result
+  0.00      1.24     0.00        1     0.00     0.00  msleep
+  0.00      1.24     0.00        1     0.00     0.00  output_summary
+  0.00      1.24     0.00        1     0.00     0.00  parse_arguments
+  0.00      1.24     0.00        1     0.00     0.00  piped_child
+  0.00      1.24     0.00        1     0.00     0.00  pool_alloc
+  0.00      1.24     0.00        1     0.00     0.00  pool_destroy
+  0.00      1.24     0.00        1     0.00     0.00  print_child_argv
+  0.00      1.24     0.00        1     0.00     0.00  read_byte
+  0.00      1.24     0.00        1     0.00     0.00  read_final_goodbye
+  0.00      1.24     0.00        1     0.00     0.00  read_shortint
+  0.00      1.24     0.00        1     0.00     0.00  read_sum_head
+  0.00      1.24     0.00        1     0.00     0.00  send_file_list
+  0.00      1.24     0.00        1     0.00     0.00  send_file_name
+  0.00      1.24     0.00        1     0.00     1.21  send_files
+  0.00      1.24     0.00        1     0.00     0.00  send_filter_list
+  0.00      1.24     0.00        1     0.00     0.00  send_random_data
+  0.00      1.24     0.00        1     0.00     0.00  send_rules
+  0.00      1.24     0.00        1     0.00     0.00  server_options
+  0.00      1.24     0.00        1     0.00     0.00  set_allow_inc_recurse
+  0.00      1.24     0.00        1     0.00     0.00  set_blocking
+  0.00      1.24     0.00        1     0.00     0.00  set_compression
+  0.00      1.24     0.00        1     0.00     0.00  set_io_timeout
+  0.00      1.24     0.00        1     0.00     0.00  setup_iconv
+  0.00      1.24     0.00        1     0.00     0.00  setup_protocol
+  0.00      1.24     0.00        1     0.00     0.00  show_flist_stats
+  0.00      1.24     0.00        1     0.00     0.00  sum_end
+  0.00      1.24     0.00        1     0.00     0.00  sum_init
+  0.00      1.24     0.00        1     0.00     0.00  unmap_file
+  0.00      1.24     0.00        1     0.00     0.00  wait_process_with_flush
+  0.00      1.24     0.00        1     0.00     0.00  write_ndx_and_attrs
+  0.00      1.24     0.00        1     0.00     0.00  write_sum_head
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.81% of 1.24 seconds
+
+index % time    self  children    called     name
+                0.21    0.64 8849944/8849944     match_sums (2)
+[5]     68.5    0.21    0.64 8849944         update_checksum1 [5]
+                0.52    0.00 70796318/70849742     mod1 [6]
+                0.12    0.00 17699888/17699888     getminuspower [7]
+-----------------------------------------------
+                0.00    0.00    5936/70849742     getminuspower [7]
+                0.00    0.00   47488/70849742     get_checksum1 (10)
+                0.52    0.00 70796318/70849742     update_checksum1 [5]
+[6]     41.9    0.52    0.00 70849742         mod1 [6]
+-----------------------------------------------
+                0.12    0.00 17699888/17699888     update_checksum1 [5]
+[7]      9.7    0.12    0.00 17699888         getminuspower [7]
+                0.00    0.00    5936/70849742     mod1 [6]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+ (587) _exit_cleanup          (86) io_start_multiplex_in  (16) readfd
+ (585) _new_array             (87) io_start_multiplex_out (15) readfd_unbuffered
+ (586) _realloc_array         (88) is_excluded            (33) rprintf
+  (67) add_dirs_to_tree       (56) link_stat              (30) rwrite
+  (68) add_gid                (89) log_format_has         (40) send_extra_file_list
+  (45) add_to_list            (90) log_formatted         (109) send_file_list
+  (69) add_uid                (57) log_item              (110) send_file_name
+  (46) change_dir             (91) lp_refuse_options       (3) send_files
+  (47) change_pathname        (92) make_file             (111) send_filter_list
+  (48) check_for_hostspec     (93) map_file              (112) send_random_data
+   (9) child_main              (8) map_ptr               (113) send_rules
+  (49) clean_fname            (94) match_report           (12) send_token
+   (1) client_run              (2) match_sums            (114) server_options
+  (70) do_cmd                 (11) matched               (115) set_allow_inc_recurse
+  (71) do_fork                (95) maybe_emit_filelist_progress (116) set_blocking
+  (72) do_fstat               (96) md5_begin             (117) set_compression
+  (50) do_lstat               (13) md5_process           (118) set_io_timeout
+  (73) do_open                (97) md5_result             (61) set_msg_fd_in
+  (43) f_name                 (25) md5_update             (37) set_nonblocking
+  (74) f_name_buf              [6] mod1                  (119) setup_iconv
+  (51) fd_pair                (14) mod2                  (120) setup_protocol
+  (31) filtered_fwrite        (22) mplex_write           (121) show_flist_stats
+  (75) flist_done_allocating  (21) msg_flush              (35) strlcpy
+  (52) flist_expand           (98) msleep                (122) sum_end
+  (76) flist_for_ndx          (99) output_summary        (123) sum_init
+  (77) flist_free            (100) parse_arguments        (27) sum_update
+  (53) flist_new              (58) parse_hostspec        (124) unmap_file
+  (78) flist_sort_and_clean  (101) piped_child             [5] update_checksum1
+  (79) free_sums             (102) pool_alloc             (44) wait_process
+  (80) fsort                  (59) pool_boundary         (125) wait_process_with_flush
+  (10) get_checksum1          (60) pool_create            (62) who_am_i
+  (36) get_checksum2         (103) pool_destroy           (26) write_buf
+  (54) get_stat_xattr        (104) print_child_argv       (42) write_byte
+   [7] getminuspower          (19) read_buf               (24) write_int
+  (81) handle_stats          (105) read_byte              (41) write_ndx
+  (82) human_dnum            (106) read_final_goodbye    (126) write_ndx_and_attrs
+  (34) human_num              (17) read_int               (63) write_shortint
+  (32) iconvbufs              (29) read_loop             (127) write_sum_head
+  (83) init_flist             (38) read_ndx               (64) write_varint
+  (20) io_flush               (39) read_ndx_and_attrs     (65) write_varlong
+  (84) io_set_sock_fds       (107) read_shortint          (23) writefd
+  (85) io_start_buffering_in (108) read_sum_head          (18) writefd_unbuffered
+  (55) io_start_buffering_out (28) read_timeout           (66) x_lstat
