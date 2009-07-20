@@ -55,7 +55,7 @@ TEST_PAIRS_LIST.each do |test_pair|
       else 
         raise NotImplementedError, "Error. No such rsync type: #{rsync_type}"
       end
-      printf("\t Stats for %s rsync on %s test pair:\n", 
+      printf("\t Stats for *%s* rsync on %s test pair:\n", 
            rsync_type.capitalize, test_pair)
       # prepare test_pair:
         # TODO: correct directory handling (trailing slash)
