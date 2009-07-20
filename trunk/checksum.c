@@ -23,9 +23,9 @@
 
 extern int checksum_seed;
 extern int protocol_version;
-extern int use_random;      /* TODO: may be it must be done using 
-                              (SUB)PROTOCOL_VERSION ? */
+extern int use_random;      
 extern int use_random2;
+extern int use_twosums;
 
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
@@ -65,9 +65,7 @@ uint32 get_checksum1(char *buf1, int32 len)
         }
         return (s1 & 0xffff) + (s2 << 16);
     }
-    else
-    {
-                                    
+    else {
         int32 i;
         uint32 s1, s2;
         unsigned char *buf = (unsigned char *)buf1; 
@@ -234,7 +232,7 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
     }
 }
 
-/* Get residue modulo base. Optimized version */
+/* Get residue modulo base. Optimized(?) version */
 // TODO: works only for base = 2^16 - 15
 uint32 mod1(uint32 x)
 {
@@ -243,7 +241,7 @@ uint32 mod1(uint32 x)
         uint32 b;
         a = x >> 16;   /* IMPORTANT: a != 0 */  
         b = x & 0xffff;
-        x = 15*a + b;
+        x = (a << 4) + b - a;
     }
     if (x >= base) {
         return (x - base);
