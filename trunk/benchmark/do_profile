@@ -1,0 +1,3 @@
+gprof ../rsync /home/fenix/docs/tmp/bmtmp/source/gmon.out >./profile/profile_server_`date +%F-%k-%M`
+gprof ../rsync /home/fenix/docs/tmp/bmtmp/destination/gmon.out >./profile/profile_client_`date +%F-%k-%M`
+

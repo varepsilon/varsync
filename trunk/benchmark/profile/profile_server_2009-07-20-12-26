@@ -1,0 +1,727 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 46.16      0.24     0.24                             wait_process_with_flush
+ 42.31      0.46     0.22  8849944     0.02     0.02  get_local_name
+  3.85      0.48     0.02  8850500     0.00     0.00  read_sum_head
+  1.92      0.49     0.01   138442     0.07     0.07  set_xattr
+  1.92      0.50     0.01      273    36.63    73.00  check_alt_basis_dirs
+  1.92      0.51     0.01                             cache_tmp_xattr
+  1.92      0.52     0.01                             set_allow_inc_recurse
+  0.00      0.52     0.00     8962     0.00     0.00  parse_arguments
+  0.00      0.52     0.00     4333     0.00     0.00  usage
+  0.00      0.52     0.00      971     0.00     0.00  server_options
+  0.00      0.52     0.00      280     0.00     0.00  set_refuse_options
+  0.00      0.52     0.00      276     0.00    36.23  send_xattr_request
+  0.00      0.52     0.00      274     0.00     0.13  output_summary
+  0.00      0.52     0.00      272     0.00     0.00  write_varlong
+  0.00      0.52     0.00       86     0.00     0.00  main
+  0.00      0.52     0.00       83     0.00     0.00  client_run
+  0.00      0.52     0.00       70     0.00     0.00  flist_for_ndx
+  0.00      0.52     0.00       20     0.00     0.00  parse_rule
+  0.00      0.52     0.00        9     0.00     0.00  get_xattr_data
+  0.00      0.52     0.00        6     0.00     0.00  T.288
+  0.00      0.52     0.00        6     0.00     0.00  fsort_tmp
+  0.00      0.52     0.00        6     0.00     0.00  read_final_goodbye
+  0.00      0.52     0.00        5     0.00     0.00  flist_sort_and_clean
+  0.00      0.52     0.00        5     0.00     0.00  fuzzy_distance
+  0.00      0.52     0.00        5     0.00     0.00  read_line
+  0.00      0.52     0.00        5     0.00     0.00  set_file_attrs
+  0.00      0.52     0.00        4     0.00     0.00  do_cmd
+  0.00      0.52     0.00        4     0.00     0.00  maybe_log_item
+  0.00      0.52     0.00        4     0.00     0.00  receive_xattr
+  0.00      0.52     0.00        3     0.00     0.00  send_filter_list
+  0.00      0.52     0.00        3     0.00     0.00  start_server
+  0.00      0.52     0.00        2     0.00     0.00  change_pathname
+  0.00      0.52     0.00        2     0.00     0.00  create_refuse_error
+  0.00      0.52     0.00        2     0.00    18.12  flist_new
+  0.00      0.52     0.00        2     0.00    36.23  get_xattr
+  0.00      0.52     0.00        2     0.00     0.00  matched
+  0.00      0.52     0.00        2     0.00     0.00  recv_additional_file_list
+  0.00      0.52     0.00        2     0.00     0.00  recv_id_list
+  0.00      0.52     0.00        2     0.00    27.17  send_file_list
+  0.00      0.52     0.00        2     0.00     0.00  send_id_list
+  0.00      0.52     0.00        2     0.00     0.00  set_filter_dir
+  0.00      0.52     0.00        2     0.00     0.00  set_modtime
+  0.00      0.52     0.00        2     0.00     0.00  sum_update
+  0.00      0.52     0.00        2     0.00     0.00  update_checksum1
+  0.00      0.52     0.00        1     0.00     0.00  T.154
+  0.00      0.52     0.00        1     0.00     0.00  T.305
+  0.00      0.52     0.00        1     0.00     0.00  _exit_cleanup
+  0.00      0.52     0.00        1     0.00     0.00  check_filter
+  0.00      0.52     0.00        1     0.00     0.00  client_addr
+  0.00      0.52     0.00        1     0.00     0.00  copy_file
+  0.00      0.52     0.00        1     0.00     0.00  f_name_cmp
+  0.00      0.52     0.00        1     0.00     0.00  gen_wants_ndx
+  0.00      0.52     0.00        1     0.00     0.00  get_backup_name
+  0.00      0.52     0.00        1     0.00    91.13  glob_match
+  0.00      0.52     0.00        1     0.00     0.01  handle_stats
+  0.00      0.52     0.00        1     0.00     0.00  io_end_buffering_in
+  0.00      0.52     0.00        1     0.00     0.00  io_set_filesfrom_fds
+  0.00      0.52     0.00        1     0.00     0.00  make_file
+  0.00      0.52     0.00        1     0.00     0.00  match_sums
+  0.00      0.52     0.00        1     0.00     0.00  normalize_path
+  0.00      0.52     0.00        1     0.00     0.00  output_flist
+  0.00      0.52     0.00        1     0.00     0.00  parse_filter_file
+  0.00      0.52     0.00        1     0.00     0.00  readfd_unbuffered
+  0.00      0.52     0.00        1     0.00    73.01  recv_files
+  0.00      0.52     0.00        1     0.00     0.00  recv_filter_list
+  0.00      0.52     0.00        1     0.00     0.00  robust_unlink
+  0.00      0.52     0.00        1     0.00     0.00  sanitize_path
+  0.00      0.52     0.00        1     0.00    18.12  send1extra
+  0.00      0.52     0.00        1     0.00     0.00  send_file_name
+  0.00      0.52     0.00        1     0.00     0.00  send_implied_dirs
+  0.00      0.52     0.00        1     0.00     0.00  send_msg
+  0.00      0.52     0.00        1     0.00     0.00  setup_protocol
+  0.00      0.52     0.00        1     0.00     0.00  sigusr2_handler
+  0.00      0.52     0.00        1     0.00     0.00  unmake_file
+  0.00      0.52     0.00        1     0.00     0.00  unmap_file
+  0.00      0.52     0.00        1     0.00     0.00  write_ndx
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 1.92% of 0.52 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     92.3    0.24    0.24                 wait_process_with_flush [1]
+                0.22    0.00 8849944/8849944     get_local_name [2]
+                0.02    0.00 8849944/8850500     read_sum_head [3]
+-----------------------------------------------
+                0.22    0.00 8849944/8849944     wait_process_with_flush [1]
+[2]     42.3    0.22    0.00 8849944         get_local_name [2]
+-----------------------------------------------
+                0.00    0.00       1/8850500     recv_files [12]
+                0.00    0.00       1/8850500     handle_stats [23]
+                0.00    0.00       3/8850500     do_recv [5]
+                0.00    0.00       7/8850500     do_server_recv [22]
+                0.00    0.00     271/8850500     write_varlong [20]
+                0.00    0.00     273/8850500     check_alt_basis_dirs [4]
+                0.02    0.00 8849944/8850500     wait_process_with_flush [1]
+[3]      3.8    0.02    0.00 8850500         read_sum_head [3]
+-----------------------------------------------
+                0.00    0.00       1/273         recv_files [12]
+                0.01    0.01     272/273         do_recv [5]
+[4]      3.8    0.01    0.01     273         check_alt_basis_dirs [4]
+                0.00    0.01     273/276         send_xattr_request [9]
+                0.00    0.00     273/274         output_summary [17]
+                0.00    0.00     273/8850500     read_sum_head [3]
+                0.00    0.00     269/272         write_varlong [20]
+                0.00    0.00       1/280         set_refuse_options [28]
+-----------------------------------------------
+                                                 <spontaneous>
+[5]      3.8    0.00    0.02                 do_recv [5]
+                0.01    0.01     272/273         check_alt_basis_dirs [4]
+                0.00    0.00       1/274         output_summary [17]
+                0.00    0.00       3/8850500     read_sum_head [3]
+                0.00    0.00       3/4           do_cmd [41]
+                0.00    0.00       2/971         server_options <cycle 2> [27]
+                0.00    0.00       2/86          main [29]
+-----------------------------------------------
+                0.00    0.00       1/138442      remember_children [21]
+                0.01    0.00  138441/138442      send_xattr_request [9]
+[6]      1.9    0.01    0.00  138442         set_xattr [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]      1.9    0.01    0.00                 cache_tmp_xattr [7]
+-----------------------------------------------
+                                                 <spontaneous>
+[8]      1.9    0.01    0.00                 set_allow_inc_recurse [8]
+-----------------------------------------------
+                0.00    0.00       1/276         output_summary [17]
+                0.00    0.00       2/276         get_xattr [13]
+                0.00    0.01     273/276         check_alt_basis_dirs [4]
+[9]      1.9    0.00    0.01     276         send_xattr_request [9]
+                0.01    0.00  138441/138442      set_xattr [6]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_expand_module [11]
+[10]     0.0    0.00    0.00       1         glob_match [10]
+                0.00    0.00       1/1           recv_files [12]
+                0.00    0.00       1/1           send1extra [19]
+                0.00    0.00       6/971         server_options <cycle 2> [27]
+                0.00    0.00       2/3           send_filter_list [44]
+                0.00    0.00       1/1           io_set_filesfrom_fds [65]
+                0.00    0.00       1/4           maybe_log_item [42]
+                0.00    0.00       1/1           recv_filter_list [72]
+                0.00    0.00       1/1           check_filter [58]
+                0.00    0.00       1/280         set_refuse_options [28]
+                0.00    0.00       1/1           sanitize_path [74]
+                0.00    0.00       1/1           copy_file [60]
+                0.00    0.00       1/1           robust_unlink [73]
+                0.00    0.00       1/1           gen_wants_ndx [62]
+                0.00    0.00       1/2           set_modtime [53]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     0.0    0.00    0.00                 glob_expand_module [11]
+                0.00    0.00       1/1           glob_match [10]
+                0.00    0.00       1/1           normalize_path [68]
+                0.00    0.00       1/2           matched [48]
+-----------------------------------------------
+                                   1             recv_files [12]
+                0.00    0.00       1/1           glob_match [10]
+[12]     0.0    0.00    0.00       1+1       recv_files [12]
+                0.00    0.00       1/273         check_alt_basis_dirs [4]
+                0.00    0.00       1/1           handle_stats [23]
+                0.00    0.00       1/8850500     read_sum_head [3]
+                0.00    0.00    8949/8962        parse_arguments [25]
+                0.00    0.00      10/86          main [29]
+                0.00    0.00       5/6           T.288 [34]
+                0.00    0.00       5/5           flist_sort_and_clean [37]
+                0.00    0.00       4/5           set_file_attrs [40]
+                0.00    0.00       2/2           sum_update [54]
+                0.00    0.00       1/2           set_modtime [53]
+                0.00    0.00       1/971         server_options <cycle 2> [27]
+                0.00    0.00       1/280         set_refuse_options [28]
+                0.00    0.00       1/2           change_pathname [46]
+                0.00    0.00       1/6           fsort_tmp [35]
+                0.00    0.00       1/1           output_flist [69]
+                0.00    0.00       1/1           io_end_buffering_in [64]
+                0.00    0.00       1/83          client_run [30]
+                0.00    0.00       1/3           start_server [45]
+                0.00    0.00       1/1           write_ndx [82]
+                0.00    0.00       1/2           recv_additional_file_list [49]
+                0.00    0.00       1/20          parse_rule [32]
+                0.00    0.00       1/1           setup_protocol [78]
+                                   1             recv_files [12]
+-----------------------------------------------
+                0.00    0.00       1/2           flist_new [18]
+                0.00    0.00       1/2           send_file_list <cycle 1> [15]
+[13]     0.0    0.00    0.00       2         get_xattr [13]
+                0.00    0.00       2/276         send_xattr_request [9]
+-----------------------------------------------
+[14]     0.0    0.00    0.00       1+3       <cycle 1 as a whole> [14]
+                0.00    0.00       2             send_file_list <cycle 1> [15]
+                0.00    0.00       1             make_file <cycle 1> [66]
+                0.00    0.00       1             send_file_name <cycle 1> [75]
+-----------------------------------------------
+                                   1             make_file <cycle 1> [66]
+                0.00    0.00       1/1           expand_item_list [16]
+[15]     0.0    0.00    0.00       2         send_file_list <cycle 1> [15]
+                0.00    0.00       1/2           get_xattr [13]
+                0.00    0.00       1/2           flist_new [18]
+                0.00    0.00       1/2           send_id_list [51]
+                0.00    0.00       1/971         server_options <cycle 2> [27]
+                0.00    0.00       1/1           send_implied_dirs [76]
+                0.00    0.00       1/4           maybe_log_item [42]
+                0.00    0.00       1/6           fsort_tmp [35]
+                0.00    0.00       1/86          main [29]
+                0.00    0.00       1/6           T.288 [34]
+                                   1             send_file_name <cycle 1> [75]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     0.0    0.00    0.00                 expand_item_list [16]
+                0.00    0.00       1/1           send_file_list <cycle 1> [15]
+                0.00    0.00      13/86          main [29]
+                0.00    0.00       1/1           f_name_cmp [61]
+-----------------------------------------------
+                0.00    0.00       1/274         do_recv [5]
+                0.00    0.00     273/274         check_alt_basis_dirs [4]
+[17]     0.0    0.00    0.00     274         output_summary [17]
+                0.00    0.00       1/276         send_xattr_request [9]
+-----------------------------------------------
+                0.00    0.00       1/2           send1extra [19]
+                0.00    0.00       1/2           send_file_list <cycle 1> [15]
+[18]     0.0    0.00    0.00       2         flist_new [18]
+                0.00    0.00       1/2           get_xattr [13]
+                0.00    0.00       2/4           receive_xattr [43]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[19]     0.0    0.00    0.00       1         send1extra [19]
+                0.00    0.00       1/2           flist_new [18]
+                0.00    0.00       1/86          main [29]
+                0.00    0.00       1/1           get_backup_name [63]
+-----------------------------------------------
+                0.00    0.00       3/272         handle_stats [23]
+                0.00    0.00     269/272         check_alt_basis_dirs [4]
+[20]     0.0    0.00    0.00     272         write_varlong [20]
+                0.00    0.00     271/8850500     read_sum_head [3]
+                0.00    0.00     542/971         server_options <cycle 2> [27]
+                0.00    0.00     271/280         set_refuse_options [28]
+-----------------------------------------------
+                                                 <spontaneous>
+[21]     0.0    0.00    0.00                 remember_children [21]
+                0.00    0.00       1/138442      set_xattr [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[22]     0.0    0.00    0.00                 do_server_recv [22]
+                0.00    0.00       7/8850500     read_sum_head [3]
+                0.00    0.00       6/6           read_final_goodbye [36]
+                0.00    0.00       3/86          main [29]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_files [12]
+[23]     0.0    0.00    0.00       1         handle_stats [23]
+                0.00    0.00       3/272         write_varlong [20]
+                0.00    0.00       1/8850500     read_sum_head [3]
+                0.00    0.00       3/86          main [29]
+                0.00    0.00       3/280         set_refuse_options [28]
+                0.00    0.00       1/1           sigusr2_handler [79]
+                0.00    0.00       1/20          parse_rule [32]
+                0.00    0.00       1/4           do_cmd [41]
+-----------------------------------------------
+[24]     0.0    0.00    0.00     971+4333    <cycle 2 as a whole> [24]
+                0.00    0.00     971+4341        server_options <cycle 2> [27]
+                0.00    0.00    4333             usage <cycle 2> [26]
+-----------------------------------------------
+                                8962             parse_arguments [25]
+                0.00    0.00       1/8962        set_file_attrs [40]
+                0.00    0.00       1/8962        io_start_buffering_in [275]
+                0.00    0.00       1/8962        io_start_buffering_out [276]
+                0.00    0.00       2/8962        read_args [403]
+                0.00    0.00       3/8962        read_msg_fd [409]
+                0.00    0.00       5/8962        read_line [39]
+                0.00    0.00    8949/8962        recv_files [12]
+[25]     0.0    0.00    0.00    8962+8962    parse_arguments [25]
+                0.00    0.00     113/971         server_options <cycle 2> [27]
+                0.00    0.00      22/86          main [29]
+                                8962             parse_arguments [25]
+-----------------------------------------------
+                                4332             server_options <cycle 2> [27]
+                0.00    0.00       1/971         set_refuse_options [28]
+[26]     0.0    0.00    0.00    4333         usage <cycle 2> [26]
+                                   1             server_options <cycle 2> [27]
+-----------------------------------------------
+                                4341             server_options <cycle 2> [27]
+                                   1             usage <cycle 2> [26]
+                0.00    0.00       1/971         send_file_list <cycle 1> [15]
+                0.00    0.00       1/971         recv_files [12]
+                0.00    0.00       1/971         copy_file [60]
+                0.00    0.00       1/971         create_refuse_error [47]
+                0.00    0.00       2/971         do_recv [5]
+                0.00    0.00       6/971         glob_match [10]
+                0.00    0.00       9/971         T.288 [34]
+                0.00    0.00      11/971         send_file_name <cycle 1> [75]
+                0.00    0.00     113/971         parse_arguments [25]
+                0.00    0.00     283/971         set_refuse_options [28]
+                0.00    0.00     542/971         write_varlong [20]
+[27]     0.0    0.00    0.00     971+4341    server_options <cycle 2> [27]
+                0.00    0.00       2/20          parse_rule [32]
+                                4332             usage <cycle 2> [26]
+                                4341             server_options <cycle 2> [27]
+-----------------------------------------------
+                0.00    0.00       1/280         recv_files [12]
+                0.00    0.00       1/280         glob_match [10]
+                0.00    0.00       1/280         check_alt_basis_dirs [4]
+                0.00    0.00       1/280         read_msg_fd [409]
+                0.00    0.00       2/280         send_file_name <cycle 1> [75]
+                0.00    0.00       3/280         handle_stats [23]
+                0.00    0.00     271/280         write_varlong [20]
+[28]     0.0    0.00    0.00     280         set_refuse_options [28]
+                0.00    0.00     283/971         server_options <cycle 2> [27]
+                0.00    0.00       1/971         usage <cycle 2> [26]
+                0.00    0.00       1/86          main [29]
+-----------------------------------------------
+                                  62             main [29]
+                0.00    0.00       1/86          make_file <cycle 1> [66]
+                0.00    0.00       1/86          send1extra [19]
+                0.00    0.00       1/86          send_extra_file_list [445]
+                0.00    0.00       1/86          send_file_list <cycle 1> [15]
+                0.00    0.00       1/86          getminuspower [233]
+                0.00    0.00       1/86          sum_update [54]
+                0.00    0.00       1/86          set_refuse_options [28]
+                0.00    0.00       1/86          unmap_file [81]
+                0.00    0.00       2/86          create_directory_path [139]
+                0.00    0.00       2/86          do_recv [5]
+                0.00    0.00       3/86          full_write [215]
+                0.00    0.00       3/86          handle_stats [23]
+                0.00    0.00       3/86          do_server_recv [22]
+                0.00    0.00      10/86          recv_files [12]
+                0.00    0.00      10/86          fuzzy_distance [38]
+                0.00    0.00      10/86          robust_unlink [73]
+                0.00    0.00      13/86          expand_item_list [16]
+                0.00    0.00      22/86          parse_arguments [25]
+[29]     0.0    0.00    0.00      86+62      main [29]
+                0.00    0.00      81/83          client_run [30]
+                0.00    0.00      70/70          flist_for_ndx [31]
+                0.00    0.00       1/9           get_xattr_data [33]
+                                  62             main [29]
+-----------------------------------------------
+                0.00    0.00       1/83          recv_files [12]
+                0.00    0.00       1/83          rwrite [441]
+                0.00    0.00      81/83          main [29]
+[30]     0.0    0.00    0.00      83         client_run [30]
+-----------------------------------------------
+                0.00    0.00      70/70          main [29]
+[31]     0.0    0.00    0.00      70         flist_for_ndx [31]
+-----------------------------------------------
+                0.00    0.00       1/20          fsort_tmp [35]
+                0.00    0.00       1/20          recv_files [12]
+                0.00    0.00       1/20          parse_filter_file [70]
+                0.00    0.00       1/20          copy_file [60]
+                0.00    0.00       1/20          handle_stats [23]
+                0.00    0.00       1/20          update_checksum1 [55]
+                0.00    0.00       1/20          setup_protocol [78]
+                0.00    0.00       1/20          receive_xattr [43]
+                0.00    0.00       2/20          server_options <cycle 2> [27]
+                0.00    0.00       3/20          full_write [215]
+                0.00    0.00       7/20          robust_unlink [73]
+[32]     0.0    0.00    0.00      20         parse_rule [32]
+-----------------------------------------------
+                0.00    0.00       1/9           make_file <cycle 1> [66]
+                0.00    0.00       1/9           send_file_name <cycle 1> [75]
+                0.00    0.00       1/9           send_extra_file_list [445]
+                0.00    0.00       1/9           main [29]
+                0.00    0.00       1/9           update_checksum1 [55]
+                0.00    0.00       1/9           matched [48]
+                0.00    0.00       3/9           f_name [188]
+[33]     0.0    0.00    0.00       9         get_xattr_data [33]
+-----------------------------------------------
+                0.00    0.00       1/6           send_file_list <cycle 1> [15]
+                0.00    0.00       5/6           recv_files [12]
+[34]     0.0    0.00    0.00       6         T.288 [34]
+                0.00    0.00       9/971         server_options <cycle 2> [27]
+-----------------------------------------------
+                0.00    0.00       1/6           send_file_name <cycle 1> [75]
+                0.00    0.00       1/6           send_directory [444]
+                0.00    0.00       1/6           send_file_list <cycle 1> [15]
+                0.00    0.00       1/6           recv_files [12]
+                0.00    0.00       1/6           glob_expand [235]
+                0.00    0.00       1/6           getminuspower [233]
+[35]     0.0    0.00    0.00       6         fsort_tmp [35]
+                0.00    0.00       1/20          parse_rule [32]
+-----------------------------------------------
+                0.00    0.00       6/6           do_server_recv [22]
+[36]     0.0    0.00    0.00       6         read_final_goodbye [36]
+-----------------------------------------------
+                0.00    0.00       5/5           recv_files [12]
+[37]     0.0    0.00    0.00       5         flist_sort_and_clean [37]
+-----------------------------------------------
+                0.00    0.00       1/5           change_pathname [46]
+                0.00    0.00       1/5           glob_expand [235]
+                0.00    0.00       1/5           map_ptr [350]
+                0.00    0.00       2/5           unmap_file [81]
+[38]     0.0    0.00    0.00       5         fuzzy_distance [38]
+                0.00    0.00      10/86          main [29]
+                0.00    0.00       1/2           set_filter_dir [52]
+-----------------------------------------------
+                0.00    0.00       5/5           set_file_attrs [40]
+[39]     0.0    0.00    0.00       5         read_line [39]
+                0.00    0.00       5/8962        parse_arguments [25]
+-----------------------------------------------
+                0.00    0.00       1/5           print_child_argv [400]
+                0.00    0.00       4/5           recv_files [12]
+[40]     0.0    0.00    0.00       5         set_file_attrs [40]
+                0.00    0.00       5/5           read_line [39]
+                0.00    0.00       1/8962        parse_arguments [25]
+-----------------------------------------------
+                0.00    0.00       1/4           handle_stats [23]
+                0.00    0.00       3/4           do_recv [5]
+[41]     0.0    0.00    0.00       4         do_cmd [41]
+                0.00    0.00       1/2           matched [48]
+-----------------------------------------------
+                0.00    0.00       1/4           send_file_list <cycle 1> [15]
+                0.00    0.00       1/4           glob_match [10]
+                0.00    0.00       1/4           glob_expand [235]
+                0.00    0.00       1/4           logfile_open [295]
+[42]     0.0    0.00    0.00       4         maybe_log_item [42]
+-----------------------------------------------
+                0.00    0.00       1/4           flist_free [203]
+                0.00    0.00       1/4           make_file <cycle 1> [66]
+                0.00    0.00       2/4           flist_new [18]
+[43]     0.0    0.00    0.00       4         receive_xattr [43]
+                0.00    0.00       1/20          parse_rule [32]
+-----------------------------------------------
+                0.00    0.00       1/3           map_ptr [350]
+                0.00    0.00       2/3           glob_match [10]
+[44]     0.0    0.00    0.00       3         send_filter_list [44]
+-----------------------------------------------
+                0.00    0.00       1/3           recv_files [12]
+                0.00    0.00       2/3           send_id_list [51]
+[45]     0.0    0.00    0.00       3         start_server [45]
+-----------------------------------------------
+                0.00    0.00       1/2           send_extra_file_list [445]
+                0.00    0.00       1/2           recv_files [12]
+[46]     0.0    0.00    0.00       2         change_pathname [46]
+                0.00    0.00       1/5           fuzzy_distance [38]
+-----------------------------------------------
+                0.00    0.00       2/2           send_file_name <cycle 1> [75]
+[47]     0.0    0.00    0.00       2         create_refuse_error [47]
+                0.00    0.00       1/971         server_options <cycle 2> [27]
+-----------------------------------------------
+                0.00    0.00       1/2           glob_expand_module [11]
+                0.00    0.00       1/2           do_cmd [41]
+[48]     0.0    0.00    0.00       2         matched [48]
+                0.00    0.00       2/2           update_checksum1 [55]
+                0.00    0.00       1/9           get_xattr_data [33]
+-----------------------------------------------
+                0.00    0.00       1/2           recv_files [12]
+                0.00    0.00       1/2           pathjoin [388]
+[49]     0.0    0.00    0.00       2         recv_additional_file_list [49]
+-----------------------------------------------
+                0.00    0.00       2/2           send_id_list [51]
+[50]     0.0    0.00    0.00       2         recv_id_list [50]
+-----------------------------------------------
+                0.00    0.00       1/2           make_file <cycle 1> [66]
+                0.00    0.00       1/2           send_file_list <cycle 1> [15]
+[51]     0.0    0.00    0.00       2         send_id_list [51]
+                0.00    0.00       2/3           start_server [45]
+                0.00    0.00       2/2           recv_id_list [50]
+-----------------------------------------------
+                0.00    0.00       1/2           make_file <cycle 1> [66]
+                0.00    0.00       1/2           fuzzy_distance [38]
+[52]     0.0    0.00    0.00       2         set_filter_dir [52]
+-----------------------------------------------
+                0.00    0.00       1/2           recv_files [12]
+                0.00    0.00       1/2           glob_match [10]
+[53]     0.0    0.00    0.00       2         set_modtime [53]
+-----------------------------------------------
+                0.00    0.00       2/2           recv_files [12]
+[54]     0.0    0.00    0.00       2         sum_update [54]
+                0.00    0.00       1/86          main [29]
+-----------------------------------------------
+                0.00    0.00       2/2           matched [48]
+[55]     0.0    0.00    0.00       2         update_checksum1 [55]
+                0.00    0.00       1/20          parse_rule [32]
+                0.00    0.00       1/9           get_xattr_data [33]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_expand [235]
+[56]     0.0    0.00    0.00       1         T.154 [56]
+                0.00    0.00       1/1           client_addr [59]
+-----------------------------------------------
+                0.00    0.00       1/1           match_sums [67]
+[57]     0.0    0.00    0.00       1         T.305 [57]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[58]     0.0    0.00    0.00       1         check_filter [58]
+                0.00    0.00       1/1           _exit_cleanup [558]
+-----------------------------------------------
+                0.00    0.00       1/1           T.154 [56]
+[59]     0.0    0.00    0.00       1         client_addr [59]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[60]     0.0    0.00    0.00       1         copy_file [60]
+                0.00    0.00       1/20          parse_rule [32]
+                0.00    0.00       1/971         server_options <cycle 2> [27]
+-----------------------------------------------
+                0.00    0.00       1/1           expand_item_list [16]
+[61]     0.0    0.00    0.00       1         f_name_cmp [61]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[62]     0.0    0.00    0.00       1         gen_wants_ndx [62]
+-----------------------------------------------
+                0.00    0.00       1/1           send1extra [19]
+[63]     0.0    0.00    0.00       1         get_backup_name [63]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_files [12]
+[64]     0.0    0.00    0.00       1         io_end_buffering_in [64]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[65]     0.0    0.00    0.00       1         io_set_filesfrom_fds [65]
+-----------------------------------------------
+                                   1             send_file_name <cycle 1> [75]
+[66]     0.0    0.00    0.00       1         make_file <cycle 1> [66]
+                0.00    0.00       1/9           get_xattr_data [33]
+                0.00    0.00       1/2           set_filter_dir [52]
+                0.00    0.00       1/4           receive_xattr [43]
+                0.00    0.00       1/86          main [29]
+                0.00    0.00       1/2           send_id_list [51]
+                                   1             send_file_list <cycle 1> [15]
+-----------------------------------------------
+                0.00    0.00       1/1           name_to_gid [374]
+[67]     0.0    0.00    0.00       1         match_sums [67]
+                0.00    0.00       1/1           T.305 [57]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_expand_module [11]
+[68]     0.0    0.00    0.00       1         normalize_path [68]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_files [12]
+[69]     0.0    0.00    0.00       1         output_flist [69]
+-----------------------------------------------
+                0.00    0.00       1/1           robust_unlink [73]
+[70]     0.0    0.00    0.00       1         parse_filter_file [70]
+                0.00    0.00       1/20          parse_rule [32]
+-----------------------------------------------
+                0.00    0.00       1/1           send_file_name <cycle 1> [75]
+[71]     0.0    0.00    0.00       1         readfd_unbuffered [71]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[72]     0.0    0.00    0.00       1         recv_filter_list [72]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[73]     0.0    0.00    0.00       1         robust_unlink [73]
+                0.00    0.00      10/86          main [29]
+                0.00    0.00       7/20          parse_rule [32]
+                0.00    0.00       1/1           parse_filter_file [70]
+-----------------------------------------------
+                0.00    0.00       1/1           glob_match [10]
+[74]     0.0    0.00    0.00       1         sanitize_path [74]
+-----------------------------------------------
+                                   1             send_file_list <cycle 1> [15]
+[75]     0.0    0.00    0.00       1         send_file_name <cycle 1> [75]
+                0.00    0.00      11/971         server_options <cycle 2> [27]
+                0.00    0.00       2/280         set_refuse_options [28]
+                0.00    0.00       2/2           create_refuse_error [47]
+                0.00    0.00       1/9           get_xattr_data [33]
+                0.00    0.00       1/6           fsort_tmp [35]
+                0.00    0.00       1/1           readfd_unbuffered [71]
+                0.00    0.00       1/1           send_msg [77]
+                                   1             make_file <cycle 1> [66]
+-----------------------------------------------
+                0.00    0.00       1/1           send_file_list <cycle 1> [15]
+[76]     0.0    0.00    0.00       1         send_implied_dirs [76]
+-----------------------------------------------
+                0.00    0.00       1/1           send_file_name <cycle 1> [75]
+[77]     0.0    0.00    0.00       1         send_msg [77]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_files [12]
+[78]     0.0    0.00    0.00       1         setup_protocol [78]
+                0.00    0.00       1/20          parse_rule [32]
+-----------------------------------------------
+                0.00    0.00       1/1           handle_stats [23]
+[79]     0.0    0.00    0.00       1         sigusr2_handler [79]
+-----------------------------------------------
+                0.00    0.00       1/1           f_name [188]
+[80]     0.0    0.00    0.00       1         unmake_file [80]
+-----------------------------------------------
+                0.00    0.00       1/1           pathjoin [388]
+[81]     0.0    0.00    0.00       1         unmap_file [81]
+                0.00    0.00       2/5           fuzzy_distance [38]
+                0.00    0.00       1/86          main [29]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_files [12]
+[82]     0.0    0.00    0.00       1         write_ndx [82]
+-----------------------------------------------
+                0.00    0.00       1/1           check_filter [58]
+[558]    0.0    0.00    0.00       1         _exit_cleanup [558]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [56] T.154                  [64] io_end_buffering_in    [75] send_file_name
+  [34] T.288                  [65] io_set_filesfrom_fds   [44] send_filter_list
+  [57] T.305                  [29] main                   [51] send_id_list
+ [558] _exit_cleanup          [66] make_file              [76] send_implied_dirs
+   [7] cache_tmp_xattr        [67] match_sums             [77] send_msg
+  [46] change_pathname        [48] matched                 [9] send_xattr_request
+   [4] check_alt_basis_dirs   [42] maybe_log_item         [27] server_options
+  [58] check_filter           [68] normalize_path          [8] set_allow_inc_recurse
+  [59] client_addr            [69] output_flist           [40] set_file_attrs
+  [30] client_run             [17] output_summary         [52] set_filter_dir
+  [60] copy_file              [25] parse_arguments        [53] set_modtime
+  [47] create_refuse_error    [70] parse_filter_file      [28] set_refuse_options
+  [41] do_cmd                 [32] parse_rule              [6] set_xattr
+  [61] f_name_cmp             [36] read_final_goodbye     [78] setup_protocol
+  [31] flist_for_ndx          [39] read_line              [79] sigusr2_handler
+  [18] flist_new               [3] read_sum_head          [45] start_server
+  [37] flist_sort_and_clean   [71] readfd_unbuffered      [54] sum_update
+  [35] fsort_tmp              [43] receive_xattr          [80] unmake_file
+  [38] fuzzy_distance         [49] recv_additional_file_list [81] unmap_file
+  [62] gen_wants_ndx          [12] recv_files             [55] update_checksum1
+  [63] get_backup_name        [72] recv_filter_list       [26] usage
+   [2] get_local_name         [50] recv_id_list            [1] wait_process_with_flush
+  [13] get_xattr              [73] robust_unlink          [82] write_ndx
+  [33] get_xattr_data         [74] sanitize_path          [20] write_varlong
+  [10] glob_match             [19] send1extra             [14] <cycle 1>
+  [23] handle_stats           [15] send_file_list         [24] <cycle 2>
