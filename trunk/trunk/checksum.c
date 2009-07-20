@@ -32,7 +32,7 @@ extern uint32 p1;
 extern uint32 p2;
 
 const uint32 base = 65521;  /* prime */     
-const uint64 base2 = 2147483647; /* prime */ 
+const uint64 base2 = 2147483647; /* prime, equals 2^31-1 */ 
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
@@ -184,17 +184,32 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
             uint32 randinit;
             randinit = time(0);
             srand(randinit);
-            p = rand() % base2;
+            p = mod2(rand()); 
         }
 
         s = 0;
         for (i = 0; i < len; i++) {
-            s = (((uint64)p * s) % base2 + (uint64)buf1[i]) % base2;
+            s = mod2(mod2((uint64)p * s) + (uint64)(buf1[i]));
         }
         /* snprintf takes '\0' into account */
         snprintf(sum, RANDOM_SUM_LENGTH+1, "%016" PRIx64, s);    
         return p;
     }
+}
+
+/* Get residue modulo base2. Optimized version */
+// TODO: works only for base2 = 2^31 - 1
+uint64 mod2(uint64 x)
+{
+    while (x >= base2)
+    {
+        uint32 a;
+        uint32 b;
+        a = x >> 31;  
+        b = x & 0x7fffffff;
+        x = a + b;
+    }
+    return x; 
 }
 
 void file_checksum(char *fname, char *sum, OFF_T size)
