@@ -31,7 +31,7 @@ int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
 extern uint32 p2;
 
-const uint32 base = 65521;  /* prime */     
+const uint32 base = 65521;  /* prime, equals 2^16+1 */     
 const uint64 base2 = 2147483647; /* prime, equals 2^31-1 */ 
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
@@ -201,13 +201,15 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 // TODO: works only for base2 = 2^31 - 1
 uint64 mod2(uint64 x)
 {
-    while (x >= base2)
-    {
+    while (x > base2) {
         uint32 a;
         uint32 b;
         a = x >> 31;  
         b = x & 0x7fffffff;
         x = a + b;
+    }
+    if (x == base2) {
+        return 0;
     }
     return x; 
 }
