@@ -206,6 +206,7 @@ int main(int argc,char *argv[])
     tst = (((base-1)*(base-2))%base + ((base-1)*(base-1))%base) % base;
     // printf (" SEE: 3 == %d\n", tst);
     printf("max uint64_t value in hex is %016" PRIx64 "\n", maxNum);
+    printf("%u = %x\n", base2, base2);
     free(buf);
     return 0;
 }
