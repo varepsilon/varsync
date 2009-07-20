@@ -81,8 +81,11 @@ uint32 get_checksum1(char *buf1, int32 len)
     }
 }
 
-uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
+uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 {
+    uint32 s1, s2;
+    s1 = sum0 & 0xffff;
+    s2 = sum0 >> 16;
     if (!use_random) {
 		/* Trim off the first byte from the checksum */
 		s1 -= map[0] + CHAR_OFFSET;
@@ -118,7 +121,8 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
 
 /* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
  * returned (p is ignored).
- * 2) Random-based checksum calculated in the point p will be written in the sum buffer. 
+ * 2) Random-based checksum calculated in the point p will be written in the
+ * sum buffer. 
  * If p is equal to 0 it will be random-generated
  */
 
