@@ -1207,8 +1207,8 @@ int send_random_data(int f)
     }
     randInit = time(0);
     srand(randInit);
-    p1 = rand() % base;
-    p2 = rand() % base;
+    p1 = rand() & 0xffff; //TODO: works only for base = 2^16 + 1
+    p2 = rand() & 0xffff;
     write_int(f, p1);
     write_int(f, p2);
     return 0;

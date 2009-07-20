@@ -31,7 +31,7 @@ int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
 extern uint32 p2;
 
-const uint32 base = 65521;  /* prime, equals 2^16+1 */     
+const uint32 base = 65521;  /* prime, equals 2^16-15 */     
 const uint64 base2 = 2147483647; /* prime, equals 2^31-1 */ 
 
 static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
@@ -74,8 +74,8 @@ uint32 get_checksum1(char *buf1, int32 len)
 
         s1 = s2 = 0;
         for (i = 0; i < len; i++) {
-            s1 = ((p1 * s1) % base + buf[i]) % base;
-            s2 = ((p2 * s2) % base + buf[i]) % base;
+            s1 = mod1(mod1(p1 * s1) + buf[i]);
+            s2 = mod1(mod1(p2 * s2) + buf[i]);
         }
         return (s1 & 0xffff) + (s2 << 16);
     }
@@ -83,10 +83,10 @@ uint32 get_checksum1(char *buf1, int32 len)
 
 uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 {
-    uint32 s1, s2;
-    s1 = sum0 & 0xffff;
-    s2 = sum0 >> 16;
     if (!use_random) {
+        uint32 s1, s2;
+        s1 = sum0 & 0xffff;
+        s2 = sum0 >> 16;
 		/* Trim off the first byte from the checksum */
 		s1 -= map[0] + CHAR_OFFSET;
 		s2 -= k * (map[0] + CHAR_OFFSET);
@@ -99,6 +99,9 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
         return (s1 & 0xffff) | (s2 << 16);
     }
     else {
+        uint32 s1, s2;
+        s1 = sum0 & 0xffff;
+        s2 = sum0 >> 16;
         uint32 minus_p1_k;   
         uint32 minus_p2_k;
         unsigned char *map1 = (unsigned char *)map;
@@ -107,15 +110,45 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
         minus_p2_k = getminuspower(2, k); 
 
         /* We must avoid using "-" sign due to C bug with negative residues */
-        s1 = ((s1 * p1) % base + (minus_p1_k * map1[0]) % base) % base;
-        s2 = ((s2 * p2) % base + (minus_p2_k * map1[0]) % base) % base;
+        s1 = mod1(mod1(s1 * p1) + mod1(minus_p1_k * map1[0]));
+        s2 = mod1(mod1(s2 * p2) + mod1(minus_p2_k * map1[0]));
 
         /* Add on the next byte (if there is one) to the checksum */
 		if (more) {
-			s1 = (s1 + map1[k]) % base;
-			s2 = (s2 + map1[k]) % base;
+			s1 = mod1(s1 + map1[k]);
+			s2 = mod1(s2 + map1[k]);
 		}
         return (s1 & 0xffff) | (s2 << 16);
+    }
+}
+
+/* 
+ * Function to calculate (-p1^k) % base.
+ * In order to avoid recalculations powers must be calculated in advance. 
+ */
+uint32 getminuspower(int j, int32 k)
+{
+    if (pow_avail < BLOCK_SIZE) {
+        int32 i;
+        powers[0][0] = base - 1;      /* -1 mod base */
+        powers[1][0] = base - 1;
+        for (i = 0; i < BLOCK_SIZE; i++) {
+            powers[0][i+1] = mod1(powers[0][i] * p1);
+            powers[1][i+1] = mod1(powers[1][i] * p2);
+        }
+        pow_avail = BLOCK_SIZE;
+    }
+    if (k <= pow_avail) {
+        return powers[j-1][k];
+    }
+    else {
+        int32 i;
+        for (i = pow_avail; i < k; i++) {
+            powers[0][i+1] = mod1(powers[0][i] * p1);
+            powers[1][i+1] = mod1(powers[1][i] * p2);
+        }
+        pow_avail = k;
+        return powers[j-1][k];
     }
 }
 
@@ -201,6 +234,23 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
     }
 }
 
+/* Get residue modulo base. Optimized version */
+// TODO: works only for base = 2^16 - 15
+uint32 mod1(uint32 x)
+{
+   while (x >= 65536) {
+        uint32 a;
+        uint32 b;
+        a = x >> 16;   /* IMPORTANT: a != 0 */  
+        b = x & 0xffff;
+        x = 15*a + b;
+    }
+    if (x >= base) {
+        return (x - base);
+    }
+    return x;
+}
+
 /* Get residue modulo base2. Optimized version */
 // TODO: works only for base2 = 2^31 - 1
 uint64 mod2(uint64 x)
@@ -208,7 +258,7 @@ uint64 mod2(uint64 x)
     while (x > base2) {
         uint32 a;
         uint32 b;
-        a = x >> 31;  
+        a = x >> 31;   /* IMPORTANT: a != 0 */  
         b = x & 0x7fffffff;
         x = a + b;
     }
@@ -342,33 +392,4 @@ int sum_end(char *sum)
 	return MD4_DIGEST_LEN;
 }
 
-/* 
- * Function to calculate (-p1^k) % base.
- * In order to avoid recalculations powers must be calculated in advance. 
- */
-uint32 getminuspower(int j, int32 k)
-{
-    if (pow_avail < BLOCK_SIZE) {
-        int32 i;
-        powers[0][0] = base - 1;      /* -1 mod base */
-        powers[1][0] = base - 1;
-        for (i = 0; i < BLOCK_SIZE; i++) {
-            powers[0][i+1] = (powers[0][i] * p1) % base;
-            powers[1][i+1] = (powers[1][i] * p2) % base;
-        }
-        pow_avail = BLOCK_SIZE;
-    }
-    if (k <= pow_avail) {
-        return powers[j-1][k];
-    }
-    else {
-        int32 i;
-        for (i = pow_avail; i < k; i++) {
-            powers[0][i+1] = (powers[0][i] * p1) % base;
-            powers[1][i+1] = (powers[1][i] * p2) % base;
-        }
-        pow_avail = k;
-        return powers[j-1][k];
-    }
-}
 
