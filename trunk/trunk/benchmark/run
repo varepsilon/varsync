@@ -1,0 +1,2 @@
+./run.rb | grep -e "\(Orig\|Random\|Stats\|Matched\|Literal\|total\|Execution\|sent\|WARNING\)"
+

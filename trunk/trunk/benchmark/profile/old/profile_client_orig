@@ -1,0 +1,949 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 61.54      0.08     0.08   140176     0.00     0.00  md5_process
+ 38.46      0.13     0.05     2983     0.02     0.02  get_checksum1
+  0.00      0.13     0.00    11932     0.00     0.01  md5_update
+  0.00      0.13     0.00     5979     0.00     0.00  writefd
+  0.00      0.13     0.00     2989     0.00     0.00  write_int
+  0.00      0.13     0.00     2983     0.00     0.03  get_checksum2
+  0.00      0.13     0.00     2983     0.00     0.00  map_ptr
+  0.00      0.13     0.00     2983     0.00     0.00  md5_begin
+  0.00      0.13     0.00     2983     0.00     0.01  md5_result
+  0.00      0.13     0.00     2983     0.00     0.00  write_buf
+  0.00      0.13     0.00       64     0.00     0.00  io_flush
+  0.00      0.13     0.00       45     0.00     0.00  readfd
+  0.00      0.13     0.00       45     0.00     0.00  readfd_unbuffered
+  0.00      0.13     0.00       40     0.00     0.00  sleep_for_bwlimit
+  0.00      0.13     0.00       40     0.00     0.00  writefd_unbuffered
+  0.00      0.13     0.00       37     0.00     0.00  msg_flush
+  0.00      0.13     0.00       32     0.00     0.00  mplex_write
+  0.00      0.13     0.00       24     0.00     0.00  rwrite
+  0.00      0.13     0.00       23     0.00     0.00  send_msg
+  0.00      0.13     0.00       16     0.00     0.00  _new_array
+  0.00      0.13     0.00       15     0.00     0.00  rprintf
+  0.00      0.13     0.00       14     0.00     0.00  check_for_finished_files
+  0.00      0.13     0.00       14     0.00     0.00  io_multiplex_write
+  0.00      0.13     0.00       14     0.00     0.00  read_timeout
+  0.00      0.13     0.00       13     0.00     0.00  read_msg_fd
+  0.00      0.13     0.00       12     0.00     0.00  wait_for_receiver
+  0.00      0.13     0.00       10     0.00     0.00  flist_ndx_pop
+  0.00      0.13     0.00       10     0.00     0.00  get_redo_num
+  0.00      0.13     0.00        9     0.00     0.00  flush_a_msg
+  0.00      0.13     0.00        9     0.00     0.00  msg_list_add
+  0.00      0.13     0.00        6     0.00     0.00  read_byte
+  0.00      0.13     0.00        6     0.00     0.00  set_nonblocking
+  0.00      0.13     0.00        5     0.00     0.00  write_ndx
+  0.00      0.13     0.00        3     0.00     0.00  change_dir
+  0.00      0.13     0.00        3     0.00     0.00  read_sbuf
+  0.00      0.13     0.00        3     0.00     0.00  read_varlong
+  0.00      0.13     0.00        3     0.00     0.00  strlcpy
+  0.00      0.13     0.00        2     0.00     0.00  _realloc_array
+  0.00      0.13     0.00        2     0.00     0.00  add_to_list
+  0.00      0.13     0.00        2     0.00     0.00  clean_fname
+  0.00      0.13     0.00        2     0.00     0.00  flist_new
+  0.00      0.13     0.00        2     0.00     0.00  io_start_buffering_in
+  0.00      0.13     0.00        2     0.00     0.00  io_start_buffering_out
+  0.00      0.13     0.00        2     0.00     0.00  isDigit
+  0.00      0.13     0.00        2     0.00     0.00  maybe_flush_socket
+  0.00      0.13     0.00        2     0.00     0.00  pool_boundary
+  0.00      0.13     0.00        2     0.00     0.00  pool_create
+  0.00      0.13     0.00        2     0.00     0.00  read_int
+  0.00      0.13     0.00        2     0.00     0.00  read_loop
+  0.00      0.13     0.00        2     0.00     0.00  read_varint
+  0.00      0.13     0.00        2     0.00     0.00  set_msg_fd_in
+  0.00      0.13     0.00        2     0.00     0.00  show_filelist_p
+  0.00      0.13     0.00        2     0.00     0.00  wait_process
+  0.00      0.13     0.00        1     0.00     0.00  _exit_cleanup
+  0.00      0.13     0.00        1     0.00     0.00  change_local_filter_dir
+  0.00      0.13     0.00        1     0.00     0.00  check_alt_basis_dirs
+  0.00      0.13     0.00        1     0.00     0.00  check_sub_protocol
+  0.00      0.13     0.00        1     0.00     0.00  close_all
+  0.00      0.13     0.00        1     0.00     0.00  cmp_time
+  0.00      0.13     0.00        1     0.00     0.00  count_args
+  0.00      0.13     0.00        1     0.00     0.00  default_charset
+  0.00      0.13     0.00        1     0.00     0.00  do_fork
+  0.00      0.13     0.00        1     0.00     0.00  do_lstat
+  0.00      0.13     0.00        1     0.00     0.00  do_open
+  0.00      0.13     0.00        1     0.00   130.00  do_recv
+  0.00      0.13     0.00        1     0.00   130.00  do_server_recv
+  0.00      0.13     0.00        1     0.00     0.00  do_stat
+  0.00      0.13     0.00        1     0.00     0.00  fd_pair
+  0.00      0.13     0.00        1     0.00     0.00  flist_done_allocating
+  0.00      0.13     0.00        1     0.00     0.00  flist_expand
+  0.00      0.13     0.00        1     0.00     0.00  flist_for_ndx
+  0.00      0.13     0.00        1     0.00     0.00  flist_free
+  0.00      0.13     0.00        1     0.00     0.00  flist_sort_and_clean
+  0.00      0.13     0.00        1     0.00     0.00  from_wire_mode
+  0.00      0.13     0.00        1     0.00     0.00  fsort
+  0.00      0.13     0.00        1     0.00   130.00  generate_and_send_sums
+  0.00      0.13     0.00        1     0.00   130.00  generate_files
+  0.00      0.13     0.00        1     0.00     0.00  get_local_name
+  0.00      0.13     0.00        1     0.00     0.00  get_stat_xattr
+  0.00      0.13     0.00        1     0.00     0.00  got_flist_entry_status
+  0.00      0.13     0.00        1     0.00     0.00  handle_stats
+  0.00      0.13     0.00        1     0.00     0.00  init_flist
+  0.00      0.13     0.00        1     0.00     0.00  io_end_buffering_in
+  0.00      0.13     0.00        1     0.00     0.00  io_end_multiplex_in
+  0.00      0.13     0.00        1     0.00     0.00  io_set_sock_fds
+  0.00      0.13     0.00        1     0.00     0.00  io_start_multiplex_in
+  0.00      0.13     0.00        1     0.00     0.00  io_start_multiplex_out
+  0.00      0.13     0.00        1     0.00     0.00  is_in_group
+  0.00      0.13     0.00        1     0.00     0.00  itemize
+  0.00      0.13     0.00        1     0.00     0.00  link_stat
+  0.00      0.13     0.00        1     0.00     0.00  log_format_has
+  0.00      0.13     0.00        1     0.00     0.00  lp_refuse_options
+  0.00      0.13     0.00        1     0.00     0.00  map_file
+  0.00      0.13     0.00        1     0.00     0.00  map_gid
+  0.00      0.13     0.00        1     0.00     0.00  map_uid
+  0.00      0.13     0.00        1     0.00     0.00  maybe_emit_filelist_progress
+  0.00      0.13     0.00        1     0.00     0.00  msleep
+  0.00      0.13     0.00        1     0.00     0.00  name_to_gid
+  0.00      0.13     0.00        1     0.00     0.00  name_to_uid
+  0.00      0.13     0.00        1     0.00     0.00  parse_arguments
+  0.00      0.13     0.00        1     0.00     0.00  pool_alloc
+  0.00      0.13     0.00        1     0.00     0.00  pool_destroy
+  0.00      0.13     0.00        1     0.00     0.00  read_ndx
+  0.00      0.13     0.00        1     0.00     0.00  read_varlong30
+  0.00      0.13     0.00        1     0.00     0.00  recv_add_gid
+  0.00      0.13     0.00        1     0.00     0.00  recv_add_uid
+  0.00      0.13     0.00        1     0.00     0.00  recv_additional_file_list
+  0.00      0.13     0.00        1     0.00     0.00  recv_file_entry
+  0.00      0.13     0.00        1     0.00     0.00  recv_file_list
+  0.00      0.13     0.00        1     0.00     0.00  recv_filter_list
+  0.00      0.13     0.00        1     0.00   130.00  recv_generator
+  0.00      0.13     0.00        1     0.00     0.00  recv_group_name
+  0.00      0.13     0.00        1     0.00     0.00  recv_user_name
+  0.00      0.13     0.00        1     0.00     0.00  set_allow_inc_recurse
+  0.00      0.13     0.00        1     0.00     0.00  set_io_timeout
+  0.00      0.13     0.00        1     0.00     0.00  setup_iconv
+  0.00      0.13     0.00        1     0.00     0.00  setup_protocol
+  0.00      0.13     0.00        1     0.00   130.00  start_server
+  0.00      0.13     0.00        1     0.00     0.00  sum_sizes_sqroot
+  0.00      0.13     0.00        1     0.00     0.00  unchanged_file
+  0.00      0.13     0.00        1     0.00     0.00  unmap_file
+  0.00      0.13     0.00        1     0.00     0.00  wait_process_with_flush
+  0.00      0.13     0.00        1     0.00     0.00  write_byte
+  0.00      0.13     0.00        1     0.00     0.00  write_shortint
+  0.00      0.13     0.00        1     0.00     0.00  write_sum_head
+  0.00      0.13     0.00        1     0.00     0.00  x_lstat
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 7.69% of 0.13 seconds
+
+index % time    self  children    called     name
+                0.00    0.13       1/1           do_server_recv [2]
+[1]    100.0    0.00    0.13       1         do_recv [1]
+                0.00    0.13       1/1           generate_files [4]
+                0.00    0.00       3/71          io_flush <cycle 1> [19]
+                0.00    0.00       2/2           set_msg_fd_in [57]
+                0.00    0.00       1/1           fd_pair [71]
+                0.00    0.00       1/1           do_fork [67]
+                0.00    0.00       1/1           io_end_multiplex_in [85]
+                0.00    0.00       1/2           io_start_buffering_out [49]
+                0.00    0.00       1/2           io_start_buffering_in [48]
+                0.00    0.00       1/1           handle_stats [82]
+                0.00    0.00       1/5           write_ndx [40]
+                0.00    0.00       1/1           wait_process_with_flush [121]
+-----------------------------------------------
+                0.00    0.13       1/1           start_server [6]
+[2]    100.0    0.00    0.13       1         do_server_recv [2]
+                0.00    0.13       1/1           do_recv [1]
+                0.00    0.00       1/15          rprintf [28]
+                0.00    0.00       1/3           change_dir [41]
+                0.00    0.00       1/1           io_start_multiplex_in [87]
+                0.00    0.00       1/1           recv_filter_list [111]
+                0.00    0.00       1/1           recv_file_list [110]
+                0.00    0.00       1/1           recv_additional_file_list [108]
+                0.00    0.00       1/1           get_local_name [79]
+                0.00    0.00       1/1           check_alt_basis_dirs [61]
+                0.00    0.00       1/1           _exit_cleanup [740]
+-----------------------------------------------
+                0.00    0.13       1/1           recv_generator [5]
+[3]    100.0    0.00    0.13       1         generate_and_send_sums [3]
+                0.00    0.08    2983/2983        get_checksum2 [10]
+                0.05    0.00    2983/2983        get_checksum1 [11]
+                0.00    0.00    2983/2983        map_ptr [16]
+                0.00    0.00    2983/2989        write_int [15]
+                0.00    0.00    2983/2983        write_buf [18]
+                0.00    0.00       1/1           sum_sizes_sqroot [118]
+                0.00    0.00       1/1           write_sum_head [124]
+                0.00    0.00       1/1           map_file [94]
+                0.00    0.00       1/1           unmap_file [120]
+-----------------------------------------------
+                0.00    0.13       1/1           do_recv [1]
+[4]    100.0    0.00    0.13       1         generate_files [4]
+                0.00    0.13       1/1           recv_generator [5]
+                0.00    0.00      14/14          check_for_finished_files [29]
+                0.00    0.00      12/12          wait_for_receiver [33]
+                0.00    0.00       6/15          rprintf [28]
+                0.00    0.00       2/5           write_ndx [40]
+                0.00    0.00       1/3           strlcpy [44]
+                0.00    0.00       1/2           maybe_flush_socket [51]
+-----------------------------------------------
+                0.00    0.13       1/1           generate_files [4]
+[5]    100.0    0.00    0.13       1         recv_generator [5]
+                0.00    0.13       1/1           generate_and_send_sums [3]
+                0.00    0.00       2/15          rprintf [28]
+                0.00    0.00       1/1           link_stat [91]
+                0.00    0.00       1/1           unchanged_file [119]
+                0.00    0.00       1/1           do_open [69]
+                0.00    0.00       1/5           write_ndx [40]
+                0.00    0.00       1/1           itemize [90]
+-----------------------------------------------
+                0.00    0.13       1/1           main [7]
+[6]    100.0    0.00    0.13       1         start_server [6]
+                0.00    0.13       1/1           do_server_recv [2]
+                0.00    0.00       2/6           set_nonblocking [39]
+                0.00    0.00       1/1           io_set_sock_fds [86]
+                0.00    0.00       1/1           setup_protocol [117]
+                0.00    0.00       1/1           io_start_multiplex_out [88]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]    100.0    0.00    0.13                 main [7]
+                0.00    0.13       1/1           start_server [6]
+                0.00    0.00       2/6           set_nonblocking [39]
+                0.00    0.00       1/1           parse_arguments [101]
+                0.00    0.00       1/3           change_dir [41]
+                0.00    0.00       1/1           init_flist [83]
+                0.00    0.00       1/1           setup_iconv [116]
+-----------------------------------------------
+                0.08    0.00  140176/140176      md5_update [9]
+[8]     61.5    0.08    0.00  140176         md5_process [8]
+-----------------------------------------------
+                0.00    0.04    5966/11932       get_checksum2 [10]
+                0.00    0.04    5966/11932       md5_result [12]
+[9]     61.5    0.00    0.08   11932         md5_update [9]
+                0.08    0.00  140176/140176      md5_process [8]
+-----------------------------------------------
+                0.00    0.08    2983/2983        generate_and_send_sums [3]
+[10]    61.5    0.00    0.08    2983         get_checksum2 [10]
+                0.00    0.04    5966/11932       md5_update [9]
+                0.00    0.04    2983/2983        md5_result [12]
+                0.00    0.00    2983/2983        md5_begin [17]
+-----------------------------------------------
+                0.05    0.00    2983/2983        generate_and_send_sums [3]
+[11]    38.5    0.05    0.00    2983         get_checksum1 [11]
+-----------------------------------------------
+                0.00    0.04    2983/2983        get_checksum2 [10]
+[12]    30.8    0.00    0.04    2983         md5_result [12]
+                0.00    0.04    5966/11932       md5_update [9]
+-----------------------------------------------
+[13]     0.0    0.00    0.00      71+294     <cycle 1 as a whole> [13]
+                0.00    0.00      64             io_flush <cycle 1> [19]
+                0.00    0.00      45             readfd <cycle 1> [20]
+                0.00    0.00      45             readfd_unbuffered <cycle 1> [21]
+                0.00    0.00      40             writefd_unbuffered <cycle 1> [23]
+                0.00    0.00      37             msg_flush <cycle 1> [24]
+                0.00    0.00      32             mplex_write <cycle 1> [25]
+                0.00    0.00      24             rwrite <cycle 1> [26]
+                0.00    0.00      23             send_msg <cycle 1> [27]
+                0.00    0.00      14             io_multiplex_write <cycle 1> [30]
+                0.00    0.00      14             read_timeout <cycle 1> [31]
+                0.00    0.00      13             read_msg_fd <cycle 1> [32]
+                0.00    0.00       9             flush_a_msg <cycle 1> [36]
+                0.00    0.00       3             read_varlong <cycle 1> [43]
+                0.00    0.00       2             read_loop <cycle 1> [55]
+-----------------------------------------------
+                0.00    0.00       1/5979        write_shortint [123]
+                0.00    0.00       1/5979        write_byte [122]
+                0.00    0.00       5/5979        write_ndx [40]
+                0.00    0.00    2983/5979        write_buf [18]
+                0.00    0.00    2989/5979        write_int [15]
+[14]     0.0    0.00    0.00    5979         writefd [14]
+                0.00    0.00       4/71          io_flush <cycle 1> [19]
+                0.00    0.00       3/71          writefd_unbuffered <cycle 1> [23]
+-----------------------------------------------
+                0.00    0.00       2/2989        setup_protocol [117]
+                0.00    0.00       4/2989        write_sum_head [124]
+                0.00    0.00    2983/2989        generate_and_send_sums [3]
+[15]     0.0    0.00    0.00    2989         write_int [15]
+                0.00    0.00    2989/5979        writefd [14]
+-----------------------------------------------
+                0.00    0.00    2983/2983        generate_and_send_sums [3]
+[16]     0.0    0.00    0.00    2983         map_ptr [16]
+                0.00    0.00       1/2           _realloc_array [739]
+-----------------------------------------------
+                0.00    0.00    2983/2983        get_checksum2 [10]
+[17]     0.0    0.00    0.00    2983         md5_begin [17]
+-----------------------------------------------
+                0.00    0.00    2983/2983        generate_and_send_sums [3]
+[18]     0.0    0.00    0.00    2983         write_buf [18]
+                0.00    0.00    2983/5979        writefd [14]
+-----------------------------------------------
+                                  12             readfd_unbuffered <cycle 1> [21]
+                                  14             read_timeout <cycle 1> [31]
+                                  14             io_multiplex_write <cycle 1> [30]
+                0.00    0.00       1/71          _exit_cleanup [740]
+                0.00    0.00       1/71          wait_process_with_flush [121]
+                0.00    0.00       1/71          maybe_flush_socket [51]
+                0.00    0.00       1/71          io_start_multiplex_out [88]
+                0.00    0.00       1/71          io_start_multiplex_in [87]
+                0.00    0.00       3/71          do_recv [1]
+                0.00    0.00       4/71          writefd [14]
+                0.00    0.00      12/71          wait_for_receiver [33]
+[19]     0.0    0.00    0.00      64         io_flush <cycle 1> [19]
+                                   9             mplex_write <cycle 1> [25]
+-----------------------------------------------
+                                   5             read_varlong <cycle 1> [43]
+                                  24             read_msg_fd <cycle 1> [32]
+                0.00    0.00       2/71          read_int [54]
+                0.00    0.00       2/71          read_ndx [104]
+                0.00    0.00       3/71          read_varint [56]
+                0.00    0.00       3/71          read_sbuf [42]
+                0.00    0.00       6/71          read_byte [38]
+[20]     0.0    0.00    0.00      45         readfd <cycle 1> [20]
+                                  45             readfd_unbuffered <cycle 1> [21]
+-----------------------------------------------
+                                  45             readfd <cycle 1> [20]
+[21]     0.0    0.00    0.00      45         readfd_unbuffered <cycle 1> [21]
+                                  12             read_timeout <cycle 1> [31]
+                                  12             io_flush <cycle 1> [19]
+                                   2             read_loop <cycle 1> [55]
+-----------------------------------------------
+                0.00    0.00      40/40          writefd_unbuffered <cycle 1> [23]
+[22]     0.0    0.00    0.00      40         sleep_for_bwlimit [22]
+-----------------------------------------------
+                                  37             mplex_write <cycle 1> [25]
+                0.00    0.00       3/71          writefd [14]
+[23]     0.0    0.00    0.00      40         writefd_unbuffered <cycle 1> [23]
+                0.00    0.00      40/40          sleep_for_bwlimit [22]
+                                   3             msg_flush <cycle 1> [24]
+                                   2             read_msg_fd <cycle 1> [32]
+-----------------------------------------------
+                                   3             writefd_unbuffered <cycle 1> [23]
+                                  11             read_msg_fd <cycle 1> [32]
+                                  23             mplex_write <cycle 1> [25]
+[24]     0.0    0.00    0.00      37         msg_flush <cycle 1> [24]
+                                   9             flush_a_msg <cycle 1> [36]
+-----------------------------------------------
+                                   9             flush_a_msg <cycle 1> [36]
+                                   9             io_flush <cycle 1> [19]
+                                  14             io_multiplex_write <cycle 1> [30]
+[25]     0.0    0.00    0.00      32         mplex_write <cycle 1> [25]
+                                  37             writefd_unbuffered <cycle 1> [23]
+                                  23             msg_flush <cycle 1> [24]
+-----------------------------------------------
+                                   9             read_msg_fd <cycle 1> [32]
+                0.00    0.00      15/71          rprintf [28]
+[26]     0.0    0.00    0.00      24         rwrite <cycle 1> [26]
+                                  23             send_msg <cycle 1> [27]
+-----------------------------------------------
+                                  23             rwrite <cycle 1> [26]
+[27]     0.0    0.00    0.00      23         send_msg <cycle 1> [27]
+                0.00    0.00       9/9           msg_list_add [37]
+                                  14             io_multiplex_write <cycle 1> [30]
+-----------------------------------------------
+                0.00    0.00       1/15          sum_sizes_sqroot [118]
+                0.00    0.00       1/15          _exit_cleanup [740]
+                0.00    0.00       1/15          get_local_name [79]
+                0.00    0.00       1/15          do_server_recv [2]
+                0.00    0.00       2/15          recv_generator [5]
+                0.00    0.00       3/15          recv_file_list [110]
+                0.00    0.00       6/15          generate_files [4]
+[28]     0.0    0.00    0.00      15         rprintf [28]
+                0.00    0.00      15/71          rwrite <cycle 1> [26]
+-----------------------------------------------
+                0.00    0.00      14/14          generate_files [4]
+[29]     0.0    0.00    0.00      14         check_for_finished_files [29]
+                0.00    0.00      10/10          get_redo_num [35]
+                0.00    0.00       1/5           write_ndx [40]
+                0.00    0.00       1/2           maybe_flush_socket [51]
+                0.00    0.00       1/1           flist_free [75]
+-----------------------------------------------
+                                  14             send_msg <cycle 1> [27]
+[30]     0.0    0.00    0.00      14         io_multiplex_write <cycle 1> [30]
+                                  14             io_flush <cycle 1> [19]
+                                  14             mplex_write <cycle 1> [25]
+-----------------------------------------------
+                                   2             read_loop <cycle 1> [55]
+                                  12             readfd_unbuffered <cycle 1> [21]
+[31]     0.0    0.00    0.00      14         read_timeout <cycle 1> [31]
+                                  14             io_flush <cycle 1> [19]
+-----------------------------------------------
+                                   2             writefd_unbuffered <cycle 1> [23]
+                0.00    0.00      11/71          wait_for_receiver [33]
+[32]     0.0    0.00    0.00      13         read_msg_fd <cycle 1> [32]
+                0.00    0.00       1/1           got_flist_entry_status [81]
+                                  24             readfd <cycle 1> [20]
+                                  11             msg_flush <cycle 1> [24]
+                                   9             rwrite <cycle 1> [26]
+                                   1             read_varlong <cycle 1> [43]
+-----------------------------------------------
+                0.00    0.00      12/12          generate_files [4]
+[33]     0.0    0.00    0.00      12         wait_for_receiver [33]
+                0.00    0.00      12/71          io_flush <cycle 1> [19]
+                0.00    0.00      11/71          read_msg_fd <cycle 1> [32]
+-----------------------------------------------
+                0.00    0.00      10/10          get_redo_num [35]
+[34]     0.0    0.00    0.00      10         flist_ndx_pop [34]
+-----------------------------------------------
+                0.00    0.00      10/10          check_for_finished_files [29]
+[35]     0.0    0.00    0.00      10         get_redo_num [35]
+                0.00    0.00      10/10          flist_ndx_pop [34]
+-----------------------------------------------
+                                   9             msg_flush <cycle 1> [24]
+[36]     0.0    0.00    0.00       9         flush_a_msg <cycle 1> [36]
+                                   9             mplex_write <cycle 1> [25]
+-----------------------------------------------
+                0.00    0.00       9/9           send_msg <cycle 1> [27]
+[37]     0.0    0.00    0.00       9         msg_list_add [37]
+                0.00    0.00       9/16          _new_array [738]
+-----------------------------------------------
+                0.00    0.00       1/6           recv_file_entry [109]
+                0.00    0.00       1/6           recv_user_name [113]
+                0.00    0.00       1/6           recv_group_name [112]
+                0.00    0.00       3/6           recv_file_list [110]
+[38]     0.0    0.00    0.00       6         read_byte [38]
+                0.00    0.00       6/71          readfd <cycle 1> [20]
+-----------------------------------------------
+                0.00    0.00       2/6           fd_pair [71]
+                0.00    0.00       2/6           start_server [6]
+                0.00    0.00       2/6           main [7]
+[39]     0.0    0.00    0.00       6         set_nonblocking [39]
+-----------------------------------------------
+                0.00    0.00       1/5           recv_generator [5]
+                0.00    0.00       1/5           check_for_finished_files [29]
+                0.00    0.00       1/5           do_recv [1]
+                0.00    0.00       2/5           generate_files [4]
+[40]     0.0    0.00    0.00       5         write_ndx [40]
+                0.00    0.00       5/5979        writefd [14]
+-----------------------------------------------
+                0.00    0.00       1/3           get_local_name [79]
+                0.00    0.00       1/3           do_server_recv [2]
+                0.00    0.00       1/3           main [7]
+[41]     0.0    0.00    0.00       3         change_dir [41]
+                0.00    0.00       1/2           clean_fname [46]
+-----------------------------------------------
+                0.00    0.00       1/3           recv_file_entry [109]
+                0.00    0.00       1/3           recv_user_name [113]
+                0.00    0.00       1/3           recv_group_name [112]
+[42]     0.0    0.00    0.00       3         read_sbuf [42]
+                0.00    0.00       3/71          readfd <cycle 1> [20]
+-----------------------------------------------
+                                   1             read_msg_fd <cycle 1> [32]
+                0.00    0.00       1/71          read_varlong30 [105]
+                0.00    0.00       1/71          recv_file_entry [109]
+[43]     0.0    0.00    0.00       3         read_varlong <cycle 1> [43]
+                                   5             readfd <cycle 1> [20]
+-----------------------------------------------
+                0.00    0.00       1/3           generate_files [4]
+                0.00    0.00       2/3           recv_file_entry [109]
+[44]     0.0    0.00    0.00       3         strlcpy [44]
+-----------------------------------------------
+                0.00    0.00       1/2           recv_add_uid [107]
+                0.00    0.00       1/2           recv_add_gid [106]
+[45]     0.0    0.00    0.00       2         add_to_list [45]
+-----------------------------------------------
+                0.00    0.00       1/2           recv_file_entry [109]
+                0.00    0.00       1/2           change_dir [41]
+[46]     0.0    0.00    0.00       2         clean_fname [46]
+-----------------------------------------------
+                0.00    0.00       2/2           recv_file_list [110]
+[47]     0.0    0.00    0.00       2         flist_new [47]
+                0.00    0.00       2/2           pool_create [53]
+                0.00    0.00       1/2           pool_boundary [52]
+-----------------------------------------------
+                0.00    0.00       1/2           do_recv [1]
+                0.00    0.00       1/2           io_start_multiplex_in [87]
+[48]     0.0    0.00    0.00       2         io_start_buffering_in [48]
+                0.00    0.00       2/16          _new_array [738]
+-----------------------------------------------
+                0.00    0.00       1/2           do_recv [1]
+                0.00    0.00       1/2           io_start_multiplex_out [88]
+[49]     0.0    0.00    0.00       2         io_start_buffering_out [49]
+                0.00    0.00       1/16          _new_array [738]
+-----------------------------------------------
+                0.00    0.00       2/2           log_format_has [92]
+[50]     0.0    0.00    0.00       2         isDigit [50]
+-----------------------------------------------
+                0.00    0.00       1/2           check_for_finished_files [29]
+                0.00    0.00       1/2           generate_files [4]
+[51]     0.0    0.00    0.00       2         maybe_flush_socket [51]
+                0.00    0.00       1/71          io_flush <cycle 1> [19]
+-----------------------------------------------
+                0.00    0.00       1/2           flist_done_allocating [72]
+                0.00    0.00       1/2           flist_new [47]
+[52]     0.0    0.00    0.00       2         pool_boundary [52]
+-----------------------------------------------
+                0.00    0.00       2/2           flist_new [47]
+[53]     0.0    0.00    0.00       2         pool_create [53]
+-----------------------------------------------
+                0.00    0.00       1/2           recv_file_entry [109]
+                0.00    0.00       1/2           setup_protocol [117]
+[54]     0.0    0.00    0.00       2         read_int [54]
+                0.00    0.00       2/71          readfd <cycle 1> [20]
+-----------------------------------------------
+                                   2             readfd_unbuffered <cycle 1> [21]
+[55]     0.0    0.00    0.00       2         read_loop <cycle 1> [55]
+                                   2             read_timeout <cycle 1> [31]
+-----------------------------------------------
+                0.00    0.00       2/2           recv_file_entry [109]
+[56]     0.0    0.00    0.00       2         read_varint [56]
+                0.00    0.00       3/71          readfd <cycle 1> [20]
+-----------------------------------------------
+                0.00    0.00       2/2           do_recv [1]
+[57]     0.0    0.00    0.00       2         set_msg_fd_in [57]
+-----------------------------------------------
+                0.00    0.00       2/2           recv_file_list [110]
+[58]     0.0    0.00    0.00       2         show_filelist_p [58]
+-----------------------------------------------
+                0.00    0.00       2/2           wait_process_with_flush [121]
+[59]     0.0    0.00    0.00       2         wait_process [59]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_additional_file_list [108]
+[60]     0.0    0.00    0.00       1         change_local_filter_dir [60]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[61]     0.0    0.00    0.00       1         check_alt_basis_dirs [61]
+-----------------------------------------------
+                0.00    0.00       1/1           setup_protocol [117]
+[62]     0.0    0.00    0.00       1         check_sub_protocol [62]
+-----------------------------------------------
+                0.00    0.00       1/1           _exit_cleanup [740]
+[63]     0.0    0.00    0.00       1         close_all [63]
+-----------------------------------------------
+                0.00    0.00       1/1           itemize [90]
+[64]     0.0    0.00    0.00       1         cmp_time [64]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_arguments [101]
+[65]     0.0    0.00    0.00       1         count_args [65]
+-----------------------------------------------
+                0.00    0.00       1/1           setup_iconv [116]
+[66]     0.0    0.00    0.00       1         default_charset [66]
+-----------------------------------------------
+                0.00    0.00       1/1           do_recv [1]
+[67]     0.0    0.00    0.00       1         do_fork [67]
+-----------------------------------------------
+                0.00    0.00       1/1           x_lstat [125]
+[68]     0.0    0.00    0.00       1         do_lstat [68]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_generator [5]
+[69]     0.0    0.00    0.00       1         do_open [69]
+-----------------------------------------------
+                0.00    0.00       1/1           get_local_name [79]
+[70]     0.0    0.00    0.00       1         do_stat [70]
+-----------------------------------------------
+                0.00    0.00       1/1           do_recv [1]
+[71]     0.0    0.00    0.00       1         fd_pair [71]
+                0.00    0.00       2/6           set_nonblocking [39]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_list [110]
+[72]     0.0    0.00    0.00       1         flist_done_allocating [72]
+                0.00    0.00       1/2           pool_boundary [52]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_list [110]
+[73]     0.0    0.00    0.00       1         flist_expand [73]
+                0.00    0.00       1/2           _realloc_array [739]
+-----------------------------------------------
+                0.00    0.00       1/1           got_flist_entry_status [81]
+[74]     0.0    0.00    0.00       1         flist_for_ndx [74]
+-----------------------------------------------
+                0.00    0.00       1/1           check_for_finished_files [29]
+[75]     0.0    0.00    0.00       1         flist_free [75]
+                0.00    0.00       1/1           pool_destroy [103]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_list [110]
+[76]     0.0    0.00    0.00       1         flist_sort_and_clean [76]
+                0.00    0.00       1/1           fsort [78]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_entry [109]
+[77]     0.0    0.00    0.00       1         from_wire_mode [77]
+-----------------------------------------------
+                0.00    0.00       1/1           flist_sort_and_clean [76]
+[78]     0.0    0.00    0.00       1         fsort [78]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[79]     0.0    0.00    0.00       1         get_local_name [79]
+                0.00    0.00       1/15          rprintf [28]
+                0.00    0.00       1/1           do_stat [70]
+                0.00    0.00       1/3           change_dir [41]
+-----------------------------------------------
+                0.00    0.00       1/1           x_lstat [125]
+[80]     0.0    0.00    0.00       1         get_stat_xattr [80]
+-----------------------------------------------
+                0.00    0.00       1/1           read_msg_fd <cycle 1> [32]
+[81]     0.0    0.00    0.00       1         got_flist_entry_status [81]
+                0.00    0.00       1/1           flist_for_ndx [74]
+-----------------------------------------------
+                0.00    0.00       1/1           do_recv [1]
+[82]     0.0    0.00    0.00       1         handle_stats [82]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[83]     0.0    0.00    0.00       1         init_flist [83]
+-----------------------------------------------
+                0.00    0.00       1/1           io_end_multiplex_in [85]
+[84]     0.0    0.00    0.00       1         io_end_buffering_in [84]
+-----------------------------------------------
+                0.00    0.00       1/1           do_recv [1]
+[85]     0.0    0.00    0.00       1         io_end_multiplex_in [85]
+                0.00    0.00       1/1           io_end_buffering_in [84]
+-----------------------------------------------
+                0.00    0.00       1/1           start_server [6]
+[86]     0.0    0.00    0.00       1         io_set_sock_fds [86]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[87]     0.0    0.00    0.00       1         io_start_multiplex_in [87]
+                0.00    0.00       1/2           io_start_buffering_in [48]
+                0.00    0.00       1/71          io_flush <cycle 1> [19]
+-----------------------------------------------
+                0.00    0.00       1/1           start_server [6]
+[88]     0.0    0.00    0.00       1         io_start_multiplex_out [88]
+                0.00    0.00       1/71          io_flush <cycle 1> [19]
+                0.00    0.00       1/2           io_start_buffering_out [49]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_add_gid [106]
+[89]     0.0    0.00    0.00       1         is_in_group [89]
+                0.00    0.00       1/16          _new_array [738]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_generator [5]
+[90]     0.0    0.00    0.00       1         itemize [90]
+                0.00    0.00       1/1           cmp_time [64]
+                0.00    0.00       1/1           write_shortint [123]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_generator [5]
+[91]     0.0    0.00    0.00       1         link_stat [91]
+                0.00    0.00       1/1           x_lstat [125]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_arguments [101]
+[92]     0.0    0.00    0.00       1         log_format_has [92]
+                0.00    0.00       2/2           isDigit [50]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_arguments [101]
+[93]     0.0    0.00    0.00       1         lp_refuse_options [93]
+-----------------------------------------------
+                0.00    0.00       1/1           generate_and_send_sums [3]
+[94]     0.0    0.00    0.00       1         map_file [94]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_add_gid [106]
+[95]     0.0    0.00    0.00       1         map_gid [95]
+                0.00    0.00       1/1           name_to_gid [99]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_add_uid [107]
+[96]     0.0    0.00    0.00       1         map_uid [96]
+                0.00    0.00       1/1           name_to_uid [100]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_list [110]
+[97]     0.0    0.00    0.00       1         maybe_emit_filelist_progress [97]
+-----------------------------------------------
+                0.00    0.00       1/1           wait_process_with_flush [121]
+[98]     0.0    0.00    0.00       1         msleep [98]
+-----------------------------------------------
+                0.00    0.00       1/1           map_gid [95]
+[99]     0.0    0.00    0.00       1         name_to_gid [99]
+-----------------------------------------------
+                0.00    0.00       1/1           map_uid [96]
+[100]    0.0    0.00    0.00       1         name_to_uid [100]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[101]    0.0    0.00    0.00       1         parse_arguments [101]
+                0.00    0.00       1/1           lp_refuse_options [93]
+                0.00    0.00       1/1           count_args [65]
+                0.00    0.00       1/1           set_io_timeout [115]
+                0.00    0.00       1/1           log_format_has [92]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_entry [109]
+[102]    0.0    0.00    0.00       1         pool_alloc [102]
+                0.00    0.00       1/16          _new_array [738]
+-----------------------------------------------
+                0.00    0.00       1/1           flist_free [75]
+[103]    0.0    0.00    0.00       1         pool_destroy [103]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_additional_file_list [108]
+[104]    0.0    0.00    0.00       1         read_ndx [104]
+                0.00    0.00       2/71          readfd <cycle 1> [20]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_entry [109]
+[105]    0.0    0.00    0.00       1         read_varlong30 [105]
+                0.00    0.00       1/71          read_varlong <cycle 1> [43]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_group_name [112]
+[106]    0.0    0.00    0.00       1         recv_add_gid [106]
+                0.00    0.00       1/1           map_gid [95]
+                0.00    0.00       1/1           is_in_group [89]
+                0.00    0.00       1/2           add_to_list [45]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_user_name [113]
+[107]    0.0    0.00    0.00       1         recv_add_uid [107]
+                0.00    0.00       1/1           map_uid [96]
+                0.00    0.00       1/2           add_to_list [45]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[108]    0.0    0.00    0.00       1         recv_additional_file_list [108]
+                0.00    0.00       1/1           read_ndx [104]
+                0.00    0.00       1/1           change_local_filter_dir [60]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_list [110]
+[109]    0.0    0.00    0.00       1         recv_file_entry [109]
+                0.00    0.00       2/3           strlcpy [44]
+                0.00    0.00       2/2           read_varint [56]
+                0.00    0.00       1/6           read_byte [38]
+                0.00    0.00       1/3           read_sbuf [42]
+                0.00    0.00       1/2           clean_fname [46]
+                0.00    0.00       1/1           read_varlong30 [105]
+                0.00    0.00       1/71          read_varlong <cycle 1> [43]
+                0.00    0.00       1/1           from_wire_mode [77]
+                0.00    0.00       1/2           read_int [54]
+                0.00    0.00       1/1           recv_user_name [113]
+                0.00    0.00       1/1           recv_group_name [112]
+                0.00    0.00       1/1           pool_alloc [102]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[110]    0.0    0.00    0.00       1         recv_file_list [110]
+                0.00    0.00       3/15          rprintf [28]
+                0.00    0.00       3/6           read_byte [38]
+                0.00    0.00       2/2           show_filelist_p [58]
+                0.00    0.00       2/2           flist_new [47]
+                0.00    0.00       1/1           flist_expand [73]
+                0.00    0.00       1/1           recv_file_entry [109]
+                0.00    0.00       1/1           maybe_emit_filelist_progress [97]
+                0.00    0.00       1/1           flist_done_allocating [72]
+                0.00    0.00       1/1           flist_sort_and_clean [76]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[111]    0.0    0.00    0.00       1         recv_filter_list [111]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_entry [109]
+[112]    0.0    0.00    0.00       1         recv_group_name [112]
+                0.00    0.00       1/6           read_byte [38]
+                0.00    0.00       1/16          _new_array [738]
+                0.00    0.00       1/3           read_sbuf [42]
+                0.00    0.00       1/1           recv_add_gid [106]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_file_entry [109]
+[113]    0.0    0.00    0.00       1         recv_user_name [113]
+                0.00    0.00       1/6           read_byte [38]
+                0.00    0.00       1/16          _new_array [738]
+                0.00    0.00       1/3           read_sbuf [42]
+                0.00    0.00       1/1           recv_add_uid [107]
+-----------------------------------------------
+                0.00    0.00       1/1           setup_protocol [117]
+[114]    0.0    0.00    0.00       1         set_allow_inc_recurse [114]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_arguments [101]
+[115]    0.0    0.00    0.00       1         set_io_timeout [115]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[116]    0.0    0.00    0.00       1         setup_iconv [116]
+                0.00    0.00       1/1           default_charset [66]
+-----------------------------------------------
+                0.00    0.00       1/1           start_server [6]
+[117]    0.0    0.00    0.00       1         setup_protocol [117]
+                0.00    0.00       2/2989        write_int [15]
+                0.00    0.00       1/1           set_allow_inc_recurse [114]
+                0.00    0.00       1/1           check_sub_protocol [62]
+                0.00    0.00       1/2           read_int [54]
+                0.00    0.00       1/1           write_byte [122]
+-----------------------------------------------
+                0.00    0.00       1/1           generate_and_send_sums [3]
+[118]    0.0    0.00    0.00       1         sum_sizes_sqroot [118]
+                0.00    0.00       1/15          rprintf [28]
+-----------------------------------------------
+                0.00    0.00       1/1           recv_generator [5]
+[119]    0.0    0.00    0.00       1         unchanged_file [119]
+-----------------------------------------------
+                0.00    0.00       1/1           generate_and_send_sums [3]
+[120]    0.0    0.00    0.00       1         unmap_file [120]
+-----------------------------------------------
+                0.00    0.00       1/1           do_recv [1]
+[121]    0.0    0.00    0.00       1         wait_process_with_flush [121]
+                0.00    0.00       2/2           wait_process [59]
+                0.00    0.00       1/1           msleep [98]
+                0.00    0.00       1/71          io_flush <cycle 1> [19]
+-----------------------------------------------
+                0.00    0.00       1/1           setup_protocol [117]
+[122]    0.0    0.00    0.00       1         write_byte [122]
+                0.00    0.00       1/5979        writefd [14]
+-----------------------------------------------
+                0.00    0.00       1/1           itemize [90]
+[123]    0.0    0.00    0.00       1         write_shortint [123]
+                0.00    0.00       1/5979        writefd [14]
+-----------------------------------------------
+                0.00    0.00       1/1           generate_and_send_sums [3]
+[124]    0.0    0.00    0.00       1         write_sum_head [124]
+                0.00    0.00       4/2989        write_int [15]
+-----------------------------------------------
+                0.00    0.00       1/1           link_stat [91]
+[125]    0.0    0.00    0.00       1         x_lstat [125]
+                0.00    0.00       1/1           do_lstat [68]
+                0.00    0.00       1/1           get_stat_xattr [80]
+-----------------------------------------------
+                0.00    0.00       1/16          io_start_buffering_out [49]
+                0.00    0.00       1/16          is_in_group [89]
+                0.00    0.00       1/16          recv_user_name [113]
+                0.00    0.00       1/16          recv_group_name [112]
+                0.00    0.00       1/16          pool_alloc [102]
+                0.00    0.00       2/16          io_start_buffering_in [48]
+                0.00    0.00       9/16          msg_list_add [37]
+[738]    0.0    0.00    0.00      16         _new_array [738]
+-----------------------------------------------
+                0.00    0.00       1/2           flist_expand [73]
+                0.00    0.00       1/2           map_ptr [16]
+[739]    0.0    0.00    0.00       2         _realloc_array [739]
+-----------------------------------------------
+                0.00    0.00       1/1           do_server_recv [2]
+[740]    0.0    0.00    0.00       1         _exit_cleanup [740]
+                0.00    0.00       1/71          io_flush <cycle 1> [19]
+                0.00    0.00       1/15          rprintf [28]
+                0.00    0.00       1/1           close_all [63]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+ [740] _exit_cleanup          [19] io_flush              [105] read_varlong30 (io.h)
+ [738] _new_array             [30] io_multiplex_write     [20] readfd (io.c)
+ [739] _realloc_array         [86] io_set_sock_fds        [21] readfd_unbuffered (io.c)
+  [45] add_to_list (uidlist.c) [48] io_start_buffering_in [106] recv_add_gid (uidlist.c)
+  [41] change_dir             [49] io_start_buffering_out [107] recv_add_uid (uidlist.c)
+  [60] change_local_filter_dir [87] io_start_multiplex_in [108] recv_additional_file_list
+  [61] check_alt_basis_dirs (main.c) [88] io_start_multiplex_out [109] recv_file_entry (flist.c)
+  [29] check_for_finished_files [50] isDigit (ifuncs.h)  [110] recv_file_list
+  [62] check_sub_protocol (compat.c) [89] is_in_group (uidlist.c) [111] recv_filter_list
+  [46] clean_fname            [90] itemize                 [5] recv_generator (generator.c)
+  [63] close_all              [91] link_stat             [112] recv_group_name
+  [64] cmp_time               [92] log_format_has        [113] recv_user_name
+  [65] count_args (options.c) [93] lp_refuse_options      [28] rprintf
+  [66] default_charset (rsync.c) [94] map_file            [26] rwrite
+  [67] do_fork                [95] map_gid (uidlist.c)    [27] send_msg
+  [68] do_lstat               [16] map_ptr               [114] set_allow_inc_recurse
+  [69] do_open                [96] map_uid (uidlist.c)   [115] set_io_timeout
+   [1] do_recv (main.c)       [97] maybe_emit_filelist_progress (flist.c) [57] set_msg_fd_in
+   [2] do_server_recv (main.c) [51] maybe_flush_socket    [39] set_nonblocking
+  [70] do_stat                [17] md5_begin             [116] setup_iconv
+  [71] fd_pair                 [8] md5_process (md5.c)   [117] setup_protocol
+  [72] flist_done_allocating (flist.c) [12] md5_result    [58] show_filelist_p (flist.c)
+  [73] flist_expand (flist.c)  [9] md5_update             [22] sleep_for_bwlimit (io.c)
+  [74] flist_for_ndx          [25] mplex_write (io.c)      [6] start_server
+  [75] flist_free             [24] msg_flush (io.c)       [44] strlcpy
+  [34] flist_ndx_pop          [37] msg_list_add (io.c)   [118] sum_sizes_sqroot (generator.c)
+  [47] flist_new              [98] msleep                [119] unchanged_file
+  [76] flist_sort_and_clean (flist.c) [99] name_to_gid   [120] unmap_file
+  [36] flush_a_msg (io.c)    [100] name_to_uid            [33] wait_for_receiver
+  [77] from_wire_mode (ifuncs.h) [101] parse_arguments    [59] wait_process
+  [78] fsort (flist.c)       [102] pool_alloc            [121] wait_process_with_flush (main.c)
+   [3] generate_and_send_sums (generator.c) [52] pool_boundary [18] write_buf
+   [4] generate_files         [53] pool_create           [122] write_byte
+  [11] get_checksum1         [103] pool_destroy           [15] write_int
+  [10] get_checksum2          [38] read_byte              [40] write_ndx
+  [79] get_local_name (main.c) [54] read_int             [123] write_shortint
+  [35] get_redo_num           [55] read_loop (io.c)      [124] write_sum_head
+  [80] get_stat_xattr         [32] read_msg_fd (io.c)     [14] writefd (io.c)
+  [81] got_flist_entry_status (io.c) [104] read_ndx       [23] writefd_unbuffered (io.c)
+  [82] handle_stats (main.c)  [42] read_sbuf             [125] x_lstat
+  [83] init_flist             [31] read_timeout (io.c)    [13] <cycle 1>
+  [84] io_end_buffering_in    [56] read_varint
+  [85] io_end_multiplex_in    [43] read_varlong
