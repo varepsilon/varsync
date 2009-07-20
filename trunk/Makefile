@@ -9,7 +9,6 @@ mandir=${datarootdir}/man
 
 LIBS=-lacl -lpopt 
 CC=gcc -std=gnu99
-CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W
 CPPFLAGS=
 EXEEXT=
 LDFLAGS=
@@ -195,8 +194,6 @@ clean: cleantests
 
 cleantests:
 	rm -rf ./testtmp*
-	rm $(srcdir)/testsuite/chown-fake.test
-	rm $(srcdir)/testsuite/devices-fake.test
 
 
 # We try to delete built files from both the source and build
