@@ -1,7 +1,10 @@
+<wiki:toc max_depth="3" />
 = Profiling =
 Profiling results:
 
-== 20.07.09 (-O2 -pg) ==
+== 20.07.09 ==
+Profile for *opera* test pair using -02 compiler option:
+=== Before optimizing mod2 function ===
   * *Server*:
 {{{
  %   cumulative   self              self     total           
@@ -21,4 +24,27 @@ Profiling results:
  time   seconds   seconds    calls  ms/call  ms/call  name
  57.14      0.12     0.12     2983     0.04     0.04  get_checksum2
  42.86      0.21     0.09     2983     0.03     0.03  get_checksum1
+}}}
+
+=== After optimizing mod2 function ===
+  * *Server*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 40.30      0.27     0.27  8849944     0.00     0.00  update_checksum1
+ 23.88      0.43     0.16        1   160.00   640.02  match_sums
+ 16.42      0.54     0.11 17699888     0.00     0.00  getminuspower
+ 11.94      0.62     0.08  8850506     0.00     0.00  map_ptr
+  2.99      0.64     0.02   138441     0.00     0.00  md5_process
+  2.99      0.66     0.02                             mod2
+  1.49      0.67     0.01       88     0.11     0.11  read_loop
+}}}
+
+  * *Client*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 71.43      0.10     0.10     2983     0.03     0.03  get_checksum1
+ 14.29      0.12     0.02     2983     0.01     0.01  get_checksum2
+ 14.29      0.14     0.02        1    20.00   140.00  recv_generator
 }}}
