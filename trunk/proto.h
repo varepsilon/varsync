@@ -22,7 +22,7 @@ void read_stream_flags(int fd);
 void check_batch_flags(void);
 void write_batch_shell_file(int argc, char *argv[], int file_arg_cnt);
 uint32 get_checksum1(char *buf1, int32 len);
-uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more);
+uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more);
 uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p);
 uint64 mod2(uint64 x);
 void file_checksum(char *fname, char *sum, OFF_T size);

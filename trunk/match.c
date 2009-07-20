@@ -144,7 +144,7 @@ static void hash_search(int f, struct sum_struct *s,
 	OFF_T offset, end;
 	int32 k, want_i, backup;
 	char sum2[SUM_LENGTH];
-	uint32 s1, s2, sum; /* TODO: s1 and s2 should be incapsulated */
+	uint32 sum, sum0; /* TODO: s1 and s2 should be incapsulated */
 	int more;
 	schar *map;
 
@@ -162,11 +162,9 @@ static void hash_search(int f, struct sum_struct *s,
 	map = (schar *)map_ptr(buf, 0, k);
 
 	sum = get_checksum1((char *)map, k);
-	s1 = sum & 0xFFFF;
-	s2 = sum >> 16;
+    sum0 = sum;
 	if (verbose > 3)
 		rprintf(FINFO, "sum=%.8x k=%ld\n", sum, (long)k);
-
 	offset = 0;
 
 	end = len + 1 - s->sums[s->count-1].len;
@@ -181,16 +179,16 @@ static void hash_search(int f, struct sum_struct *s,
 		int32 i;
 
 		if (verbose > 4) {
-			rprintf(FINFO, "offset=%.0f sum=%04x%04x\n",
-				(double)offset, s2 & 0xFFFF, s1 & 0xFFFF);
+			rprintf(FINFO, "offset=%.0f sum=%.8x\n",
+				(double)offset, sum0); 
 		}
 
 		if (tablesize == TRADITIONAL_TABLESIZE) {
-			if ((i = hash_table[SUM2HASH2(s1,s2)]) < 0)
+			if ((i = hash_table[SUM2HASH(sum0)]) < 0)
 				goto null_hash;
-			sum = (s1 & 0xffff) | (s2 << 16);
+			sum = sum0;
 		} else {
-			sum = (s1 & 0xffff) | (s2 << 16);
+			sum = sum0; 
 			if ((i = hash_table[BIG_SUM2HASH(sum)]) < 0)
 				goto null_hash;
 		}
@@ -283,8 +281,7 @@ static void hash_search(int f, struct sum_struct *s,
 			k = (int32)MIN((OFF_T)s->blength, len-offset);
 			map = (schar *)map_ptr(buf, offset, k);
 			sum = get_checksum1((char *)map, k);
-			s1 = sum & 0xFFFF;
-			s2 = sum >> 16;
+            sum0 = sum;
 			matches++;
 			break;
 		} while ((i = s->sums[i].chain) >= 0);
@@ -298,9 +295,8 @@ static void hash_search(int f, struct sum_struct *s,
 		more = (offset + k) < len;  // round brackets were added for clarity
 		map = (schar *)map_ptr(buf, offset - backup, k + more + backup)
 		    + backup;
-        sum = update_checksum1(s1, s2, map, k, more);
-	    s1 = sum & 0xffff;
-		s2 = sum >> 16;
+        sum = update_checksum1(sum0, map, k, more);
+        sum0 = sum;
 	    if (!more)
             --k;
 
