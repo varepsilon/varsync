@@ -59,11 +59,10 @@ TEST_PAIRS_LIST.each do |test_pair|
            rsync_type.capitalize, test_pair)
       # prepare test_pair:
         # TODO: correct directory handling (trailing slash)
-        # (now we need to place directory named rsync_new in rsync_old)
       FileUtils.rm_rf(old)
-      FileUtils.rm_rf(new)
       FileUtils.cp_r(original_old, old)
-      FileUtils.cp_r(original_new, new)
+#      FileUtils.rm_rf(new)
+#      FileUtils.cp_r(original_new, new)
       # now run rsync itself
       run_time = Benchmark.realtime do
         # puts("Starting command: #{rsync_cmd}")
