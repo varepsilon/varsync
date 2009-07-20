@@ -144,7 +144,7 @@ static void hash_search(int f, struct sum_struct *s,
 	OFF_T offset, end;
 	int32 k, want_i, backup;
 	char sum2[SUM_LENGTH];
-	uint32 sum, sum0; /* TODO: s1 and s2 should be incapsulated */
+	uint32 sum, sum0; 
 	int more;
 	schar *map;
 
