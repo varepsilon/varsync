@@ -111,3 +111,69 @@ Total bytes sent: 8852484
 sent 8852484 bytes  received 71623 bytes  3569642.80 bytes/sec
 total size is 8860196  speedup is 0.99
 Execution time: 1.85641813278198
+
+== 20.07.09 (--random2 only) ==
+	 Stats for *Orig* rsync on ident test pair:
+total: matches=1010  hash_hits=1011  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4318
+sent 4318 bytes  received 6097 bytes  6943.33 bytes/sec
+total size is 1018267  speedup is 97.77
+Execution time: 0.230387926101685
+	 Stats for *Random* rsync on ident test pair:
+total: matches=1010  hash_hits=1011  false_alarms=0 data=187
+Literal data: 187 bytes
+Matched data: 1018080 bytes
+Total bytes sent: 4318
+sent 4318 bytes  received 24295 bytes  57226.00 bytes/sec
+total size is 1018267  speedup is 35.59
+Execution time: 0.198787927627563
+	 Stats for *Orig* rsync on rsync test pair:
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+Literal data: 808580 bytes
+Matched data: 0 bytes
+Total bytes sent: 808767
+sent 808767 bytes  received 5347 bytes  1628228.00 bytes/sec
+total size is 808580  speedup is 0.99
+Execution time: 0.262173175811768
+	 Stats for *Random* rsync on rsync test pair:
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+Literal data: 808580 bytes
+Matched data: 0 bytes
+Total bytes sent: 808767
+sent 808767 bytes  received 21295 bytes  1660124.00 bytes/sec
+total size is 808580  speedup is 0.97
+Execution time: 0.268346071243286
+	 Stats for *Orig* rsync on opera test pair:
+total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852476
+sent 8852476 bytes  received 17929 bytes  3548162.00 bytes/sec
+total size is 8860196  speedup is 1.00
+Execution time: 2.19739603996277
+	 Stats for *Random* rsync on opera test pair:
+total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
+Literal data: 8851292 bytes
+Matched data: 8904 bytes
+Total bytes sent: 8852476
+sent 8852476 bytes  received 71623 bytes  5949399.33 bytes/sec
+total size is 8860196  speedup is 0.99
+Execution time: 1.33540487289429
+	 Stats for *Orig* rsync on samba test pair:
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+Literal data: 44809008 bytes
+Matched data: 66458832 bytes
+Total bytes sent: 44842896
+sent 44842896 bytes  received 73895 bytes  1425929.87 bytes/sec
+total size is 111267840  speedup is 2.48
+Execution time: 32.694540977478
+	 Stats for *Random* rsync on samba test pair:
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+Literal data: 44809008 bytes
+Matched data: 66458832 bytes
+Total bytes sent: 44842896
+sent 44842896 bytes  received 253279 bytes  1701742.45 bytes/sec
+total size is 111267840  speedup is 2.47
+Execution time: 28.0835289955139
