@@ -25,7 +25,6 @@ extern int checksum_seed;
 extern int protocol_version;
 extern int use_random;      
 extern int use_random2;
-extern int use_twosums;
 
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
@@ -210,7 +209,7 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         return 0;
     }
     else {
-        uint64 s; // TODO: still doesn't work sometimes...
+        uint64 s; 
         int32 i;
         unsigned char *buf1 = (unsigned char *)buf; 
 
@@ -232,8 +231,8 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
     }
 }
 
-/* Get residue modulo base. Optimized(?) version */
-// TODO: works only for base = 2^16 - 15
+/* Get residue modulo base. Optimized version */
+/* NOTE: works only for base = 2^16 - 15 */
 uint32 mod1(uint32 x)
 {
    while (x >= 65536) {
@@ -250,7 +249,7 @@ uint32 mod1(uint32 x)
 }
 
 /* Get residue modulo base2. Optimized version */
-// TODO: works only for base2 = 2^31 - 1
+/* NOTE: works only for base2 = 2^31 - 1 */
 uint64 mod2(uint64 x)
 {
     while (x > base2) {

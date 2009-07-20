@@ -1193,7 +1193,7 @@ int recv_random_data(int f)
 {
     p1 = read_int(f);
     p2 = read_int(f);
-    if (p1 <= 0 || p2 <= 0) {   // TODO: replace by error handling
+    if (p1 <= 0 || p2 <= 0 || p1 > base || p2 > base) { 
         return -1;
     }
     return 0;
@@ -1207,8 +1207,8 @@ int send_random_data(int f)
     }
     randInit = time(0);
     srand(randInit);
-    p1 = rand() & 0xffff; //TODO: works only for base = 2^16 + 1
-    p2 = rand() & 0xffff;
+    p1 = rand() % base; 
+    p2 = rand() % base; 
     write_int(f, p1);
     write_int(f, p2);
     return 0;

@@ -585,12 +585,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 17) / 34)
+let s:l = 13 - ((12 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 012l
+13
+normal! 03l
 tabedit options.c
 set splitbelow splitright
 set nosplitbelow
@@ -692,12 +692,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1111 - ((16 * winheight(0) + 17) / 34)
+let s:l = 181 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1111
-normal! 013l
+181
+normal! 08l
 tabedit checksum.c
 set splitbelow splitright
 set nosplitbelow
@@ -809,9 +809,9 @@ silent! normal! zE
 127,215fold
 216,266fold
 47
-normal zo
+normal zc
 84
-normal zo
+normal zc
 127
 normal zo
 127
@@ -819,16 +819,16 @@ normal zo
 130
 normal zo
 131
-normal zo
+normal zc
 130
-normal zo
+normal zc
 127
-normal zo
+normal zc
 127
-normal zo
+normal zc
 216
-normal zo
-let s:l = 206 - ((16 * winheight(0) + 17) / 34)
+normal zc
+let s:l = 206 - ((79 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1267,12 +1267,12 @@ silent! normal! zE
 349,368fold
 349
 normal zc
-let s:l = 184 - ((1 * winheight(0) + 17) / 34)
+let s:l = 186 - ((3 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-184
-normal! 034l
+186
+normal! 030l
 tabedit rsync.h
 set splitbelow splitright
 set nosplitbelow
@@ -1493,7 +1493,7 @@ exe s:l
 normal! zt
 25
 normal! 011l
-tabnext 5
+tabnext 3
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

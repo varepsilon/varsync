@@ -178,7 +178,6 @@ int verbose = 0;
 int quiet = 0;
 int use_random = 0;         
 int use_random2 = 0;
-int use_twosums = 0;
 int output_motd = 1;
 int log_before_transfer = 0;
 int stdout_format_has_i = 0;
@@ -320,11 +319,8 @@ void usage(enum logcode F)
   rprintf(F," -v, --verbose               increase verbosity\n");
   rprintf(F," -q, --quiet                 suppress non-error messages\n");
   rprintf(F,"     --random                use random implementation for rolling sum\n"); 
-//TODO: not implemented
-  rprintf(F,"     --twosums              rolling sum consist of two sums "\
-          "(use it with --random option, original implementation always uses two sums)\n"); 
   rprintf(F,"     --random2               use random implementation of strong checksum "\
-          "(use this option with care!)\n"); 
+          "(use this option only if you're lucky enough!)\n"); 
   rprintf(F,"     --no-motd               suppress daemon-mode MOTD (see manpage caveat)\n");
   rprintf(F," -c, --checksum              skip based on checksum, not mod-time & size\n");
   rprintf(F," -a, --archive               archive mode; equals -rlptgoD (no -H,-A,-X)\n");
@@ -456,7 +452,7 @@ enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,
       OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,
       OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,
       OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,
-      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_RANDOM, OPT_RANDOM2, OPT_TWOSUMS,
+      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_RANDOM, OPT_RANDOM2, 
       OPT_SERVER, OPT_REFUSED_BASE = 9000};
 
 static struct poptOption long_options[] = {
@@ -468,7 +464,6 @@ static struct poptOption long_options[] = {
   {"no-v",             0,  POPT_ARG_VAL,    &verbose, 0, 0, 0 },
   {"quiet",           'q', POPT_ARG_NONE,   0, 'q', 0, 0 },
   {"random",           0,  POPT_ARG_NONE,   0, OPT_RANDOM, 0, 0 },
-  {"twosums",         0,  POPT_ARG_NONE,   0, OPT_TWOSUMS, 0, 0 },
   {"random2",          0,  POPT_ARG_NONE,   0, OPT_RANDOM2, 0, 0 },
   {"motd",             0,  POPT_ARG_VAL,    &output_motd, 1, 0, 0 },
   {"no-motd",          0,  POPT_ARG_VAL,    &output_motd, 0, 0, 0 },
@@ -1115,10 +1110,6 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 
         case OPT_RANDOM:
             use_random = 1;
-            break;
-
-        case OPT_TWOSUMS:
-            use_twosums = 1;
             break;
 
         case OPT_RANDOM2:
