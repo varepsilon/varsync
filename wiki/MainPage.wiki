@@ -1,14 +1,14 @@
 #summary Varsync wiki (main page).
-
-= Welcome to the varsync wiki! =
+_Welcome to the varsync wiki!_
+<wiki:toc max_depth="3" />
 
 Work is in progress now.
-== Statistics ==
+= Statistics =
 Stats can be viewed [http://code.google.com/p/varsync/wiki/stats here].
-== Profiling ==
+= Profiling =
 Profiling results can be viewed [http://code.google.com/p/varsync/wiki/profiling here].
-== Different implementations: ==
-=== Random implementation ===
+= Different implementations: =
+== Random implementation ==
 Random implementation comprise two ideas:
   # Random-based weak checksum (--random option)
   # Random-based strong checksum (--random2 option)
