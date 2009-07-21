@@ -51,7 +51,7 @@ Profile for *opera* test pair using -02 compiler option:
 }}}
 
 == 21.07.09 ==
-Now we use -O1 compiler option and implementation of "--random" option has been changed:
+Now we use -O1 compiler option. *NOTE*: implementation of "--random" option has been changed.
   * *Server*:
 {{{
  %   cumulative   self              self     total           
