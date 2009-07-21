@@ -65,13 +65,14 @@ uint32 get_checksum1(char *buf1, int32 len)
     }
     else {
         int32 i;
-        uint64 s = 0;
+        uint64 s;
         unsigned char *buf = (unsigned char *)buf1; 
 
+        s = 0;
         for (i = 0; i < len; i++) {
             s = mod1((uint64)p1 * s + (uint64)(buf[i]));
         }
-        return (uint32)(s & 0xffffffff); 
+        return (s & 0xffffffff); 
     }
 }
 
@@ -211,7 +212,7 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
             s = mod2((uint64)p * s + (uint64)(buf1[i]));
         }
         /* snprintf takes '\0' into account */
-        // TODO: 016 depends on RANDOM_SUM_LENGTH=16
+        // TODO: %08 depends on RANDOM_SUM_LENGTH=8
         snprintf(sum, RANDOM_SUM_LENGTH+1, "%08" PRIx64, s);    
         return p;
     }
