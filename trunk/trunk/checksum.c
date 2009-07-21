@@ -69,7 +69,7 @@ uint32 get_checksum1(char *buf1, int32 len)
         unsigned char *buf = (unsigned char *)buf1; 
 
         for (i = 0; i < len; i++) {
-            s = mod1(mod1((uint64)p1 * s) + (uint64)(buf[i]));
+            s = mod1((uint64)p1 * s + (uint64)(buf[i]));
         }
         return (uint32)(s & 0xffffffff); 
     }
@@ -100,7 +100,7 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
         minus_p1_k = getminuspower(k);
 
         /* We must avoid using "-" sign due to C bug with negative residues */
-        s = mod1(mod1((uint64)p1 * s) + mod1(minus_p1_k * (uint64)(map1[0])));
+        s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]));
 
         /* Add on the next byte (if there is one) to the checksum */
 		if (more) {
@@ -208,7 +208,7 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 
         s = 0;
         for (i = 0; i < len; i++) {
-            s = mod2(mod2((uint64)p * s) + (uint64)(buf1[i]));
+            s = mod2((uint64)p * s + (uint64)(buf1[i]));
         }
         /* snprintf takes '\0' into account */
         // TODO: 016 depends on RANDOM_SUM_LENGTH=16
