@@ -1,0 +1,462 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 25.93      0.14     0.14                             match_sums
+ 20.37      0.25     0.11  8849944     0.01     0.03  update_checksum1
+ 14.82      0.33     0.08  8849944     0.01     0.01  getminuspower
+ 14.82      0.41     0.08                             map_ptr
+ 12.96      0.48     0.07 17713111     0.00     0.00  mod1
+  5.56      0.51     0.03                             md5_process
+  3.70      0.53     0.02                             main
+  1.85      0.54     0.01     4333     2.31     2.31  writefd_unbuffered
+  0.00      0.54     0.00    41552     0.00     0.00  mod2
+  0.00      0.54     0.00     8973     0.00     0.03  readfd_unbuffered
+  0.00      0.54     0.00     8962     0.00     0.03  readfd
+  0.00      0.54     0.00     5972     0.00     0.03  read_int
+  0.00      0.54     0.00     2983     0.00     0.03  read_buf
+  0.00      0.54     0.00     2221     0.00     4.50  io_flush
+  0.00      0.54     0.00     2169     0.00     0.00  msg_flush
+  0.00      0.54     0.00     2168     0.00     4.61  mplex_write
+  0.00      0.54     0.00      572     0.00    17.03  writefd
+  0.00      0.54     0.00      282     0.00    17.03  write_int
+  0.00      0.54     0.00      275     0.00    17.03  write_buf
+  0.00      0.54     0.00      273     0.00     0.00  sum_update
+  0.00      0.54     0.00       35     0.00     4.50  read_timeout
+  0.00      0.54     0.00       32     0.00     4.50  read_loop
+  0.00      0.54     0.00       14     0.00     0.00  get_checksum2
+  0.00      0.54     0.00        5     0.00     0.03  read_ndx
+  0.00      0.54     0.00        5     0.00    17.03  write_ndx
+  0.00      0.54     0.00        4     0.00    11.73  get_checksum1
+  0.00      0.54     0.00        4     0.00    17.03  write_byte
+  0.00      0.54     0.00        2     0.00     0.00  io_start_buffering_out
+  0.00      0.54     0.00        2     0.00     0.00  set_msg_fd_in
+  0.00      0.54     0.00        2     0.00    17.03  write_shortint
+  0.00      0.54     0.00        2     0.00    17.03  write_varint
+  0.00      0.54     0.00        2     0.00    17.03  write_varlong
+  0.00      0.54     0.00        1     0.00     0.00  io_set_sock_fds
+  0.00      0.54     0.00        1     0.00     0.00  io_start_buffering_in
+  0.00      0.54     0.00        1     0.00     4.50  io_start_multiplex_in
+  0.00      0.54     0.00        1     0.00     4.50  io_start_multiplex_out
+  0.00      0.54     0.00        1     0.00     0.03  read_byte
+  0.00      0.54     0.00        1     0.00     0.03  read_shortint
+  0.00      0.54     0.00        1     0.00     0.10  read_sum_head
+  0.00      0.54     0.00        1     0.00    17.03  send_random_data
+  0.00      0.54     0.00        1     0.00     0.00  set_io_timeout
+  0.00      0.54     0.00        1     0.00     0.00  sum_end
+  0.00      0.54     0.00        1     0.00     0.00  sum_init
+  0.00      0.54     0.00        1     0.00    68.11  write_sum_head
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 1.85% of 0.54 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     74.1    0.14    0.26                 match_sums [1]
+                0.11    0.15 8849944/8849944     update_checksum1 [2]
+                0.00    0.00       4/4           get_checksum1 [27]
+                0.00    0.00       1/275         write_buf [14]
+                0.00    0.00      14/14          get_checksum2 [48]
+                0.00    0.00       1/1           sum_init [55]
+                0.00    0.00       1/1           sum_end [54]
+-----------------------------------------------
+                0.11    0.15 8849944/8849944     match_sums [1]
+[2]     48.1    0.11    0.15 8849944         update_checksum1 [2]
+                0.08    0.00 8849944/8849944     getminuspower [3]
+                0.07    0.00 17698271/17713111     mod1 [5]
+-----------------------------------------------
+                0.08    0.00 8849944/8849944     update_checksum1 [2]
+[3]     14.8    0.08    0.00 8849944         getminuspower [3]
+                0.00    0.00    2968/17713111     mod1 [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[4]     14.8    0.08    0.00                 map_ptr [4]
+-----------------------------------------------
+                0.00    0.00    2968/17713111     getminuspower [3]
+                0.00    0.00   11872/17713111     get_checksum1 [27]
+                0.07    0.00 17698271/17713111     update_checksum1 [2]
+[5]     13.0    0.07    0.00 17713111         mod1 [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[6]      5.6    0.03    0.00                 md5_process [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]      3.7    0.02    0.00                 main [7]
+-----------------------------------------------
+                0.00    0.00       1/4333        writefd [11]
+                0.01    0.00    4332/4333        mplex_write [10]
+[8]      1.9    0.01    0.00    4333         writefd_unbuffered [8]
+                0.00    0.00       1/2169        msg_flush [46]
+-----------------------------------------------
+                0.00    0.00       1/2221        _exit_cleanup [39]
+                0.00    0.00       1/2221        wait_process_with_flush [38]
+                0.00    0.00       1/2221        io_start_multiplex_in [36]
+                0.00    0.00       1/2221        io_start_multiplex_out [37]
+                0.00    0.00       4/2221        client_run [28]
+                0.00    0.00      15/2221        readfd_unbuffered [16]
+                0.00    0.00      35/2221        read_timeout [19]
+                0.00    0.01    2163/2221        writefd [11]
+[9]      1.9    0.00    0.01    2221         io_flush [9]
+                0.00    0.01    2168/2168        mplex_write [10]
+-----------------------------------------------
+                0.00    0.01    2168/2168        io_flush [9]
+[10]     1.9    0.00    0.01    2168         mplex_write [10]
+                0.01    0.00    4332/4333        writefd_unbuffered [8]
+                0.00    0.00    2168/2169        msg_flush [46]
+-----------------------------------------------
+                0.00    0.00       2/572         write_varlong [31]
+                0.00    0.00       2/572         write_varint [30]
+                0.00    0.00       2/572         write_shortint [29]
+                0.00    0.00       4/572         write_byte [26]
+                0.00    0.00       5/572         write_ndx [22]
+                0.00    0.00     275/572         write_buf [14]
+                0.00    0.00     282/572         write_int [13]
+[11]     1.8    0.00    0.01     572         writefd [11]
+                0.00    0.01    2163/2221        io_flush [9]
+                0.00    0.00       1/4333        writefd_unbuffered [8]
+-----------------------------------------------
+                                                 <spontaneous>
+[12]     1.7    0.00    0.01                 send_token [12]
+                0.00    0.00     271/282         write_int [13]
+                0.00    0.00     271/275         write_buf [14]
+-----------------------------------------------
+                0.00    0.00       1/282         send_file_name [18]
+                0.00    0.00       1/282         send_random_data [35]
+                0.00    0.00       1/282         setup_protocol [34]
+                0.00    0.00       4/282         matched [25]
+                0.00    0.00       4/282         write_sum_head [24]
+                0.00    0.00     271/282         send_token [12]
+[13]     0.9    0.00    0.00     282         write_int [13]
+                0.00    0.00     282/572         writefd [11]
+-----------------------------------------------
+                0.00    0.00       1/275         match_sums [1]
+                0.00    0.00       3/275         send_file_name [18]
+                0.00    0.00     271/275         send_token [12]
+[14]     0.9    0.00    0.00     275         write_buf [14]
+                0.00    0.00     275/572         writefd [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[15]     0.1    0.00    0.00                 send_files [15]
+                0.00    0.00    5966/5972        read_int [20]
+                0.00    0.00    2983/2983        read_buf [23]
+                0.00    0.00       1/1           write_sum_head [24]
+                0.00    0.00       3/5           write_ndx [22]
+                0.00    0.00       1/1           read_sum_head [42]
+-----------------------------------------------
+                0.00    0.00    8973/8973        readfd [17]
+[16]     0.0    0.00    0.00    8973         readfd_unbuffered [16]
+                0.00    0.00      32/32          read_loop [21]
+                0.00    0.00      15/2221        io_flush [9]
+                0.00    0.00       3/35          read_timeout [19]
+-----------------------------------------------
+                0.00    0.00       1/8962        read_byte [43]
+                0.00    0.00       1/8962        read_shortint [44]
+                0.00    0.00       5/8962        read_ndx [41]
+                0.00    0.00    2983/8962        read_buf [23]
+                0.00    0.00    5972/8962        read_int [20]
+[17]     0.0    0.00    0.00    8962         readfd [17]
+                0.00    0.00    8973/8973        readfd_unbuffered [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[18]     0.0    0.00    0.00                 send_file_name [18]
+                0.00    0.00       3/275         write_buf [14]
+                0.00    0.00       3/4           write_byte [26]
+                0.00    0.00       2/2           write_varlong [31]
+                0.00    0.00       2/2           write_varint [30]
+                0.00    0.00       1/282         write_int [13]
+                0.00    0.00       1/2           write_shortint [29]
+-----------------------------------------------
+                0.00    0.00       3/35          readfd_unbuffered [16]
+                0.00    0.00      32/35          read_loop [21]
+[19]     0.0    0.00    0.00      35         read_timeout [19]
+                0.00    0.00      35/2221        io_flush [9]
+-----------------------------------------------
+                0.00    0.00       2/5972        setup_protocol [34]
+                0.00    0.00       4/5972        read_sum_head [42]
+                0.00    0.00    5966/5972        send_files [15]
+[20]     0.0    0.00    0.00    5972         read_int [20]
+                0.00    0.00    5972/8962        readfd [17]
+-----------------------------------------------
+                0.00    0.00      32/32          readfd_unbuffered [16]
+[21]     0.0    0.00    0.00      32         read_loop [21]
+                0.00    0.00      32/35          read_timeout [19]
+-----------------------------------------------
+                0.00    0.00       1/5           send_file_list [32]
+                0.00    0.00       1/5           write_ndx_and_attrs [33]
+                0.00    0.00       3/5           send_files [15]
+[22]     0.0    0.00    0.00       5         write_ndx [22]
+                0.00    0.00       5/572         writefd [11]
+-----------------------------------------------
+                0.00    0.00    2983/2983        send_files [15]
+[23]     0.0    0.00    0.00    2983         read_buf [23]
+                0.00    0.00    2983/8962        readfd [17]
+-----------------------------------------------
+                0.00    0.00       1/1           send_files [15]
+[24]     0.0    0.00    0.00       1         write_sum_head [24]
+                0.00    0.00       4/282         write_int [13]
+-----------------------------------------------
+                                                 <spontaneous>
+[25]     0.0    0.00    0.00                 matched [25]
+                0.00    0.00       4/282         write_int [13]
+                0.00    0.00     273/273         sum_update [47]
+-----------------------------------------------
+                0.00    0.00       1/4           send_file_list [32]
+                0.00    0.00       3/4           send_file_name [18]
+[26]     0.0    0.00    0.00       4         write_byte [26]
+                0.00    0.00       4/572         writefd [11]
+-----------------------------------------------
+                0.00    0.00       4/4           match_sums [1]
+[27]     0.0    0.00    0.00       4         get_checksum1 [27]
+                0.00    0.00   11872/17713111     mod1 [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[28]     0.0    0.00    0.00                 client_run [28]
+                0.00    0.00       4/2221        io_flush [9]
+                0.00    0.00       1/1           send_random_data [35]
+                0.00    0.00       1/1           io_start_multiplex_out [37]
+                0.00    0.00       1/1           io_start_multiplex_in [36]
+                0.00    0.00       1/1           io_set_sock_fds [51]
+                0.00    0.00       1/2           set_msg_fd_in [50]
+-----------------------------------------------
+                0.00    0.00       1/2           send_file_name [18]
+                0.00    0.00       1/2           write_ndx_and_attrs [33]
+[29]     0.0    0.00    0.00       2         write_shortint [29]
+                0.00    0.00       2/572         writefd [11]
+-----------------------------------------------
+                0.00    0.00       2/2           send_file_name [18]
+[30]     0.0    0.00    0.00       2         write_varint [30]
+                0.00    0.00       2/572         writefd [11]
+-----------------------------------------------
+                0.00    0.00       2/2           send_file_name [18]
+[31]     0.0    0.00    0.00       2         write_varlong [31]
+                0.00    0.00       2/572         writefd [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[32]     0.0    0.00    0.00                 send_file_list [32]
+                0.00    0.00       1/5           write_ndx [22]
+                0.00    0.00       1/4           write_byte [26]
+                0.00    0.00       1/2           io_start_buffering_out [49]
+                0.00    0.00       1/2           set_msg_fd_in [50]
+-----------------------------------------------
+                                                 <spontaneous>
+[33]     0.0    0.00    0.00                 write_ndx_and_attrs [33]
+                0.00    0.00       1/5           write_ndx [22]
+                0.00    0.00       1/2           write_shortint [29]
+-----------------------------------------------
+                                                 <spontaneous>
+[34]     0.0    0.00    0.00                 setup_protocol [34]
+                0.00    0.00       1/282         write_int [13]
+                0.00    0.00       2/5972        read_int [20]
+                0.00    0.00       1/1           read_byte [43]
+-----------------------------------------------
+                0.00    0.00       1/1           client_run [28]
+[35]     0.0    0.00    0.00       1         send_random_data [35]
+                0.00    0.00       1/282         write_int [13]
+-----------------------------------------------
+                0.00    0.00       1/1           client_run [28]
+[36]     0.0    0.00    0.00       1         io_start_multiplex_in [36]
+                0.00    0.00       1/2221        io_flush [9]
+                0.00    0.00       1/1           io_start_buffering_in [52]
+-----------------------------------------------
+                0.00    0.00       1/1           client_run [28]
+[37]     0.0    0.00    0.00       1         io_start_multiplex_out [37]
+                0.00    0.00       1/2221        io_flush [9]
+                0.00    0.00       1/2           io_start_buffering_out [49]
+-----------------------------------------------
+                                                 <spontaneous>
+[38]     0.0    0.00    0.00                 wait_process_with_flush [38]
+                0.00    0.00       1/2221        io_flush [9]
+-----------------------------------------------
+                                                 <spontaneous>
+[39]     0.0    0.00    0.00                 _exit_cleanup [39]
+                0.00    0.00       1/2221        io_flush [9]
+-----------------------------------------------
+                                                 <spontaneous>
+[40]     0.0    0.00    0.00                 read_ndx_and_attrs [40]
+                0.00    0.00       5/5           read_ndx [41]
+                0.00    0.00       1/1           read_shortint [44]
+-----------------------------------------------
+                0.00    0.00       5/5           read_ndx_and_attrs [40]
+[41]     0.0    0.00    0.00       5         read_ndx [41]
+                0.00    0.00       5/8962        readfd [17]
+-----------------------------------------------
+                0.00    0.00       1/1           send_files [15]
+[42]     0.0    0.00    0.00       1         read_sum_head [42]
+                0.00    0.00       4/5972        read_int [20]
+-----------------------------------------------
+                0.00    0.00       1/1           setup_protocol [34]
+[43]     0.0    0.00    0.00       1         read_byte [43]
+                0.00    0.00       1/8962        readfd [17]
+-----------------------------------------------
+                0.00    0.00       1/1           read_ndx_and_attrs [40]
+[44]     0.0    0.00    0.00       1         read_shortint [44]
+                0.00    0.00       1/8962        readfd [17]
+-----------------------------------------------
+                0.00    0.00   41552/41552       get_checksum2 [48]
+[45]     0.0    0.00    0.00   41552         mod2 [45]
+-----------------------------------------------
+                0.00    0.00       1/2169        writefd_unbuffered [8]
+                0.00    0.00    2168/2169        mplex_write [10]
+[46]     0.0    0.00    0.00    2169         msg_flush [46]
+-----------------------------------------------
+                0.00    0.00     273/273         matched [25]
+[47]     0.0    0.00    0.00     273         sum_update [47]
+-----------------------------------------------
+                0.00    0.00      14/14          match_sums [1]
+[48]     0.0    0.00    0.00      14         get_checksum2 [48]
+                0.00    0.00   41552/41552       mod2 [45]
+-----------------------------------------------
+                0.00    0.00       1/2           send_file_list [32]
+                0.00    0.00       1/2           io_start_multiplex_out [37]
+[49]     0.0    0.00    0.00       2         io_start_buffering_out [49]
+-----------------------------------------------
+                0.00    0.00       1/2           send_file_list [32]
+                0.00    0.00       1/2           client_run [28]
+[50]     0.0    0.00    0.00       2         set_msg_fd_in [50]
+-----------------------------------------------
+                0.00    0.00       1/1           client_run [28]
+[51]     0.0    0.00    0.00       1         io_set_sock_fds [51]
+-----------------------------------------------
+                0.00    0.00       1/1           io_start_multiplex_in [36]
+[52]     0.0    0.00    0.00       1         io_start_buffering_in [52]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_arguments [376]
+[53]     0.0    0.00    0.00       1         set_io_timeout [53]
+-----------------------------------------------
+                0.00    0.00       1/1           match_sums [1]
+[54]     0.0    0.00    0.00       1         sum_end [54]
+-----------------------------------------------
+                0.00    0.00       1/1           match_sums [1]
+[55]     0.0    0.00    0.00       1         sum_init [55]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [27] get_checksum1          [10] mplex_write            [54] sum_end
+  [48] get_checksum2          [46] msg_flush              [55] sum_init
+   [3] getminuspower          [23] read_buf               [47] sum_update
+   [9] io_flush               [43] read_byte               [2] update_checksum1
+  [51] io_set_sock_fds        [20] read_int               [14] write_buf
+  [52] io_start_buffering_in  [21] read_loop              [26] write_byte
+  [49] io_start_buffering_out [41] read_ndx               [13] write_int
+  [36] io_start_multiplex_in  [44] read_shortint          [22] write_ndx
+  [37] io_start_multiplex_out [42] read_sum_head          [29] write_shortint
+   [7] main                   [19] read_timeout           [24] write_sum_head
+   [4] map_ptr                [17] readfd                 [30] write_varint
+   [1] match_sums             [16] readfd_unbuffered      [31] write_varlong
+   [6] md5_process            [35] send_random_data       [11] writefd
+   [5] mod1                   [53] set_io_timeout          [8] writefd_unbuffered
+  [45] mod2                   [50] set_msg_fd_in

@@ -142,9 +142,6 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 
         if (p == 0) {
             /* generate p */
-            uint32 randinit;
-            randinit = time(0);
-            srand(randinit);
             p = rand() % base2;
         }
 
@@ -169,6 +166,10 @@ int main(int argc,char *argv[])
     uint32 orig_sum;
     uint32 p;
     const int32 bufsize = 750;
+
+    uint32 randinit;
+    randinit = time(0);
+    srand(randinit);
 
     buf = calloc(sizeof(char), 2 * bufsize);
     for(i=0; i<bufsize; i++)
