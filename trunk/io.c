@@ -1199,10 +1199,6 @@ int recv_random_data(int f)
 
 int send_random_data(int f)
 {
-    uint32 randInit;
-
-    randInit = time(0);
-    srand(randInit);
     p1 = rand() % base; 
     if (verbose) {
         rprintf(FCLIENT, "sending random data; p1 = %u\n", p1);
