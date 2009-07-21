@@ -1,4 +1,5 @@
 #summary Varsync wiki (main page).
+#labels Featured
 _Welcome to the varsync wiki!_
 <wiki:toc max_depth="3" />
 
