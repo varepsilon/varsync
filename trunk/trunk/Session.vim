@@ -317,7 +317,6 @@ set guifont=Consolas\ 13
 set guioptions=acirm
 set helplang=ru
 set hlsearch
-set iminsert=0
 set imsearch=0
 set incsearch
 set lazyredraw
@@ -345,7 +344,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +6 testsuite/ssh-basic.test
-badd +177 Makefile
+badd +13 Makefile
 badd +256 runtests.sh
 badd +24 ./benchmark/run.rb
 badd +57 ~/progs/projects/site-queries/trunk/proto/lib/run.rb
@@ -362,11 +361,11 @@ badd +9 drafts/1.c
 badd +71 proto.h
 badd +33 lib/compat.c
 badd +754 receiver.c
-badd +227 generator.c
+badd +1226 generator.c
 badd +294 match.c
-badd +535 clientserver.c
-badd +77 sender.c
-badd +900 main.c
+badd +706 clientserver.c
+badd +25 sender.c
+badd +1030 main.c
 badd +1204 io.c
 badd +32 io.h
 badd +30 errcode.h
@@ -377,6 +376,8 @@ badd +33 lib/md5.c
 badd +124 ./test/checksum_test.c
 badd +1 lib/mdigest.h
 badd +215 ~/.viminfo
+badd +20 pipe.c
+badd +52 loadparm.c
 args testsuite/ssh-basic.test
 edit ./benchmark/run.rb
 set splitbelow splitright
@@ -478,119 +479,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 51 - ((25 * winheight(0) + 17) / 34)
+let s:l = 22 - ((17 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-51
-normal! 0
-tabedit Makefile
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:#\ -,mO:#\ \ ,b:#
-setlocal commentstring=#\ %s
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'make'
-setlocal filetype=make
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=^\\s*include
-setlocal includeexpr=
-setlocal indentexpr=GetMakeIndent()
-setlocal indentkeys=!^F,o,O,<:>,=else,=endif
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=ru,en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'make'
-setlocal syntax=make
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 13 - ((12 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-13
-normal! 03l
+22
+normal! 035l
 tabedit options.c
 set splitbelow splitright
 set nosplitbelow
@@ -692,12 +586,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 181 - ((16 * winheight(0) + 17) / 34)
+let s:l = 19 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-181
-normal! 08l
+19
+normal! 045l
 tabedit checksum.c
 set splitbelow splitright
 set nosplitbelow
@@ -801,39 +695,44 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-47,82fold
-84,117fold
-131,215fold
-130,215fold
-127,215fold
-127,215fold
-216,266fold
-47
-normal zc
-84
-normal zc
-127
+45,78fold
+80,107fold
+121,202fold
+120,202fold
+117,202fold
+117,202fold
+203,253fold
+45,253fold
+45
 normal zo
-127
+45
 normal zo
-130
+80
 normal zo
-131
-normal zc
-130
-normal zc
-127
-normal zc
-127
-normal zc
-216
-normal zc
-let s:l = 206 - ((79 * winheight(0) + 17) / 34)
+117
+normal zo
+117
+normal zo
+120
+normal zo
+121
+normal zo
+120
+normal zo
+117
+normal zo
+117
+normal zo
+203
+normal zo
+45
+normal zo
+let s:l = 96 - ((18 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-206
-normal! 012l
+96
+normal! 028l
 tabedit ./test/checksum_test.c
 set splitbelow splitright
 set nosplitbelow
@@ -1046,13 +945,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1312 - ((32 * winheight(0) + 17) / 34)
+let s:l = 1208 - ((24 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1312
-normal! 0
-tabedit generator.c
+1208
+normal! 022l
+tabedit main.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -1101,7 +1000,7 @@ setlocal formatexpr=
 setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
-setlocal iminsert=0
+setlocal iminsert=2
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
@@ -1155,12 +1054,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((16 * winheight(0) + 17) / 34)
+let s:l = 900 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
-normal! 011l
+900
+normal! 012l
 tabedit match.c
 set splitbelow splitright
 set nosplitbelow
@@ -1264,15 +1163,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-349,368fold
-349
+348,367fold
+348
 normal zc
-let s:l = 186 - ((3 * winheight(0) + 17) / 34)
+let s:l = 19 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-186
-normal! 030l
+19
+normal! 045l
 tabedit rsync.h
 set splitbelow splitright
 set nosplitbelow
@@ -1383,117 +1282,7 @@ exe s:l
 normal! zt
 591
 normal! 08l
-tabedit sender.c
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-set linebreak
-setlocal linebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-set number
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-set spell
-setlocal spell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=ru,en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 25 - ((17 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-25
-normal! 011l
-tabnext 3
+tabnext 2
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

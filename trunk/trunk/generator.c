@@ -785,14 +785,13 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 		    blength = MAX(blength, BLOCK_SIZE);
 		}
 	}
-
-	if (protocol_version < 27) {
+    if (use_random2) {
+        s2length = RANDOM_SUM_LENGTH;
+    } else if (protocol_version < 27) {
 		s2length = csum_length;
 	} else if (csum_length == SUM_LENGTH) {
 		s2length = SUM_LENGTH;
-    } else if (use_random2) {
-        s2length = RANDOM_SUM_LENGTH;
-	}  else {
+	} else {
 		int32 c;
 		int b = BLOCKSUM_BIAS;
         /* calculate log2(file_length) */
