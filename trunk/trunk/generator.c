@@ -833,6 +833,11 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 	struct map_struct *mapbuf;
 	struct sum_struct sum;
 	OFF_T offset = 0;
+    uint32 randInit;
+
+    /* Initialize pseudo-random generator */
+    randInit = time(0);
+    srand(randInit);
 
 	sum_sizes_sqroot(&sum, len);
 	if (sum.count < 0)
