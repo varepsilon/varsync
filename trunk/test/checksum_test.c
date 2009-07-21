@@ -4,22 +4,20 @@ int use_random = 1;      /* TODO: may be it must be done using
                               SUBPROTOCOL_VERSION ? */
 int use_random2 = 1;
 
-uint32 p1 = 65000;
-uint32 p2 = 33402;
-const uint32 base = 65521;  /* (prime) */     
+uint32 p1 = 2147483646;
                                         // TODO: base which is not 2^n !
-const uint32 base2 = 2147483647; /* 2^31-1 (prime)*/
+const uint64 base = 2147483647; /* 2^31-1 (prime)*/
+const uint64 base2 = 2147483647; /* 2^31-1 (prime)*/
 
-static uint32 powers[2][MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
+static uint64 powers[MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */ 
 static int32 pow_avail = 0;             /* maximum power available */
 
 
-/*
-  1) A simple 32 bit checksum that can be updated from either end
-  (inspired by Mark Adler's Adler-32 checksum)
-  2) Random-based polynomial checksum with the same rolling property
-  (inspired by famous communication complexity problem of file comparison)
-*/
+/* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
+ * returned (p is ignored).
+ * 2) Random-based checksum calculated in the point p will be written in the sum buffer. If p is equal to 0 it will be random-generated.
+
+ */
 uint32 get_checksum1(char *buf1, int32 len)
 {
     if (!use_random) {
@@ -41,27 +39,24 @@ uint32 get_checksum1(char *buf1, int32 len)
         }
         return (s1 & 0xffff) + (s2 << 16);
     }
-    else
-    {
+    else {
         int32 i;
-        uint32 s1, s2;
-        unsigned char *buf;
+        uint64 s = 0;
+        unsigned char *buf = (unsigned char *)buf1; 
 
-        buf = (unsigned char *)buf1;
-
-        s1 = s2 = 0;
         for (i = 0; i < len; i++) {
-            // printf("Partial: s1 = %ld, s2 = %ld...\n", s1, s2);
-            s1 = ((p1 * s1) % base + buf[i]) % base;
-            s2 = ((p2 * s2) % base + buf[i]) % base;
+            s = mod1(mod1((uint64)p1 * s) + (uint64)(buf[i]));
         }
-        return (s1 & 0xffff) + (s2 << 16);
+        return (uint32)(s & 0xffffffff); 
     }
 }
 
-uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
+uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 {
     if (!use_random) {
+        uint32 s1, s2;
+        s1 = sum0 & 0xffff;
+        s2 = sum0 >> 16;
 		/* Trim off the first byte from the checksum */
 		s1 -= map[0] + CHAR_OFFSET;
 		s2 -= k * (map[0] + CHAR_OFFSET);
@@ -74,32 +69,66 @@ uint32 update_checksum1(uint32 s1, uint32 s2, schar *map, int32 k, int more)
         return (s1 & 0xffff) | (s2 << 16);
     }
     else {
-        uint32 minus_p1_k;   // p_1 to the power of k
-        uint32 minus_p2_k;
-        unsigned char *map1;
+        uint64 minus_p1_k;   
+        uint64 s = (uint64)sum0;
+        unsigned char *map1 = (unsigned char *)map;
 
-        map1 = (unsigned char *) (map);
+        minus_p1_k = getminuspower(k);
 
-        minus_p1_k = getminuspower(1, k);
-        minus_p2_k = getminuspower(2, k); 
-
-        s1 = ((s1 * p1) % base + (minus_p1_k * map1[0]) % base) % base;
-        s2 = ((s2 * p2) % base + (minus_p2_k * map1[0]) % base) % base;
+        /* We must avoid using "-" sign due to C bug with negative residues */
+        s = mod1(mod1((uint64)p1 * s) + mod1(minus_p1_k * (uint64)(map1[0])));
 
         /* Add on the next byte (if there is one) to the checksum */
 		if (more) {
-			s1 = (s1 + map1[k]) % base;
-			s2 = (s2 + map1[k]) % base;
+			s = mod1(s + map1[k]);
 		}
-        return (s1 & 0xffff) | (s2 << 16);
+        return (uint32)(s & 0xffffffff); 
     }
 }
 
-/* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
- * returned (p is ignored).
- * 2) Random-based checksum calculated in the point p will be written in the sum buffer. If p is equal to 0 it will be random-generated.
-
+/* 
+ * Function to calculate (-p1^k) % base.
+ * In order to avoid recalculations powers must be calculated in advance. 
  */
+uint64 getminuspower(int32 k)
+{
+    if (pow_avail < BLOCK_SIZE) {
+        int32 i;
+        powers[0] = base - 1;      /* -1 mod base */
+        for (i = 0; i < BLOCK_SIZE; i++) {
+            powers[i+1] = mod1(powers[i] * p1);
+        }
+        pow_avail = BLOCK_SIZE;
+    }
+    if (k <= pow_avail) {
+        return powers[k];
+    }
+    else {
+        int32 i;
+        for (i = pow_avail; i < k; i++) {
+            powers[i+1] = mod1(powers[i] * p1);
+        }
+        pow_avail = k;
+        return powers[k];
+    }
+}
+
+/* Get residue modulo base. Optimized version */
+/* NOTE: works only for base = 2^31 - 1 */
+uint64 mod1(uint64 x)
+{
+    while (x > base) {
+        uint32 a;
+        uint32 b;
+        a = x >> 31;   /* IMPORTANT: a != 0 */  
+        b = x & 0x7fffffff;
+        x = a + b;
+    }
+    if (x == base) {
+        return 0;
+    }
+    return x; 
+}
 
 uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
 {
@@ -123,36 +152,10 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         for (i = 0; i < len; i++) {
             s = ((p * s) % base2 + buf1[i]) % base2;
         }
-        printf("s = %u\n", s);
-        snprintf(sum, RANDOM_SUM_LENGTH+1, "%016x", s);
+        snprintf(sum, 8+1, "%08x", s);
         return p;
     }
 }
-
-/* In order to avoid recalculations powers must be calculated in advance */
-uint32 getminuspower(int j, int32 k)
-{
-    if (pow_avail < BLOCK_SIZE) {
-        int32 i;
-        powers[0][0] = base - 1;
-        powers[1][0] = base - 1;
-        for (i = 0; i < BLOCK_SIZE; i++) {
-            powers[0][i+1] = (powers[0][i] * p1) % base;
-            powers[1][i+1] = (powers[1][i] * p2) % base;
-        }
-        pow_avail = BLOCK_SIZE;
-    }
-    if (k > pow_avail) {
-        int32 i;
-        for (i = pow_avail; i < k; i++) {
-            powers[0][i+1] = (powers[0][i] * p1) % base;
-            powers[1][i+1] = (powers[1][i] * p2) % base;
-        }
-        pow_avail = k;
-    }
-    return powers[j-1][k];
-}
-
 
 int main(int argc,char *argv[])
 {
@@ -161,11 +164,11 @@ int main(int argc,char *argv[])
     uint64_t maxNum = UINT64_MAX;
     char *buf;
     char sum2[16];
-    uint32 sum, s1, s2;
-    uint32 sum_brute, s1_brute, s2_brute;
-    uint32 orig_s1, orig_s2;
+    uint32 sum;
+    uint32 sum_brute; 
+    uint32 orig_sum;
     uint32 p;
-    const int32 bufsize = 1700;
+    const int32 bufsize = 750;
 
     buf = calloc(sizeof(char), 2 * bufsize);
     for(i=0; i<bufsize; i++)
@@ -183,24 +186,18 @@ int main(int argc,char *argv[])
     }
     printf("]\n");
     sum = get_checksum1(buf, bufsize);
-    orig_s1 = s1 = sum & 0xffff;
-    orig_s2 = s2 = sum >> 16; 
-    printf("Initial sums: s1 = %u, s2 = %u\n", s1, s2);
+    orig_sum = sum; 
+    printf("Initial sum: %u\n", sum);
     p = get_checksum2(buf, bufsize, sum2, 100);
     printf("sum2 = %s\n", sum2);
     for(i=0; i<bufsize; i++)
     {
-        sum = update_checksum1(s1, s2, (schar *)(buf+i), bufsize, 1);
-        s1 = sum & 0xffff;
-        s2 = sum >> 16; 
+        sum = update_checksum1(sum, (schar *)(buf+i), bufsize, 1);
         sum_brute = get_checksum1(buf+i+1, bufsize);
-        s1_brute = sum_brute & 0xffff;
-        s2_brute = sum_brute >> 16;
-        if (s1 != s1_brute || s2 != s2_brute)
+        if (sum != sum_brute)
         {
-            printf("After %d-th update: s1 = %u, s2 = %u.\n", i+1, s1, s2);
-            printf("\tBrute method: s1_brute = %u, s2_brute = %u.\n",
-                    s1_brute, s2_brute); 
+            printf("After %d-th update: sum = %u.\n", i+1, sum);
+            printf("\tBrute method: sum_brute = %u.\n", sum_brute);
         }
     }
     tst = (((base-1)*(base-2))%base + ((base-1)*(base-1))%base) % base;

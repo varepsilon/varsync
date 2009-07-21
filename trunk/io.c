@@ -60,8 +60,7 @@ extern int filesfrom_convert;
 extern iconv_t ic_send, ic_recv;
 #endif
 extern uint32 p1;
-extern uint32 p2;
-extern uint32 base;
+extern uint64 base;
 
 const char phase_unknown[] = "unknown";
 int ignore_timeout = 0;
@@ -1192,8 +1191,7 @@ int32 read_int(int f)
 int recv_random_data(int f)
 {
     p1 = read_int(f);
-    p2 = read_int(f);
-    if (p1 <= 0 || p2 <= 0 || p1 > base || p2 > base) { 
+    if (p1 <= 0 || p1 > base) { 
         return -1;
     }
     return 0;
@@ -1202,15 +1200,14 @@ int recv_random_data(int f)
 int send_random_data(int f)
 {
     uint32 randInit;
-    if (verbose) {
-        rprintf(FCLIENT, "sending random data\n");
-    }
+
     randInit = time(0);
     srand(randInit);
     p1 = rand() % base; 
-    p2 = rand() % base; 
+    if (verbose) {
+        rprintf(FCLIENT, "sending random data; p1 = %u\n", p1);
+    }
     write_int(f, p1);
-    write_int(f, p2);
     return 0;
 }
 

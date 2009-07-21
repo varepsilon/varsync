@@ -588,7 +588,7 @@ struct ht_int64_node {
 
 /* Different sum lengths in bytes */
 #define SUM_LENGTH 16
-#define RANDOM_SUM_LENGTH 16
+#define RANDOM_SUM_LENGTH 8 
 #define SHORT_SUM_LENGTH 2
 #define BLOCKSUM_BIAS 10
 
