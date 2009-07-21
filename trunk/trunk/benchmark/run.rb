@@ -12,14 +12,14 @@ SOURCE_DIR = BMTMP_ROOT + "/" + "source"
 DESTINATION_DIR = BMTMP_ROOT + "/" + "destination"  
 SSH_USER = 'fenix'
 SSH_SERVER = 'localhost'
-RSYNC_TYPES_LIST = ["random"]
+RSYNC_TYPES_LIST = ["orig", "random", "random2"]
 
 # "ident" --- almost identical files (.xml)
 # "rsync" --- rsync sources (.tar.gz) [3.0.6 -> 20090507NIGHTLY, 809 KB]
 # "opera" --- opera qt3_amd64 binaries (.deb) [9.50 -> 9.51.2061, 8.9 MB]
 # "samba" --- samba sources (.tar) [3.4.0rc1 -> 3.4.0, 111.3 MB]
 # "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 809 KB]
-TEST_PAIRS_LIST = ["opera"] 
+TEST_PAIRS_LIST = ["ident", "rsync", "opera"] 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
@@ -54,6 +54,9 @@ TEST_PAIRS_LIST.each do |test_pair|
                     "#{SSH_USER}@#{SSH_SERVER}:#{old}"
       elsif rsync_type == "random"
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM_OPTS} #{new} " +
+                    "#{SSH_USER}@#{SSH_SERVER}:#{old}"
+      elsif rsync_type == "random2"
+        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM2_OPTS} #{new} " +
                     "#{SSH_USER}@#{SSH_SERVER}:#{old}"
       else 
         raise NotImplementedError, "Error. No such rsync type: #{rsync_type}"
