@@ -70,6 +70,8 @@ uint32 get_checksum1(char *buf1, int32 len)
 
         s = 0;
         for (i = 0; i < len; i++) {
+            //TODO: why do we use only one buf entry for the field element?
+            // We could use 3 of them, because base > 2^24!
             s = mod1((uint64)p1 * s + (uint64)(buf[i]));
         }
         return (s & 0xffffffff); 
