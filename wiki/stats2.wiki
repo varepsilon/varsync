@@ -1,0 +1,23 @@
+#summary Statistics, page 2.
+
+= Statistics =
+
+More recent data.
+
+== 23.07.09 (add new test pair) ==
+	 Stats for *Orig* rsync on linux test pair:
+total: matches=3913  hash_hits=68676946  false_alarms=1272 data=281439656
+Literal data: 281439656 bytes
+Matched data: 71717464 bytes
+Total bytes sent: 281493960
+sent 281493960 bytes  received 128432 bytes  2802212.86 bytes/sec
+total size is 353157120  speedup is 1.25
+Execution time: 104.799389839172
+	 Stats for *Random* rsync on linux test pair:
+total: matches=3913  hash_hits=68728629  false_alarms=2415 data=281439656
+Literal data: 281439656 bytes
+Matched data: 71717464 bytes
+Total bytes sent: 281493964
+sent 281493964 bytes  received 293519 bytes  2645891.86 bytes/sec
+total size is 353157120  speedup is 1.25
+Execution time: 110.145617008209
