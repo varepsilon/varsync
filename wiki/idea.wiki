@@ -1,17 +1,19 @@
-#summary Main idea of random implementation.
+#summary Main idea of the random implementation.
 #labels Featured
 
 = Introduction =
 
-Algorithm uses the idea of polynomial evaluation at a random point. Let us consider the polynomial [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif] over the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11369.gif]. Let it coefficients be the elements of two blocks we want to compare. Then for random chosen point p the probability of coincedence of two different polynomials evaluated in p is no more than [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif]. We can see that for big p and little n (block size) this probability is very small.
+Algorithm uses the idea of polynomial evaluation at a random point. Let us consider the polynomial [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif] over the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif]. Let it coefficients be the elements of two blocks we want to compare. Then for random chosen point p the probability of coincedence of two different polynomials evaluated in p is no more than [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif]. We can see that for big p and little n (block size) this probability is very small.
 
 = Technical implementation =
 
 == Two sums ==
-Original rsync algorithm uses two checksums: rolling and strong. So do we. At first we generate number p1 and use the polynomial evaluation at the point p1 as a rolling checksum. When two checksums coincide we generate another p and use evaluation of the same polynomial at that new point p as a strong checksum. Strictly speaking, we use the same checksum for the first one and the second one.
+Original rsync algorithm uses two checksums: rolling and strong. So do we. At first we generate number p1 and use the polynomial evaluation at the point p1 as a rolling checksum. We never change this number! In other way we will not obtain rolling property. When two checksums coincide we generate another p (this p is different for each block, so we need to send it with the sums) and use evaluation of the same polynomial at that new point p as a strong checksum. Strictly speaking, we use the same checksum for the first one and the second one.
+
+*NOTE*: this algorithm may fail for *any* files, but probability of this event is _very_ small. We keep the whole file checksum to cover this possibility. On the other hand this algorithm cannot be fooled even if server knows how to fake md4/md5.
 
 == Numbers selection ==
 
-We use the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11369.gif], where [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif] –– prime number.
+We use the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif], where [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif] –– prime number. This allows us to optimize calculations in the field.
 
 Selection of blocksize is discussed on [bsize] page.
