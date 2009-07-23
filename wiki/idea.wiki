@@ -1,0 +1,17 @@
+#summary Main idea of random implementation.
+#labels Featured
+
+= Introduction =
+
+Algorithm uses the idea of polynomial evaluation at a random point. Let us consider the polynomial [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif] over the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11369.gif]. Let it coefficients be the elements of two blocks we want to compare. Then for random chosen point p the probability of coincedence of two different polynomials evaluated in p is no more than [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif]. We can see that for big p and small n this probability is very small.
+
+= Technical implementation =
+
+== Two sums ==
+Original rsync algorithm uses two checksums: rolling and strong. So do we. At first we generate number p1 and use the polynomial evaluation at the point p1 as a rolling checksum. When two checksums coincide we generate another p and use evaluation of the same polynomial at that new point p as a strong checksum. Strictly speaking, we use the same checksum for the first one and the second one.
+
+== Numbers selection ==
+
+We use the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11369.gif], where [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif] –– prime number.
+
+Selection of blocksize is discussed on [bsize] page.
