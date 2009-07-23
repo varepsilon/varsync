@@ -245,7 +245,6 @@ total size is 111267840  speedup is 2.47
 Execution time: 12.1038341522217
 == 23.07.09 (add new test pair) ==
 	 Stats for *Orig* rsync on linux test pair:
-count=18343 rem=7024 blength=18328 s2length=3 flength=336179200
 total: matches=3913  hash_hits=68676946  false_alarms=1272 data=281439656
 Literal data: 281439656 bytes
 Matched data: 71717464 bytes
@@ -254,7 +253,6 @@ sent 281493960 bytes  received 128432 bytes  2802212.86 bytes/sec
 total size is 353157120  speedup is 1.25
 Execution time: 104.799389839172
 	 Stats for *Random* rsync on linux test pair:
-count=18343 rem=7024 blength=18328 s2length=8 flength=336179200
 total: matches=3913  hash_hits=68728629  false_alarms=2415 data=281439656
 Literal data: 281439656 bytes
 Matched data: 71717464 bytes
