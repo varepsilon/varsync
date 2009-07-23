@@ -205,6 +205,7 @@ int main(int argc,char *argv[])
     // printf (" SEE: 3 == %d\n", tst);
     printf("max uint64_t value in hex is %016" PRIx64 "\n", maxNum);
     printf("%u = %x\n", base2, base2);
+    printf("SIZEOF_INT32 = %d\n", SIZEOF_INT32);
     free(buf);
     return 0;
 }

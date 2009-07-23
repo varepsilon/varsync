@@ -214,7 +214,8 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
             s = mod2((uint64)p * s + (uint64)(buf1[i]));
         }
         /* snprintf takes '\0' into account */
-        // TODO: %08 depends on RANDOM_SUM_LENGTH=8
+        // TODO: %08 depends on RANDOM_SUM_LENGTH=8. May be UVAL()?
+        // TODO: one hex number uses 1/2 of byte we use the whole!
         snprintf(sum, RANDOM_SUM_LENGTH+1, "%08" PRIx64, s);    
         return p;
     }
