@@ -12,23 +12,32 @@ SOURCE_DIR = BMTMP_ROOT + "/" + "source"
 DESTINATION_DIR = BMTMP_ROOT + "/" + "destination"  
 SSH_USER = 'fenix'
 SSH_SERVER = 'localhost'
-RSYNC_TYPES_LIST = ["orig", "random", "random2"]
+
+# "oldorig" --- original unchanged rsync binary
+# "orig" --- new binary with old options (backwards-compatible)
+# "random" --- both weak and strong sums are random
+# "randorig" --- weak sum is original while strong one is random
+
+RSYNC_TYPES_LIST = ["orig", "random"]
+
 
 # "ident" --- almost identical files (.xml)
 # "rsync" --- rsync sources (.tar.gz) [3.0.6 -> 20090507NIGHTLY, 809 KB]
 # "opera" --- opera qt3_amd64 binaries (.deb) [9.50 -> 9.51.2061, 8.9 MB]
 # "samba" --- samba sources (.tar) [3.4.0rc1 -> 3.4.0, 111.3 MB]
 # "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 809 KB]
+
 TEST_PAIRS_LIST = ["ident", "rsync", "opera"] 
+
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
-RSYNC_ORIG_OPTS = "-avv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
-RSYNC_ORIG2_OPTS = "-avv --stats --rsync-path='#{RSYNC_RANDOM_BIN}'" 
+RSYNC_OLDORIG_OPTS = "-avv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
+RSYNC_ORIG_OPTS = "-avv --stats --rsync-path='#{RSYNC_RANDOM_BIN}'" 
 RSYNC_RANDOM_OPTS = "-avv --stats " \
                     "--rsync-path='#{RSYNC_RANDOM_BIN} --random2 --random' " \
                     "--random2 --random"
-RSYNC_RANDOM2_OPTS = "-avv --stats " \
+RSYNC_RANDORIG_OPTS = "-avv --stats " \
                     "--rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
                     "--random2"
 #==============================================================================
@@ -47,16 +56,17 @@ TEST_PAIRS_LIST.each do |test_pair|
       original_new= ORIGINAL_DIR + "/" + test_pair + "_new"
       old = DESTINATION_DIR + "/" + test_pair + "_old"
       new = SOURCE_DIR + "/" + test_pair + "_new"
-      if rsync_type == "orig" 
-#        rsync_cmd = "#{RSYNC_ORIG_BIN} #{RSYNC_ORIG_OPTS} #{new} " +
-#                    "#{SSH_USER}@#{SSH_SERVER}:#{old}"
-        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_ORIG2_OPTS} #{new} " +
+      if rsync_type == "oldorig" 
+        rsync_cmd = "#{RSYNC_ORIG_BIN} #{RSYNC_OLDORIG_OPTS} #{new} " +
+                    "#{SSH_USER}@#{SSH_SERVER}:#{old}"
+      elsif rsync_type == "orig"
+        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_ORIG_OPTS} #{new} " +
                     "#{SSH_USER}@#{SSH_SERVER}:#{old}"
       elsif rsync_type == "random"
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM_OPTS} #{new} " +
                     "#{SSH_USER}@#{SSH_SERVER}:#{old}"
-      elsif rsync_type == "random2"
-        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM2_OPTS} #{new} " +
+      elsif rsync_type == "randorig"
+        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDORIG_OPTS} #{new} " +
                     "#{SSH_USER}@#{SSH_SERVER}:#{old}"
       else 
         raise NotImplementedError, "Error. No such rsync type: #{rsync_type}"
