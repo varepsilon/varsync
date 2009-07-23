@@ -748,7 +748,7 @@ int unchanged_file(char *fn, struct file_struct *file, STRUCT_STAT *st)
  * function to encapsulate the logic.
  *
  * The block size is a rounded square root of file length.
- * TODO: need better choice for random implementation!
+ *
  * The checksum size is determined according to:
  *     blocksum_bits = BLOCKSUM_BIAS + 2*log2(file_len) - log2(block_len)
  * provided by Donovan Baarda which gives a probability of rsync
@@ -763,6 +763,8 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 	int s2length;
 	int64 l;
 
+// TODO: need better choice for random implementation!
+// maybe 4 times smaller (see graphics)
 	if (block_size)
 		blength = block_size;
 	else if (len <= BLOCK_SIZE * BLOCK_SIZE)
