@@ -1,0 +1,15 @@
+#summary Here we will discuss the choise of block size.
+#labels Featured
+
+= Mathematical models =
+
+Coming soon.
+
+= Experimental results =
+
+Most experimental results shows that computational complexity of algorithm depends on block size very little. But communicational complexity does depend on it.
+
+== Results for opera test pair ==
+Here you can see graph for opera test pair. More information can be found in benchmark/bsize directory.
+
+[http://chuklin.narod.ru/samba_bsizes.png]
