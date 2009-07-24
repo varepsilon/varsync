@@ -16,8 +16,38 @@ Original rsync algorithm uses two checksums: rolling and strong. So do we. At fi
 
 We use the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif], where [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif] –– prime number. This allows us to optimize calculations in the field.
 
-Selection of blocksize is discussed on [bsize] page.
+Selection of block size is discussed on [bsize] page.
 
 = Probability of failure =
+Legend:
+{{{
+l -- file size
+k -- block size (equals square root of l)
+n = l/k -- number of blocks
+d -- number of dangerous pairs
+p -- probability of failure
+}}}
 There are two approaches to this question: pessimistic and realistic.
 == Pessimistic approach ==
+In the worst case we have no more than n*l comparison of checksums 
+(see [http://rsync.samba.org/tech_report/node4.html original idea]). We use two checksums thats why the probability of failure now can be estimated as:
+
+[http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11375.gif]
+
+If we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif] and really believe that all this polynomials could have k unique roots then we shouldn't use files larger than 4.4 MB.
+== Realistic approach ==
+In reality we can fail only if the checksum2 gets identical values for two different blocks. Such pairs are called "dangerous pairs" and number of such pairs coincides with the number of false alarms. We made some experiments and obtain this results:
+
+[http://varsync.googlecode.com/svn/trunk/trunk/benchmark/fa.png]
+(Results are in logarithmic scale. See [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/false-alarms.gnumeric gnumeric file] for more details)
+
+From the experimental results we could obtain such approximate formula:
+
+[http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11377.gif]
+
+Now the probability of failure could be estimated as:
+
+[http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11378.gif]
+
+Again, if we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif] we should use with care files larger than 370 MB.
+(If we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11379.gif], we could use files up to 3.46 GB).
