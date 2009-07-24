@@ -243,3 +243,5 @@ Total bytes sent: 44842900
 sent 44842900 bytes  received 168863 bytes  3600941.04 bytes/sec
 total size is 111267840  speedup is 2.47
 Execution time: 12.1038341522217
+----
+Next page: [stats2]
