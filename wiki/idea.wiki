@@ -17,3 +17,7 @@ Original rsync algorithm uses two checksums: rolling and strong. So do we. At fi
 We use the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif], where [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif] –– prime number. This allows us to optimize calculations in the field.
 
 Selection of blocksize is discussed on [bsize] page.
+
+= Probability of failure =
+There are two approaches to this question: pessimistic and realistic.
+== Pessimistic approach ==
