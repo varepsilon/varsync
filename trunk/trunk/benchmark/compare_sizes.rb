@@ -28,10 +28,10 @@ RSYNC_TYPES_LIST = ["random"]
 # "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 3 MB]
 # "linux" --- linux sources (.tar) [2.6.29 -> 2.6.30, 353.2 MB]
 
-TEST_PAIRS_LIST = ["opera"] 
+TEST_PAIRS_LIST = ["linux"] 
 
-SIZES = [10, 22, 74, 100, 300, 500, 700, 800, 880, 900, 1000, 
-  2000, 2968, 3000, 4000, 5000, 10000, 20000, 38000]
+SIZES = [700, 1000, 4698, 5000, 10000, 15000, 18792, 20000, 
+  50000, 100000]
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
