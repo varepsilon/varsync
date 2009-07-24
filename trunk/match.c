@@ -230,9 +230,9 @@ static void hash_search(int f, struct sum_struct *s,
 			if (memcmp(sum2,s->sums[i].sum2,s->s2length) != 0) {
                 if (verbose > 3) {
                     rprintf(FINFO,
-                            "False alarm! Original sum2 = %s " \
-                            "while obtained sum2 = %s\n",
-                            s->sums[i].sum2, sum2);
+                            "False alarm! Original sum2 = %08x " \
+                            "while obtained sum2 = %08x\n",
+                            IVAL(s->sums[i].sum2, 0), IVAL(sum2, 0));
                 }
 				false_alarms++;
 				continue;

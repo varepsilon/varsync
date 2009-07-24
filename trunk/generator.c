@@ -766,7 +766,7 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 // TODO: need better choice for random implementation!
 // maybe 4 times smaller (see graphics)
 	if (block_size)
-		blength = block_size;
+		blength = (block_size << 3) >> 3; /* round to multiple of 8 */
 	else if (len <= BLOCK_SIZE * BLOCK_SIZE)
 		blength = BLOCK_SIZE;
 	else {
