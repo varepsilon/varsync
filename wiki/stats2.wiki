@@ -2,7 +2,7 @@
 <wiki:toc max_depth="3" />
 = Statistics. Page two. =
 
-More recent data. See previous [http://code.google.com/p/varsync/w/edit/stats here].
+More recent data. See previous [http://code.google.com/p/varsync/wiki/stats here].
 
 == 23.07.09 (add new test pair) ==
 	 Stats for *Orig* rsync on linux test pair:
