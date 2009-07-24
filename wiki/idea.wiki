@@ -1,6 +1,6 @@
 #summary Main idea of the random implementation.
 #labels Featured
-
+<wiki:toc max_depth="3" />
 = Introduction =
 
 Algorithm uses the idea of polynomial evaluation at a random point. Let us consider the polynomial [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif] over the field [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif]. Let it coefficients be the elements of two blocks we want to compare. Then for random chosen point p the probability of coincedence of two different polynomials evaluated in p is no more than [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif]. We can see that for big p and little n (block size) this probability is very small.
@@ -39,6 +39,7 @@ If we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula113
 In reality we can fail only if the checksum2 gets identical values for two different blocks. Such pairs are called "dangerous pairs" and number of such pairs coincides with the number of false alarms. We made some experiments and obtain this results:
 
 [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/fa.png]
+
 (Results are in logarithmic scale. See [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/false-alarms.gnumeric gnumeric file] for more details)
 
 From the experimental results we could obtain such approximate formula:
@@ -50,4 +51,5 @@ Now the probability of failure could be estimated as:
 [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11378.gif]
 
 Again, if we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif] we should use with care files larger than 370 MB.
+
 (If we require [http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11379.gif], we could use files up to 3.46 GB).
