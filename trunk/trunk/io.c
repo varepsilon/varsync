@@ -1341,6 +1341,7 @@ int read_vstring(int f, char *buf, int bufsize)
 void read_sum_head(int f, struct sum_struct *sum)
 {
 	int32 max_blength = protocol_version < 30 ? OLD_MAX_BLOCK_SIZE : MAX_BLOCK_SIZE;
+    int32 blen;
 	sum->count = read_int(f);
 	if (sum->count < 0) {
 		rprintf(FERROR, "Invalid checksum count %ld [%s]\n",
@@ -1348,7 +1349,8 @@ void read_sum_head(int f, struct sum_struct *sum)
 		exit_cleanup(RERR_PROTOCOL);
 	}
 	sum->blength = read_int(f);
-	if (sum->blength < 0 || sum->blength > max_blength) {
+    blen = sum->blength;
+	if (blen < 0 || blen > max_blength || (blen % 8) != 0) {
 		rprintf(FERROR, "Invalid block length %ld [%s]\n",
 			(long)sum->blength, who_am_i());
 		exit_cleanup(RERR_PROTOCOL);

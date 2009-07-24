@@ -61,7 +61,7 @@ uint32 get_checksum1(char *buf1, int32 len)
         for (; i < len; i++) {
             s1 += (buf[i]+CHAR_OFFSET); s2 += s1;
         }
-        return (s1 & 0xffff) + (s2 << 16);
+        return (s1 & 0xffff) | (s2 << 16);
     }
     else {
         int32 i;
@@ -210,13 +210,13 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         }
 
         s = 0;
-        for (i = 0; i < len; i++) {
-            s = mod2((uint64)p * s + (uint64)(buf1[i]));
+        /* We beleive that len % 4 == 0 */
+        for (i = 0; i < len; i += 4) {
+            /* convert 4 bytes to uint32 */
+            s = mod2((uint64)p * s + (uint64)IVAL(buf1, i));
         }
-        /* snprintf takes '\0' into account */
-        // TODO: %08 depends on RANDOM_SUM_LENGTH=8. May be UVAL()?
-        // TODO: one hex number uses 1/2 of byte we use the whole!
-        snprintf(sum, RANDOM_SUM_LENGTH+1, "%08" PRIx64, s);    
+        /* here we assume that RANDOM_SUM_LENGTH == 4 */
+        SIVAL(sum, 0, s);
         return p;
     }
 }
