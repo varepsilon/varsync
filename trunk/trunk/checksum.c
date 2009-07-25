@@ -70,8 +70,8 @@ uint32 get_checksum1(char *buf1, int32 len)
 
         s = 0;
         for (i = 0; i < len; i++) {
-            //TODO: why do we use only one buf entry for the field element?
-            // We could use 3 of them, because base > 2^24!
+            // TODO: why do we use only one buf entry for the field element?
+            // We could use up to 3 of them, because base > 2^24!
             s = mod1((uint64)p1 * s + (uint64)(buf[i]));
         }
         return (s & 0xffffffff); 
@@ -210,10 +210,13 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
         }
 
         s = 0;
-        /* We beleive that len % 4 == 0 */
-        for (i = 0; i < len; i += 4) {
-            /* convert 4 bytes to uint32 */
-            s = mod2((uint64)p * s + (uint64)IVAL(buf1, i));
+        for (i = 0; i <= len-2; i += 2) {
+            /* convert 2 adjacent bytes to uint16 using PVAL */
+            s = mod2((uint64)p * s + (uint64)PVAL(buf1, i));
+        }
+        if (len % 2) {
+            /* if len % 2 we can't use PVAL! */
+            s = mod2((uint64)p * s + (uint64)(buf1[i]));
         }
         /* here we assume that RANDOM_SUM_LENGTH == 4 */
         SIVAL(sum, 0, s);
