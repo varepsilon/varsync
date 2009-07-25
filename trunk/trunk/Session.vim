@@ -763,12 +763,12 @@ normal zo
 normal zo
 1667
 normal zo
-let s:l = 181 - ((17 * winheight(0) + 17) / 34)
+let s:l = 930 - ((22 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-181
-normal! 020l
+930
+normal! 04l
 tabedit checksum.c
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1171,12 +1171,12 @@ normal zo
 normal zo
 371
 normal zo
-let s:l = 216 - ((19 * winheight(0) + 16) / 33)
+let s:l = 73 - ((39 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-216
-normal! 08l
+73
+normal! 015l
 wincmd w
 exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
@@ -1573,18 +1573,26 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
+451
+normal zo
+452
+normal zo
+451
+normal zo
+605
+normal zo
 1342
 normal zo
 1353
 normal zo
 1342
 normal zo
-let s:l = 1353 - ((71 * winheight(0) + 16) / 33)
+let s:l = 453 - ((190 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1353
-normal! 047l
+453
+normal! 05l
 wincmd w
 exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
@@ -1798,1032 +1806,1024 @@ setlocal wrap
 setlocal wrapmargin=0
 762
 normal zo
-769
+767
+normal zo
+778
 normal zo
 780
 normal zo
-782
+778
 normal zo
-780
+788
 normal zo
-790
+767
 normal zo
-769
+788
 normal zo
-790
+789
 normal zo
-790
+793
 normal zo
-790
+797
 normal zo
-794
+825
 normal zo
-798
+834
 normal zo
-826
+840
 normal zo
-794
+864
 normal zo
-798
+874
 normal zo
-826
+883
 normal zo
-835
+890
 normal zo
-841
+864
 normal zo
-865
+840
 normal zo
-875
+905
 normal zo
-884
+914
 normal zo
-891
-normal zo
-865
-normal zo
-841
-normal zo
-906
-normal zo
-915
+927
 normal zo
 928
 normal zo
-929
+927
 normal zo
-928
+943
 normal zo
-944
+947
 normal zo
-948
+914
 normal zo
-915
+905
 normal zo
-906
+958
 normal zo
-959
+964
 normal zo
-965
-normal zo
-976
-normal zo
-977
+975
 normal zo
 976
 normal zo
-959
+975
 normal zo
-994
+958
 normal zo
-1000
+993
 normal zo
-1005
+999
 normal zo
-1009
+1004
 normal zo
-1005
+1008
 normal zo
-1033
+1004
 normal zo
-1040
+1032
 normal zo
-1042
+1039
 normal zo
-1047
+1041
 normal zo
-1042
+1046
 normal zo
-1040
+1041
 normal zo
-1061
+1039
 normal zo
-1071
+1060
 normal zo
-1061
+1070
 normal zo
-1000
+1060
 normal zo
-1086
+999
 normal zo
-1092
+1085
 normal zo
-1104
+1091
 normal zo
-1114
+1103
 normal zo
-1121
+1113
 normal zo
-1125
+1120
 normal zo
-1145
+1124
 normal zo
-1149
+1144
 normal zo
-1168
+1148
 normal zo
-1172
+1167
 normal zo
-1121
+1171
 normal zo
-1182
+1120
 normal zo
-1189
+1181
+normal zo
+1188
+normal zo
+1197
 normal zo
 1198
 normal zo
-1199
+1197
 normal zo
-1198
+1210
 normal zo
-1211
+1216
 normal zo
-1217
+1188
 normal zo
-1189
+1091
 normal zo
-1092
+1227
 normal zo
-1228
+1231
 normal zo
-1232
+1242
 normal zo
-1243
+1248
 normal zo
-1249
+1227
 normal zo
-1228
+1261
 normal zo
-1262
+1266
 normal zo
-1267
+1279
 normal zo
-1280
+1283
 normal zo
-1284
+1305
 normal zo
-1306
-normal zo
-1314
-normal zo
-1315
+1313
 normal zo
 1314
 normal zo
+1313
+normal zo
+1326
+normal zo
 1327
 normal zo
-1328
+1326
 normal zo
-1327
+1349
 normal zo
-1350
+1351
 normal zo
-1352
+1361
 normal zo
-1362
+1363
 normal zo
-1364
+1366
 normal zo
-1367
+1363
 normal zo
-1364
+1372
 normal zo
-1373
+1361
 normal zo
-1362
+1385
 normal zo
-1386
+1349
 normal zo
-1350
+1395
 normal zo
 1396
 normal zo
-1397
+1406
 normal zo
-1407
+1395
 normal zo
-1396
+1418
 normal zo
-1419
+1428
 normal zo
-1429
-normal zo
-1432
-normal zo
-1433
+1431
 normal zo
 1432
 normal zo
-1446
+1431
 normal zo
-1451
+1445
 normal zo
-1456
+1450
 normal zo
-1465
+1455
 normal zo
-1469
+1464
 normal zo
-1472
+1468
 normal zo
-1469
+1471
 normal zo
-1479
+1468
 normal zo
-1483
+1478
 normal zo
-1486
+1482
 normal zo
-1483
+1485
 normal zo
-1506
+1482
 normal zo
-1510
+1505
 normal zo
-1512
+1509
 normal zo
-1510
+1511
+normal zo
+1509
+normal zo
+1522
 normal zo
 1523
 normal zo
-1524
+1522
 normal zo
-1523
+1530
 normal zo
-1531
+1428
 normal zo
-1429
+1539
 normal zo
-1540
+1541
 normal zo
-1542
+1553
 normal zo
-1554
-normal zo
-1557
-normal zo
-1558
+1556
 normal zo
 1557
 normal zo
-1567
+1556
 normal zo
-1574
+1566
 normal zo
-1587
+1573
 normal zo
-1594
+1586
 normal zo
-1596
+1593
 normal zo
-1594
+1595
 normal zo
-1567
+1593
 normal zo
-1608
+1566
 normal zo
-1613
+1607
 normal zo
-1618
+1612
 normal zo
-1628
+1617
 normal zo
-1613
+1627
 normal zo
-1554
+1612
 normal zo
-1639
+1553
 normal zo
-1641
+1638
 normal zo
-1646
+1640
 normal zo
-1648
+1645
 normal zo
-1659
+1647
 normal zo
-1677
+1658
 normal zo
-1679
+1676
 normal zo
-1677
+1678
 normal zo
-1646
+1676
 normal zo
-1691
+1645
 normal zo
-1696
+1690
 normal zo
-1701
+1695
 normal zo
-1706
+1700
 normal zo
-1701
+1705
 normal zo
-1639
+1700
 normal zo
-1722
+1638
+normal zo
+1721
+normal zo
+1728
 normal zo
 1729
 normal zo
-1730
+1728
 normal zo
-1729
-normal zo
-1737
-normal zo
-1738
+1736
 normal zo
 1737
 normal zo
-1747
+1736
 normal zo
-1760
+1746
 normal zo
-1767
+1759
 normal zo
-1770
+1766
 normal zo
-1775
+1769
 normal zo
-1767
+1774
 normal zo
-1787
+1766
 normal zo
-1793
+1786
 normal zo
-1795
+1792
 normal zo
-1798
+1794
 normal zo
-1795
+1797
 normal zo
-1793
+1794
 normal zo
-1809
+1792
 normal zo
-1811
+1808
 normal zo
-1809
+1810
+normal zo
+1808
+normal zo
+1826
 normal zo
 1827
 normal zo
-1828
+1826
 normal zo
-1827
+1846
 normal zo
-1847
+1855
 normal zo
-1856
-normal zo
-1866
-normal zo
-1867
-normal zo
-1872
-normal zo
-1867
+1865
 normal zo
 1866
 normal zo
-1881
+1871
 normal zo
-1888
+1866
 normal zo
-1894
+1865
 normal zo
-1888
+1880
 normal zo
-1903
+1887
 normal zo
-1904
+1893
 normal zo
-1908
+1887
 normal zo
-1912
-normal zo
-1920
-normal zo
-1922
-normal zo
-1928
-normal zo
-1920
+1902
 normal zo
 1903
 normal zo
-1939
+1907
 normal zo
-1957
+1911
 normal zo
-1977
+1919
 normal zo
-1989
+1921
 normal zo
-1993
+1927
 normal zo
-1989
+1919
 normal zo
-2003
+1902
 normal zo
-2008
+1938
 normal zo
-2015
+1956
 normal zo
-2003
+1976
 normal zo
-1280
+1988
 normal zo
-2036
+1992
 normal zo
-2041
+1988
 normal zo
-2036
+2002
 normal zo
-2056
+2007
 normal zo
-2062
+2014
 normal zo
-2068
+2002
 normal zo
-2070
+1279
 normal zo
-2075
+2035
 normal zo
-2086
+2040
 normal zo
-2092
+2035
 normal zo
-2070
+2055
 normal zo
-2056
+2061
 normal zo
-2103
+2067
 normal zo
-2109
+2069
 normal zo
-2111
+2074
 normal zo
-2121
+2085
 normal zo
-2172
+2091
 normal zo
-2109
+2069
 normal zo
-2103
+2055
 normal zo
-2182
+2102
 normal zo
-2189
+2108
 normal zo
-2219
+2110
 normal zo
-2229
+2120
 normal zo
-2236
+2171
 normal zo
-2244
+2108
 normal zo
-2246
+2102
 normal zo
-2252
+2181
+normal zo
+2188
+normal zo
+2218
+normal zo
+2228
+normal zo
+2235
+normal zo
+2243
+normal zo
+2245
+normal zo
+2251
+normal zo
+2260
 normal zo
 2261
 normal zo
-2262
-normal zo
-2264
-normal zo
-2262
+2263
 normal zo
 2261
 normal zo
-2252
+2260
 normal zo
-2274
+2251
 normal zo
-2293
+2273
 normal zo
-2274
+2292
 normal zo
-2302
+2273
 normal zo
-2307
+2301
 normal zo
-2244
+2306
 normal zo
-2321
+2243
 normal zo
-2338
+2320
 normal zo
-2345
+2337
 normal zo
-2366
+2344
 normal zo
-2182
+2365
+normal zo
+2181
 normal zo
 762
 normal zo
-835
+834
 normal zo
-841
+840
 normal zo
-865
+864
 normal zo
-875
+874
 normal zo
-884
+883
 normal zo
-891
+890
 normal zo
-865
+864
 normal zo
-841
+840
 normal zo
-906
+905
 normal zo
-915
+914
 normal zo
-928
-normal zo
-929
+927
 normal zo
 928
 normal zo
-944
+927
 normal zo
-948
+943
 normal zo
-915
+947
 normal zo
-906
+914
 normal zo
-959
+905
 normal zo
-965
+958
+normal zo
+964
+normal zo
+975
 normal zo
 976
 normal zo
-977
+975
 normal zo
-976
+958
 normal zo
-959
+993
 normal zo
-994
+999
 normal zo
-1000
+1004
 normal zo
-1005
+1008
 normal zo
-1009
+1004
 normal zo
-1005
+1032
 normal zo
-1033
+1039
 normal zo
-1040
+1041
 normal zo
-1042
+1046
 normal zo
-1047
+1041
 normal zo
-1042
+1039
 normal zo
-1040
+1060
 normal zo
-1061
+1070
 normal zo
-1071
+1060
 normal zo
-1061
+999
 normal zo
-1000
+1085
 normal zo
-1086
+1091
 normal zo
-1092
+1103
 normal zo
-1104
+1113
 normal zo
-1114
+1120
 normal zo
-1121
+1124
 normal zo
-1125
+1144
 normal zo
-1145
+1148
 normal zo
-1149
+1167
 normal zo
-1168
+1171
 normal zo
-1172
+1120
 normal zo
-1121
+1181
 normal zo
-1182
+1188
 normal zo
-1189
-normal zo
-1198
-normal zo
-1199
+1197
 normal zo
 1198
 normal zo
-1211
+1197
 normal zo
-1217
+1210
 normal zo
-1189
+1216
 normal zo
-1092
+1188
 normal zo
-1228
+1091
 normal zo
-1232
+1227
 normal zo
-1243
+1231
 normal zo
-1249
+1242
 normal zo
-1228
+1248
 normal zo
-1262
+1227
 normal zo
-1267
+1261
 normal zo
-1280
+1266
 normal zo
-1284
+1279
 normal zo
-1306
+1283
+normal zo
+1305
+normal zo
+1313
 normal zo
 1314
 normal zo
-1315
+1313
 normal zo
-1314
-normal zo
-1327
-normal zo
-1328
+1326
 normal zo
 1327
 normal zo
-1350
+1326
 normal zo
-1352
+1349
 normal zo
-1362
+1351
 normal zo
-1364
+1361
 normal zo
-1367
+1363
 normal zo
-1364
+1366
 normal zo
-1373
+1363
 normal zo
-1362
+1372
 normal zo
-1386
+1361
 normal zo
-1350
+1385
 normal zo
-1396
+1349
 normal zo
-1397
-normal zo
-1407
+1395
 normal zo
 1396
 normal zo
-1419
+1406
 normal zo
-1429
+1395
+normal zo
+1418
+normal zo
+1428
+normal zo
+1431
 normal zo
 1432
 normal zo
-1433
+1431
 normal zo
-1432
+1445
 normal zo
-1446
+1450
 normal zo
-1451
+1455
 normal zo
-1456
+1464
 normal zo
-1465
+1468
 normal zo
-1469
+1471
 normal zo
-1472
+1468
 normal zo
-1469
+1478
 normal zo
-1479
+1482
 normal zo
-1483
+1485
 normal zo
-1486
+1482
 normal zo
-1483
+1505
 normal zo
-1506
+1509
 normal zo
-1510
+1511
 normal zo
-1512
+1509
 normal zo
-1510
-normal zo
-1523
-normal zo
-1524
+1522
 normal zo
 1523
 normal zo
-1531
+1522
 normal zo
-1429
+1530
 normal zo
-1540
+1428
 normal zo
-1542
+1539
 normal zo
-1554
+1541
+normal zo
+1553
+normal zo
+1556
 normal zo
 1557
 normal zo
-1558
+1556
 normal zo
-1557
+1566
 normal zo
-1567
+1573
 normal zo
-1574
+1586
 normal zo
-1587
+1593
 normal zo
-1594
+1595
 normal zo
-1596
+1593
 normal zo
-1594
+1566
 normal zo
-1567
+1607
 normal zo
-1608
+1612
 normal zo
-1613
+1617
 normal zo
-1618
+1627
 normal zo
-1628
+1612
 normal zo
-1613
+1553
 normal zo
-1554
+1638
 normal zo
-1639
+1640
 normal zo
-1641
+1645
 normal zo
-1646
+1647
 normal zo
-1648
+1658
 normal zo
-1659
+1676
 normal zo
-1677
+1678
 normal zo
-1679
+1676
 normal zo
-1677
+1645
 normal zo
-1646
+1690
 normal zo
-1691
+1695
 normal zo
-1696
+1700
 normal zo
-1701
+1705
 normal zo
-1706
+1700
 normal zo
-1701
+1638
 normal zo
-1639
+1721
 normal zo
-1722
-normal zo
-1729
-normal zo
-1730
+1728
 normal zo
 1729
 normal zo
+1728
+normal zo
+1736
+normal zo
 1737
 normal zo
-1738
+1736
 normal zo
-1737
+1746
 normal zo
-1747
+1759
 normal zo
-1760
+1766
 normal zo
-1767
+1769
 normal zo
-1770
+1774
 normal zo
-1775
+1766
 normal zo
-1767
+1786
 normal zo
-1787
+1792
 normal zo
-1793
+1794
 normal zo
-1795
+1797
 normal zo
-1798
+1794
 normal zo
-1795
+1792
 normal zo
-1793
+1808
 normal zo
-1809
+1810
 normal zo
-1811
+1808
 normal zo
-1809
+1826
 normal zo
 1827
 normal zo
-1828
+1826
 normal zo
-1827
+1846
 normal zo
-1847
+1855
 normal zo
-1856
-normal zo
-1866
-normal zo
-1867
-normal zo
-1872
-normal zo
-1867
+1865
 normal zo
 1866
 normal zo
-1881
+1871
 normal zo
-1888
+1866
 normal zo
-1894
+1865
 normal zo
-1888
+1880
 normal zo
-1903
+1887
 normal zo
-1904
+1893
 normal zo
-1908
+1887
 normal zo
-1912
-normal zo
-1920
-normal zo
-1922
-normal zo
-1928
-normal zo
-1920
+1902
 normal zo
 1903
 normal zo
-1939
+1907
 normal zo
-1957
+1911
 normal zo
-1977
+1919
 normal zo
-1989
+1921
 normal zo
-1993
+1927
 normal zo
-1989
+1919
 normal zo
-2003
+1902
 normal zo
-2008
+1938
 normal zo
-2015
+1956
 normal zo
-2003
+1976
 normal zo
-1280
+1988
 normal zo
-2036
+1992
 normal zo
-2041
+1988
 normal zo
-2036
+2002
 normal zo
-2056
+2007
 normal zo
-2062
+2014
 normal zo
-2068
+2002
 normal zo
-2070
+1279
 normal zo
-2075
+2035
 normal zo
-2086
+2040
 normal zo
-2092
+2035
 normal zo
-2070
+2055
 normal zo
-2056
+2061
 normal zo
-2103
+2067
 normal zo
-2109
+2069
 normal zo
-2111
+2074
 normal zo
-2121
+2085
 normal zo
-2172
+2091
 normal zo
-2109
+2069
 normal zo
-2103
+2055
 normal zo
-2182
+2102
 normal zo
-2189
+2108
 normal zo
-2219
+2110
 normal zo
-2229
+2120
 normal zo
-2236
+2171
 normal zo
-2244
+2108
 normal zo
-2246
+2102
 normal zo
-2252
+2181
+normal zo
+2188
+normal zo
+2218
+normal zo
+2228
+normal zo
+2235
+normal zo
+2243
+normal zo
+2245
+normal zo
+2251
+normal zo
+2260
 normal zo
 2261
 normal zo
-2262
-normal zo
-2264
-normal zo
-2262
+2263
 normal zo
 2261
 normal zo
-2252
+2260
 normal zo
-2274
+2251
 normal zo
-2293
+2273
 normal zo
-2274
+2292
 normal zo
-2302
+2273
 normal zo
-2307
+2301
 normal zo
-2244
+2306
 normal zo
-2321
+2243
 normal zo
-2338
+2320
 normal zo
-2345
+2337
 normal zo
-2366
+2344
 normal zo
-2182
+2365
 normal zo
-let s:l = 53 - ((52 * winheight(0) + 17) / 34)
+2181
+normal zo
+let s:l = 1239 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 012l
+1239
+normal! 04l
 tabedit main.c
 set splitbelow splitright
 set nosplitbelow
@@ -2937,12 +2937,12 @@ normal zo
 normal zo
 851
 normal zo
-let s:l = 33 - ((32 * winheight(0) + 17) / 34)
+let s:l = 153 - ((50 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-33
-normal! 024l
+153
+normal! 04l
 tabedit byteorder.h
 set splitbelow splitright
 set nosplitbelow
@@ -3050,7 +3050,7 @@ exe s:l
 normal! zt
 44
 normal! 0
-tabnext 1
+tabnext 6
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
