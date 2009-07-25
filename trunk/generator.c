@@ -24,6 +24,7 @@
 
 extern int use_random;
 extern int use_random2;
+extern int small_blength;
 extern int verbose;
 extern int dry_run;
 extern int do_xfers;
@@ -764,12 +765,12 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 	int64 l;
 
 // TODO: need better choice for random implementation!
-// maybe 4 times smaller (see graphics)
-	if (block_size)
-		blength = (block_size << 3) >> 3; /* round to multiple of 8 */
-	else if (len <= BLOCK_SIZE * BLOCK_SIZE)
+// maybe 4 times smaller (see graphics)?
+	if (block_size) {
+		blength = (block_size << 1) >> 1; /* round to multiple of 2 */
+    } else if (len <= BLOCK_SIZE * BLOCK_SIZE) {
 		blength = BLOCK_SIZE;
-	else {
+    } else {
 		int32 max_blength = protocol_version < 30 ? OLD_MAX_BLOCK_SIZE : MAX_BLOCK_SIZE;
 		int32 c;
 		int cnt;
@@ -786,7 +787,14 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 		    } while (c >= 8);	/* round to multiple of 8 */
 		    blength = MAX(blength, BLOCK_SIZE);
 		}
+        if (small_blength) {
+                blength >>= 2;
+            }
 	}
+    if (blength < MIN_BLOCK_SIZE) {
+        blength = MIN_BLOCK_SIZE;
+    }
+    
     if (use_random2) {
         s2length = RANDOM_SUM_LENGTH;
     } else if (protocol_version < 27) {

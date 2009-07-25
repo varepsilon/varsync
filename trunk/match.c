@@ -291,7 +291,7 @@ static void hash_search(int f, struct sum_struct *s,
 		if (backup < 0)
 			backup = 0;
 
-		more = (offset + k) < len;  /* round brackets were added for clarity */
+		more = (offset + k) < len;  
 		map = (schar *)map_ptr(buf, offset - backup, k + more + backup)
 		    + backup;
         sum = update_checksum1(sum0, map, k, more);

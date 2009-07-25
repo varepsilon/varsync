@@ -28,19 +28,19 @@ RSYNC_TYPES_LIST = ["orig", "random"]
 # "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 3 MB]
 # "linux" --- linux sources (.tar) [2.6.29 -> 2.6.30, 353.2 MB]
 
-TEST_PAIRS_LIST = ["opera"] 
+TEST_PAIRS_LIST = ["ident", "rsync", "opera"]
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
-RSYNC_OLDORIG_OPTS = "-avvv --stats --rsync-path='#{RSYNC_ORIG_BIN}'" 
-RSYNC_ORIG_OPTS = "-avvv --stats --rsync-path='#{RSYNC_RANDOM_BIN}'" 
-RSYNC_RANDOM_OPTS = "-avvv --stats " \
-                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random2 --random' " \
-                    "--random2 --random"
-RSYNC_RANDORIG_OPTS = "-avvv --stats " \
-                    "--rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
-                    "--random2"
+OPTS = "-avv --stats "
+RSYNC_OLDORIG_OPTS = OPTS + "--rsync-path='#{RSYNC_ORIG_BIN}'" 
+RSYNC_ORIG_OPTS = OPTS + "--rsync-path='#{RSYNC_RANDOM_BIN}'" 
+RSYNC_RANDOM_OPTS = OPTS + \
+  "--rsync-path='#{RSYNC_RANDOM_BIN} --random2 --random --small-blength' " \
+  "--random2 --random"
+RSYNC_RANDORIG_OPTS = OPTS + "--rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
+  "--random2"
 #==============================================================================
 
 require 'benchmark'

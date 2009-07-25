@@ -29,6 +29,8 @@
 
 extern int verbose;
 extern int use_random;
+extern int use_random2;
+extern int small_blength;
 extern int dry_run;
 extern int list_only;
 extern int am_root;

@@ -1350,7 +1350,7 @@ void read_sum_head(int f, struct sum_struct *sum)
 	}
 	sum->blength = read_int(f);
     blen = sum->blength;
-	if (blen < 0 || blen > max_blength || (blen % 8) != 0) {
+	if (blen < 0 || blen > max_blength || (blen % 2) != 0) {
 		rprintf(FERROR, "Invalid block length %ld [%s]\n",
 			(long)sum->blength, who_am_i());
 		exit_cleanup(RERR_PROTOCOL);

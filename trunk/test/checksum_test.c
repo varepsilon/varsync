@@ -13,11 +13,6 @@ static uint64 powers[MAX_BLOCK_SIZE];  /* tables with powers of p1 and p2 */
 static int32 pow_avail = 0;             /* maximum power available */
 
 
-/* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
- * returned (p is ignored).
- * 2) Random-based checksum calculated in the point p will be written in the sum buffer. If p is equal to 0 it will be random-generated.
-
- */
 uint32 get_checksum1(char *buf1, int32 len)
 {
     if (!use_random) {
@@ -37,21 +32,24 @@ uint32 get_checksum1(char *buf1, int32 len)
         for (; i < len; i++) {
             s1 += (buf[i]+CHAR_OFFSET); s2 += s1;
         }
-        return (s1 & 0xffff) + (s2 << 16);
+        return (s1 & 0xffff) | (s2 << 16);
     }
     else {
         int32 i;
-        uint64 s = 0;
+        uint64 s;
         unsigned char *buf = (unsigned char *)buf1; 
 
-        for (i = 0; i < len; i++) {
-            s = mod1(mod1((uint64)p1 * s) + (uint64)(buf[i]));
+        s = 0;
+        for (i = 0; i < len; i+=2) {
+            // TODO: why do we use only one buf entry for the field element?
+            // We could use up to 3 of them, because base > 2^24!
+            s = mod1((uint64)p1 * s + (uint64)PVAL(buf, i));
         }
-        return (uint32)(s & 0xffffffff); 
+        return (s & 0xffffffff); 
     }
 }
 
-uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
+uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more, OFF_T *step)
 {
     if (!use_random) {
         uint32 s1, s2;
@@ -66,6 +64,7 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 			s1 += map[k] + CHAR_OFFSET;
 			s2 += s1;
 		}
+        *step = 1; /* we used only one byte from map */
         return (s1 & 0xffff) | (s2 << 16);
     }
     else {
@@ -76,15 +75,17 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
         minus_p1_k = getminuspower(k);
 
         /* We must avoid using "-" sign due to C bug with negative residues */
-        s = mod1(mod1((uint64)p1 * s) + mod1(minus_p1_k * (uint64)(map1[0])));
+        s = mod1((uint64)p1 * s + minus_p1_k * (uint64)PVAL(map1, 0));
 
-        /* Add on the next byte (if there is one) to the checksum */
+        /* Add on the next byte/bytes (if there is any) to the checksum */
 		if (more) {
-			s = mod1(s + map1[k]);
+			s = mod1(s + PVAL(map1, k));
 		}
+        *step = 2;
         return (uint32)(s & 0xffffffff); 
     }
 }
+
 
 /* 
  * Function to calculate (-p1^k) % base.
@@ -165,7 +166,7 @@ int main(int argc,char *argv[])
     uint32 sum_brute; 
     uint32 orig_sum;
     uint32 p;
-    const int32 bufsize = 750;
+    const int32 bufsize = 10;
 
     uint32 randinit;
     randinit = time(0);
@@ -191,10 +192,11 @@ int main(int argc,char *argv[])
     printf("Initial sum: %u\n", sum);
     p = get_checksum2(buf, bufsize, sum2, 100);
     printf("sum2 = %s\n", sum2);
-    for(i=0; i<bufsize; i++)
+    for(i=0; i<bufsize; i+=2)
     {
-        sum = update_checksum1(sum, (schar *)(buf+i), bufsize, 1);
-        sum_brute = get_checksum1(buf+i+1, bufsize);
+        OFF_T step;
+        sum = update_checksum1(sum, (schar *)(buf+i), bufsize, 1, &step);
+        sum_brute = get_checksum1(buf+i+2, bufsize);
         if (sum != sum_brute)
         {
             printf("After %d-th update: sum = %u.\n", i+1, sum);
