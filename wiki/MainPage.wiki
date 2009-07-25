@@ -3,7 +3,7 @@
 _Welcome to the varsync wiki!_
 <wiki:toc max_depth="3" />
 
-Work is in progress now. Currently you can play with this options:
+Work is in progress now. Currently you can play with these options:
   * _--random_ *client and server* option
   * _--random2_ *client and server* option
   * _--small-blength_ *server* option
