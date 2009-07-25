@@ -75,3 +75,28 @@ Now we use -O1 compiler option. *NOTE*: implementation of "--random" option has 
  21.43      0.11     0.03  8854911     0.00     0.00  mod2
  21.43      0.14     0.03     2983     0.01     0.02  get_checksum2
 }}}
+
+== 25.07.09 ==
+We made an optimisation of get_checksum2. Unfortunately, the same changes for get_checksum1 seems harder to implement.
+  * *Server*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 44.26      0.27     0.27        1   270.01   595.02  match_sums
+ 21.31      0.40     0.13  8849944     0.00     0.00  update_checksum1
+ 17.21      0.51     0.11 17713111     0.00     0.00  mod1
+  5.74      0.54     0.04  8850507     0.00     0.00  map_ptr
+  5.74      0.58     0.04  8849944     0.00     0.00  getminuspower
+  3.28      0.60     0.02   138441     0.00     0.00  md5_process
+  1.64      0.61     0.01                             child_main
+}}}
+  
+  * *Client*:
+{{{
+ %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 44.45      0.04     0.04     2983     0.01     0.02  get_checksum1
+ 33.33      0.07     0.03  8851928     0.00     0.00  mod1
+ 11.11      0.08     0.01  4428947     0.00     0.00  mod2
+ 11.11      0.09     0.01     2983     0.00     0.01  get_checksum2
+}}}
