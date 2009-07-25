@@ -10,9 +10,10 @@ Stats can be viewed [http://code.google.com/p/varsync/wiki/stats here].
 Profiling results can be viewed [http://code.google.com/p/varsync/wiki/profiling here].
 = Different implementations: =
 == Random implementation ==
-Random implementation comprises two ideas:
-  # Random-based weak checksum (--random option)
-  # Random-based strong checksum (--random2 option)
+Random implementation comprises this ideas:
+  # Random-based weak checksum (*--random* option).
+  # Random-based strong checksum (*--random2* option).
+  # Smaller block size (*--small-blength* option) for better speedup.
 First idea aims to give easy-to-calculate *weak checksum* with the same rolling property (see [http://rsync.samba.org/tech_report/node3.html original implementation]) based on random-generated numbers. More information about the idea can be found [http://code.google.com/p/varsync/wiki/idea here].
 
 Second idea is about security despite it's being easy-to-calculate also. It uses the same technique as first idea but is more stronger. Opposite to the original md4/md5-based technique it doesn't rely on the strength of any sum: it is random =) But we do not completely rely on the randomness: we leave the file md5 checksum. So even if the gods will dislike us md5 can still help us! 
