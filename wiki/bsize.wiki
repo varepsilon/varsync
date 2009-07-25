@@ -1,4 +1,5 @@
 #summary Here we will discuss the choise of block size.
+#labels Featured
 [MainPage]
 <wiki:toc max_depth="3" />
 = Mathematical models =
@@ -14,4 +15,6 @@ Here you can see graph for opera test pair.
 
 [http://chuklin.narod.ru/samba_bsizes.png]
 
-More information can be found in [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/bsize/blocksizes.gnumeric gnumeric file]. These results show no reason to change the original choice.
+More information can be found in [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/bsize/blocksizes.gnumeric gnumeric file]. 
+
+These results show that the original choice is pretty good. We tried to use block length 4 times smaller (see [http://varsync.googlecode.com/svn/trunk/trunk/benchmark/bsize/blocksizes.gnumeric gnumeric file]) and found that for big files this gives about 2 times optimization in speedup due to some looses in computational complexity. You could examine this results [http://code.google.com/p/varsync/wiki/stats2#Block_size_4_times_smaller here].
