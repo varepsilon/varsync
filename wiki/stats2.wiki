@@ -171,7 +171,7 @@ sent 180773878 bytes  received 880471 bytes  1507504.97 bytes/sec
 total size is 353157120  speedup is 1.94
 Execution time: 124.170798063278
 
-== 13.08.09 ==
+== 13.08.09 (optimize the number of mod1 calls)==
 
 	 Stats for *Orig* rsync on ident test pair:
 total: matches=1010  hash_hits=1011  false_alarms=0 data=187
