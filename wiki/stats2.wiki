@@ -89,7 +89,7 @@ sent 44842900 bytes  received 126655 bytes  2306131.03 bytes/sec
 total size is 111267840  speedup is 2.47
 Execution time: 19.568284034729
 
-=== Block size 4 times smaller ===
+=== Block size 4 times smaller (--small-blength option) ===
 	 Stats for *Orig* rsync on ident test pair:
 total: matches=1010  hash_hits=1011  false_alarms=0 data=187
 Literal data: 187 bytes
