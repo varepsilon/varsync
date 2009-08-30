@@ -50,9 +50,6 @@ uint32 get_checksum1(char *buf1, int32 len)
         schar *buf = (schar *)buf1; //signed char
 
         s1 = s2 = 0;
-        /* Note, that this cycle is skilfully fucked but almost coincide
-         * with the original one
-         */
         for (i = 0; i < (len-4); i+=4) {
             s2 += 4*(s1 + buf[i]) + 3*buf[i+1] + 2*buf[i+2] + buf[i+3] +
                 10*CHAR_OFFSET;
@@ -67,12 +64,23 @@ uint32 get_checksum1(char *buf1, int32 len)
         int32 i;
         uint64 s;
         unsigned char *buf = (unsigned char *)buf1; 
+        uint64 p = (uint64)p1;
+        uint64 p_2 = mod1(p * p);        /* p squared */
+        uint64 p_3 = mod1(p_2 * p);
+        uint64 p_4 = mod1(p_3 * p);
 
         s = 0;
-        for (i = 0; i < len; i++) {
-            // TODO: why do we use only one buf entry for the field element?
-            // We could use up to 3 of them, because base > 2^24!
-            s = mod1((uint64)p1 * s + (uint64)(buf[i]));
+        // TODO: why do we use only one buf entry for the field element?
+        // We could use up to 3 of them, because base > 2^24!
+        for (i = 0; i < (len - 4); i+=4) {
+            s = s * p_4 + (uint64)(buf[i+0]) * p_3 + 
+                (uint64)(buf[i+1]) * p_2 + (uint64)(buf[i+2]) * p + 
+                (uint64)(buf[i+3]);
+            s = mod1(s);
+        }
+        for (; i < len; i++) {
+            s = s * p + (uint64)(buf[i]);
+            s = mod1(s);
         }
         return (s & 0xffffffff); 
     }
@@ -102,13 +110,15 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 
         minus_p1_k = getminuspower(k);
 
-        /* We must avoid using "-" sign due to C bug with negative residues */
-        s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]));
-
+		/* Trim off the first byte from the checksum */
         /* Add on the next byte (if there is one) to the checksum */
+        /* We must avoid using "-" sign due to C bug with negative residues */
 		if (more) {
-			s = mod1(s + map1[k]);
+            s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]) + map1[k]);
 		}
+        else {
+            s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]));
+        }
         return (uint32)(s & 0xffffffff); 
     }
 }
@@ -147,7 +157,7 @@ uint64 getminuspower(int32 k)
  * If p is equal to 0 it will be random-generated
  */
 
-uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
+uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p1)
 {
     if (!use_random2) { 
         md_context m;
@@ -202,15 +212,28 @@ uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p)
     else {
         uint64 s; 
         int32 i;
-        unsigned char *buf1 = (unsigned char *)buf; 
+        unsigned char *buf1 = (unsigned char *)buf;
+        uint64 p, p_2, p_3, p_4;
 
-        if (p == 0) {
-            /* generate p */
-            p = mod2(rand()); 
+        if (p1 == 0) {
+            /* generate p1 */
+            p1 = mod2(rand()); 
         }
+        
+        p = (uint64)p1;
+        p_2 = mod2(p * p);
+        p_3 = mod2(p_2 * p);
+        p_4 = mod2(p_3 * p);
 
         s = 0;
-        for (i = 0; i <= len-2; i += 2) {
+        for (i = 0; i < (len - 8); i+=8) {
+            s = s * p_4 + (uint64)PVAL(buf1, i+0) * p_3 + 
+                (uint64)PVAL(buf1, i+2) * p_2 + (uint64)PVAL(buf1, i+4) * p + 
+                (uint64)PVAL(buf1, i+6);
+            s = mod2(s);
+        }
+
+        for (; i <= len-2; i+=2) {
             /* convert 2 adjacent bytes to uint16 using PVAL */
             s = mod2((uint64)p * s + (uint64)PVAL(buf1, i));
         }

@@ -337,7 +337,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +58 ./benchmark/compare_sizes.rb
-badd +54 ./benchmark/run.rb
+badd +31 ./benchmark/run.rb
 badd +98 checksum.c
 badd +1 rsync.h
 badd +1344 io.c
@@ -349,9 +349,9 @@ badd +317 sender.c
 badd +1 TODO
 badd +1 TODO.varsync
 badd +387 receiver.c
-badd +0 test/checksum_test.c
-badd +0 options.c
-badd +0 main.c
+badd +1 test/checksum_test.c
+badd +1 options.c
+badd +1 main.c
 args ./benchmark/compare_sizes.rb
 edit ./benchmark/run.rb
 set splitbelow splitright
@@ -454,12 +454,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 36 - ((15 * winheight(0) + 17) / 34)
+let s:l = 31 - ((16 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 010l
+31
+normal! 047l
 tabedit options.c
 set splitbelow splitright
 set nosplitbelow
@@ -561,208 +561,6 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-301
-normal zo
-453
-normal zo
-461
-normal zo
-908
-normal zo
-940
-normal zo
-944
-normal zo
-944
-normal zo
-940
-normal zo
-908
-normal zo
-1132
-normal zo
-1140
-normal zo
-1140
-normal zo
-1140
-normal zo
-1140
-normal zo
-1132
-normal zo
-1143
-normal zo
-1154
-normal zo
-1161
-normal zo
-1189
-normal zo
-1198
-normal zo
-1234
-normal zo
-1240
-normal zo
-1247
-normal zo
-1265
-normal zo
-1288
-normal zo
-1290
-normal zo
-1302
-normal zo
-1309
-normal zo
-1315
-normal zo
-1328
-normal zo
-1337
-normal zo
-1346
-normal zo
-1352
-normal zo
-1359
-normal zo
-1364
-normal zo
-1365
-normal zo
-1369
-normal zo
-1365
-normal zo
-1364
-normal zo
-1378
-normal zo
-1383
-normal zo
-1389
-normal zo
-1396
-normal zo
-1402
-normal zo
-1407
-normal zo
-1413
-normal zo
-1423
-normal zo
-1436
-normal zo
-1443
-normal zo
-1445
-normal zo
-1448
-normal zo
-1445
-normal zo
-1443
-normal zo
-1456
-normal zo
-1462
-normal zo
-1467
-normal zo
-1468
-normal zo
-1471
-normal zo
-1467
-normal zo
-1478
-normal zo
-1487
-normal zo
-1489
-normal zo
-1498
-normal zo
-1487
-normal zo
-1512
-normal zo
-1518
-normal zo
-1521
-normal zo
-1526
-normal zo
-1518
-normal zo
-1542
-normal zo
-1551
-normal zo
-1573
-normal zo
-1580
-normal zo
-1581
-normal zo
-1580
-normal zo
-1596
-normal zo
-1602
-normal zo
-1603
-normal zo
-1602
-normal zo
-1610
-normal zo
-1611
-normal zo
-1616
-normal zo
-1610
-normal zo
-1626
-normal zo
-1628
-normal zo
-1635
-normal zo
-1637
-normal zo
-1650
-normal zo
-1654
-normal zo
-1659
-normal zo
-1654
-normal zo
-1626
-normal zo
-1667
-normal zo
-1670
-normal zo
-1674
-normal zo
-1679
-normal zo
-1686
-normal zo
-1694
-normal zo
-1704
-normal zo
-1674
-normal zo
-1667
-normal zo
 let s:l = 930 - ((22 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
@@ -997,186 +795,350 @@ setlocal wrap
 setlocal wrapmargin=0
 46
 normal zo
-66
+47
 normal zo
-72
+53
 normal zo
-66
+58
 normal zo
-46
+47
 normal zo
-82
+63
 normal zo
-83
+75
+normal zo
+81
+normal zo
+91
 normal zo
 92
 normal zo
-98
+101
 normal zo
-109
+92
 normal zo
-83
+107
 normal zo
-98
+117
 normal zo
-109
+120
 normal zo
-98
+107
 normal zo
-82
+91
 normal zo
-151
+127
 normal zo
-152
+132
 normal zo
-155
+133
 normal zo
-159
+136
 normal zo
-171
+133
 normal zo
-181
+141
 normal zo
-189
+144
 normal zo
-155
+146
 normal zo
-152
+144
 normal zo
-202
+132
 normal zo
-207
+154
+normal zo
+162
+normal zo
+163
+normal zo
+166
+normal zo
+170
+normal zo
+182
+normal zo
+192
+normal zo
+200
+normal zo
+166
+normal zo
+163
 normal zo
 213
 normal zo
-217
+218
 normal zo
-221
+224
 normal zo
-217
+228
 normal zo
-202
+213
 normal zo
-230
+162
 normal zo
-231
+241
 normal zo
-238
+242
 normal zo
-230
+249
 normal zo
-247
+241
 normal zo
-248
+258
 normal zo
-255
+259
 normal zo
-247
+266
 normal zo
-262
+258
 normal zo
-277
+273
 normal zo
-280
+288
 normal zo
-293
+291
 normal zo
-298
+304
 normal zo
-277
+309
 normal zo
-262
+288
 normal zo
-317
+273
 normal zo
-322
+328
 normal zo
-317
+333
 normal zo
-330
+328
 normal zo
-339
+341
+normal zo
+350
+normal zo
+351
+normal zo
+356
+normal zo
+362
+normal zo
+370
+normal zo
+350
+normal zo
+382
+normal zo
+383
+normal zo
+382
+normal zo
+81
+normal zo
+63
+normal zo
+46
+normal zo
+90
+normal zo
+91
+normal zo
+100
+normal zo
+91
+normal zo
+106
+normal zo
+116
+normal zo
+119
+normal zo
+106
+normal zo
+90
+normal zo
+126
+normal zo
+131
+normal zo
+132
+normal zo
+135
+normal zo
+132
+normal zo
+140
+normal zo
+143
+normal zo
+145
+normal zo
+143
+normal zo
+131
+normal zo
+153
+normal zo
+161
+normal zo
+162
+normal zo
+165
+normal zo
+169
+normal zo
+181
+normal zo
+191
+normal zo
+199
+normal zo
+165
+normal zo
+162
+normal zo
+212
+normal zo
+218
+normal zo
+229
+normal zo
+236
+normal zo
+240
+normal zo
+218
+normal zo
+229
+normal zo
+236
+normal zo
+240
+normal zo
+212
+normal zo
+253
+normal zo
+254
+normal zo
+261
+normal zo
+253
+normal zo
+270
+normal zo
+271
+normal zo
+278
+normal zo
+270
+normal zo
+285
+normal zo
+300
+normal zo
+303
+normal zo
+316
+normal zo
+321
+normal zo
+300
+normal zo
+285
 normal zo
 340
 normal zo
 345
 normal zo
-351
+340
 normal zo
-359
+353
 normal zo
-339
+362
 normal zo
-371
+363
 normal zo
-372
+368
 normal zo
-371
+374
 normal zo
-151
+382
 normal zo
-230
+362
 normal zo
-231
+394
 normal zo
-238
+395
 normal zo
-230
+394
 normal zo
-247
+161
 normal zo
-248
+253
 normal zo
-255
+254
 normal zo
-247
+261
 normal zo
-262
+253
 normal zo
-277
+270
 normal zo
-280
+271
 normal zo
-293
+278
 normal zo
-298
+270
 normal zo
-277
+285
 normal zo
-262
+300
 normal zo
-317
+303
 normal zo
-322
+316
 normal zo
-317
+321
 normal zo
-330
+300
 normal zo
-339
+285
 normal zo
 340
 normal zo
 345
 normal zo
-351
+340
 normal zo
-359
+353
 normal zo
-339
+362
 normal zo
-371
+363
 normal zo
-372
+368
 normal zo
-371
+374
 normal zo
-let s:l = 73 - ((39 * winheight(0) + 16) / 33)
+382
+normal zo
+362
+normal zo
+394
+normal zo
+395
+normal zo
+394
+normal zo
+let s:l = 231 - ((11 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-73
-normal! 015l
+231
+normal! 037l
 wincmd w
 exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
@@ -1186,298 +1148,6 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-17
-normal zo
-18
-normal zo
-24
-normal zo
-27
-normal zo
-32
-normal zo
-18
-normal zo
-37
-normal zo
-43
-normal zo
-37
-normal zo
-17
-normal zo
-53
-normal zo
-54
-normal zo
-63
-normal zo
-54
-normal zo
-70
-normal zo
-81
-normal zo
-70
-normal zo
-53
-normal zo
-159
-normal zo
-169
-normal zo
-169
-normal zo
-177
-normal zo
-181
-normal zo
-186
-normal zo
-196
-normal zo
-201
-normal zo
-196
-normal zo
-169
-normal zo
-169
-normal zo
-159
-normal zo
-let s:l = 194 - ((16 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-194
-normal! 012l
-tabedit io.c
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
-exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
-argglobal
-enew
-file __Tag_List__
-let s:cpo_save=&cpo
-set cpo&vim
-inoremap <buffer> <silent> <kMultiply> :silent! %foldopen!
-inoremap <buffer> <silent> <kMinus> :silent! foldclose
-inoremap <buffer> <silent> <kPlus> :silent! foldopen
-nnoremap <buffer> <silent> * :silent! %foldopen!
-nnoremap <buffer> <silent> + :silent! foldopen
-nnoremap <buffer> <silent> - :silent! foldclose
-nnoremap <buffer> <silent> = :silent! %foldclose
-nnoremap <buffer> <silent> q :close
-nnoremap <buffer> <silent> <kMultiply> :silent! %foldopen!
-nnoremap <buffer> <silent> <kMinus> :silent! foldclose
-nnoremap <buffer> <silent> <kPlus> :silent! foldopen
-inoremap <buffer> <silent> * :silent! %foldopen!
-inoremap <buffer> <silent> + :silent! foldopen
-inoremap <buffer> <silent> - :silent! foldclose
-inoremap <buffer> <silent> = :silent! %foldclose
-inoremap <buffer> <silent> q :close
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=Tlist_Ballon_Expr()
-setlocal nobinary
-setlocal bufhidden=delete
-setlocal nobuflisted
-setlocal buftype=nofile
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'taglist'
-setlocal filetype=taglist
-endif
-setlocal foldcolumn=3
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=9999
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=manual
-setlocal foldminlines=0
-setlocal foldnestmax=20
-setlocal foldtext=v:folddashes.getline(v:foldstart)
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal nomodifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal noswapfile
-setlocal synmaxcol=3000
-if &syntax != 'taglist'
-setlocal syntax=taglist
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-set winfixwidth
-setlocal winfixwidth
-setlocal nowrap
-setlocal wrapmargin=0
-wincmd w
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -1573,29 +1243,245 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-451
+3
 normal zo
-452
+19
 normal zo
-451
+21
 normal zo
-605
+31
 normal zo
-1342
+21
 normal zo
-1353
+19
 normal zo
-1342
+41
 normal zo
-let s:l = 453 - ((190 * winheight(0) + 16) / 33)
+42
+normal zo
+44
+normal zo
+54
+normal zo
+57
+normal zo
+44
+normal zo
+41
+normal zo
+44
+normal zo
+44
+normal zo
+56
+normal zo
+60
+normal zo
+44
+normal zo
+44
+normal zo
+67
+normal zo
+72
+normal zo
+76
+normal zo
+81
+normal zo
+82
+normal zo
+85
+normal zo
+82
+normal zo
+90
+normal zo
+93
+normal zo
+95
+normal zo
+93
+normal zo
+81
+normal zo
+103
+normal zo
+111
+normal zo
+112
+normal zo
+114
+normal zo
+119
+normal zo
+125
+normal zo
+129
+normal zo
+114
+normal zo
+111
+normal zo
+114
+normal zo
+114
+normal zo
+119
+normal zo
+125
+normal zo
+129
+normal zo
+114
+normal zo
+114
+normal zo
+142
+normal zo
+143
+normal zo
+150
+normal zo
+142
+normal zo
+159
+normal zo
+160
+normal zo
+167
+normal zo
+159
+normal zo
+175
+normal zo
+193
+normal zo
+197
+normal zo
+202
+normal zo
+212
+normal zo
+216
+normal zo
+212
+normal zo
+175
+normal zo
+let s:l = 185 - ((11 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+185
+normal! 026l
+tabedit io.c
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'c'
+setlocal filetype=c
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'c'
+setlocal syntax=c
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+let s:l = 453 - ((190 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 453
 normal! 05l
-wincmd w
-exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
-exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
 tabedit rsync.h
 set splitbelow splitright
 set nosplitbelow
@@ -1697,12 +1583,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 130 - ((31 * winheight(0) + 17) / 34)
+let s:l = 105 - ((26 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-130
-normal! 023l
+105
+normal! 041l
 tabedit generator.c
 set splitbelow splitright
 set nosplitbelow
@@ -1804,1021 +1690,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-762
-normal zo
-767
-normal zo
-778
-normal zo
-780
-normal zo
-778
-normal zo
-788
-normal zo
-767
-normal zo
-788
-normal zo
-789
-normal zo
-793
-normal zo
-797
-normal zo
-825
-normal zo
-834
-normal zo
-840
-normal zo
-864
-normal zo
-874
-normal zo
-883
-normal zo
-890
-normal zo
-864
-normal zo
-840
-normal zo
-905
-normal zo
-914
-normal zo
-927
-normal zo
-928
-normal zo
-927
-normal zo
-943
-normal zo
-947
-normal zo
-914
-normal zo
-905
-normal zo
-958
-normal zo
-964
-normal zo
-975
-normal zo
-976
-normal zo
-975
-normal zo
-958
-normal zo
-993
-normal zo
-999
-normal zo
-1004
-normal zo
-1008
-normal zo
-1004
-normal zo
-1032
-normal zo
-1039
-normal zo
-1041
-normal zo
-1046
-normal zo
-1041
-normal zo
-1039
-normal zo
-1060
-normal zo
-1070
-normal zo
-1060
-normal zo
-999
-normal zo
-1085
-normal zo
-1091
-normal zo
-1103
-normal zo
-1113
-normal zo
-1120
-normal zo
-1124
-normal zo
-1144
-normal zo
-1148
-normal zo
-1167
-normal zo
-1171
-normal zo
-1120
-normal zo
-1181
-normal zo
-1188
-normal zo
-1197
-normal zo
-1198
-normal zo
-1197
-normal zo
-1210
-normal zo
-1216
-normal zo
-1188
-normal zo
-1091
-normal zo
-1227
-normal zo
-1231
-normal zo
-1242
-normal zo
-1248
-normal zo
-1227
-normal zo
-1261
-normal zo
-1266
-normal zo
-1279
-normal zo
-1283
-normal zo
-1305
-normal zo
-1313
-normal zo
-1314
-normal zo
-1313
-normal zo
-1326
-normal zo
-1327
-normal zo
-1326
-normal zo
-1349
-normal zo
-1351
-normal zo
-1361
-normal zo
-1363
-normal zo
-1366
-normal zo
-1363
-normal zo
-1372
-normal zo
-1361
-normal zo
-1385
-normal zo
-1349
-normal zo
-1395
-normal zo
-1396
-normal zo
-1406
-normal zo
-1395
-normal zo
-1418
-normal zo
-1428
-normal zo
-1431
-normal zo
-1432
-normal zo
-1431
-normal zo
-1445
-normal zo
-1450
-normal zo
-1455
-normal zo
-1464
-normal zo
-1468
-normal zo
-1471
-normal zo
-1468
-normal zo
-1478
-normal zo
-1482
-normal zo
-1485
-normal zo
-1482
-normal zo
-1505
-normal zo
-1509
-normal zo
-1511
-normal zo
-1509
-normal zo
-1522
-normal zo
-1523
-normal zo
-1522
-normal zo
-1530
-normal zo
-1428
-normal zo
-1539
-normal zo
-1541
-normal zo
-1553
-normal zo
-1556
-normal zo
-1557
-normal zo
-1556
-normal zo
-1566
-normal zo
-1573
-normal zo
-1586
-normal zo
-1593
-normal zo
-1595
-normal zo
-1593
-normal zo
-1566
-normal zo
-1607
-normal zo
-1612
-normal zo
-1617
-normal zo
-1627
-normal zo
-1612
-normal zo
-1553
-normal zo
-1638
-normal zo
-1640
-normal zo
-1645
-normal zo
-1647
-normal zo
-1658
-normal zo
-1676
-normal zo
-1678
-normal zo
-1676
-normal zo
-1645
-normal zo
-1690
-normal zo
-1695
-normal zo
-1700
-normal zo
-1705
-normal zo
-1700
-normal zo
-1638
-normal zo
-1721
-normal zo
-1728
-normal zo
-1729
-normal zo
-1728
-normal zo
-1736
-normal zo
-1737
-normal zo
-1736
-normal zo
-1746
-normal zo
-1759
-normal zo
-1766
-normal zo
-1769
-normal zo
-1774
-normal zo
-1766
-normal zo
-1786
-normal zo
-1792
-normal zo
-1794
-normal zo
-1797
-normal zo
-1794
-normal zo
-1792
-normal zo
-1808
-normal zo
-1810
-normal zo
-1808
-normal zo
-1826
-normal zo
-1827
-normal zo
-1826
-normal zo
-1846
-normal zo
-1855
-normal zo
-1865
-normal zo
-1866
-normal zo
-1871
-normal zo
-1866
-normal zo
-1865
-normal zo
-1880
-normal zo
-1887
-normal zo
-1893
-normal zo
-1887
-normal zo
-1902
-normal zo
-1903
-normal zo
-1907
-normal zo
-1911
-normal zo
-1919
-normal zo
-1921
-normal zo
-1927
-normal zo
-1919
-normal zo
-1902
-normal zo
-1938
-normal zo
-1956
-normal zo
-1976
-normal zo
-1988
-normal zo
-1992
-normal zo
-1988
-normal zo
-2002
-normal zo
-2007
-normal zo
-2014
-normal zo
-2002
-normal zo
-1279
-normal zo
-2035
-normal zo
-2040
-normal zo
-2035
-normal zo
-2055
-normal zo
-2061
-normal zo
-2067
-normal zo
-2069
-normal zo
-2074
-normal zo
-2085
-normal zo
-2091
-normal zo
-2069
-normal zo
-2055
-normal zo
-2102
-normal zo
-2108
-normal zo
-2110
-normal zo
-2120
-normal zo
-2171
-normal zo
-2108
-normal zo
-2102
-normal zo
-2181
-normal zo
-2188
-normal zo
-2218
-normal zo
-2228
-normal zo
-2235
-normal zo
-2243
-normal zo
-2245
-normal zo
-2251
-normal zo
-2260
-normal zo
-2261
-normal zo
-2263
-normal zo
-2261
-normal zo
-2260
-normal zo
-2251
-normal zo
-2273
-normal zo
-2292
-normal zo
-2273
-normal zo
-2301
-normal zo
-2306
-normal zo
-2243
-normal zo
-2320
-normal zo
-2337
-normal zo
-2344
-normal zo
-2365
-normal zo
-2181
-normal zo
-762
-normal zo
-834
-normal zo
-840
-normal zo
-864
-normal zo
-874
-normal zo
-883
-normal zo
-890
-normal zo
-864
-normal zo
-840
-normal zo
-905
-normal zo
-914
-normal zo
-927
-normal zo
-928
-normal zo
-927
-normal zo
-943
-normal zo
-947
-normal zo
-914
-normal zo
-905
-normal zo
-958
-normal zo
-964
-normal zo
-975
-normal zo
-976
-normal zo
-975
-normal zo
-958
-normal zo
-993
-normal zo
-999
-normal zo
-1004
-normal zo
-1008
-normal zo
-1004
-normal zo
-1032
-normal zo
-1039
-normal zo
-1041
-normal zo
-1046
-normal zo
-1041
-normal zo
-1039
-normal zo
-1060
-normal zo
-1070
-normal zo
-1060
-normal zo
-999
-normal zo
-1085
-normal zo
-1091
-normal zo
-1103
-normal zo
-1113
-normal zo
-1120
-normal zo
-1124
-normal zo
-1144
-normal zo
-1148
-normal zo
-1167
-normal zo
-1171
-normal zo
-1120
-normal zo
-1181
-normal zo
-1188
-normal zo
-1197
-normal zo
-1198
-normal zo
-1197
-normal zo
-1210
-normal zo
-1216
-normal zo
-1188
-normal zo
-1091
-normal zo
-1227
-normal zo
-1231
-normal zo
-1242
-normal zo
-1248
-normal zo
-1227
-normal zo
-1261
-normal zo
-1266
-normal zo
-1279
-normal zo
-1283
-normal zo
-1305
-normal zo
-1313
-normal zo
-1314
-normal zo
-1313
-normal zo
-1326
-normal zo
-1327
-normal zo
-1326
-normal zo
-1349
-normal zo
-1351
-normal zo
-1361
-normal zo
-1363
-normal zo
-1366
-normal zo
-1363
-normal zo
-1372
-normal zo
-1361
-normal zo
-1385
-normal zo
-1349
-normal zo
-1395
-normal zo
-1396
-normal zo
-1406
-normal zo
-1395
-normal zo
-1418
-normal zo
-1428
-normal zo
-1431
-normal zo
-1432
-normal zo
-1431
-normal zo
-1445
-normal zo
-1450
-normal zo
-1455
-normal zo
-1464
-normal zo
-1468
-normal zo
-1471
-normal zo
-1468
-normal zo
-1478
-normal zo
-1482
-normal zo
-1485
-normal zo
-1482
-normal zo
-1505
-normal zo
-1509
-normal zo
-1511
-normal zo
-1509
-normal zo
-1522
-normal zo
-1523
-normal zo
-1522
-normal zo
-1530
-normal zo
-1428
-normal zo
-1539
-normal zo
-1541
-normal zo
-1553
-normal zo
-1556
-normal zo
-1557
-normal zo
-1556
-normal zo
-1566
-normal zo
-1573
-normal zo
-1586
-normal zo
-1593
-normal zo
-1595
-normal zo
-1593
-normal zo
-1566
-normal zo
-1607
-normal zo
-1612
-normal zo
-1617
-normal zo
-1627
-normal zo
-1612
-normal zo
-1553
-normal zo
-1638
-normal zo
-1640
-normal zo
-1645
-normal zo
-1647
-normal zo
-1658
-normal zo
-1676
-normal zo
-1678
-normal zo
-1676
-normal zo
-1645
-normal zo
-1690
-normal zo
-1695
-normal zo
-1700
-normal zo
-1705
-normal zo
-1700
-normal zo
-1638
-normal zo
-1721
-normal zo
-1728
-normal zo
-1729
-normal zo
-1728
-normal zo
-1736
-normal zo
-1737
-normal zo
-1736
-normal zo
-1746
-normal zo
-1759
-normal zo
-1766
-normal zo
-1769
-normal zo
-1774
-normal zo
-1766
-normal zo
-1786
-normal zo
-1792
-normal zo
-1794
-normal zo
-1797
-normal zo
-1794
-normal zo
-1792
-normal zo
-1808
-normal zo
-1810
-normal zo
-1808
-normal zo
-1826
-normal zo
-1827
-normal zo
-1826
-normal zo
-1846
-normal zo
-1855
-normal zo
-1865
-normal zo
-1866
-normal zo
-1871
-normal zo
-1866
-normal zo
-1865
-normal zo
-1880
-normal zo
-1887
-normal zo
-1893
-normal zo
-1887
-normal zo
-1902
-normal zo
-1903
-normal zo
-1907
-normal zo
-1911
-normal zo
-1919
-normal zo
-1921
-normal zo
-1927
-normal zo
-1919
-normal zo
-1902
-normal zo
-1938
-normal zo
-1956
-normal zo
-1976
-normal zo
-1988
-normal zo
-1992
-normal zo
-1988
-normal zo
-2002
-normal zo
-2007
-normal zo
-2014
-normal zo
-2002
-normal zo
-1279
-normal zo
-2035
-normal zo
-2040
-normal zo
-2035
-normal zo
-2055
-normal zo
-2061
-normal zo
-2067
-normal zo
-2069
-normal zo
-2074
-normal zo
-2085
-normal zo
-2091
-normal zo
-2069
-normal zo
-2055
-normal zo
-2102
-normal zo
-2108
-normal zo
-2110
-normal zo
-2120
-normal zo
-2171
-normal zo
-2108
-normal zo
-2102
-normal zo
-2181
-normal zo
-2188
-normal zo
-2218
-normal zo
-2228
-normal zo
-2235
-normal zo
-2243
-normal zo
-2245
-normal zo
-2251
-normal zo
-2260
-normal zo
-2261
-normal zo
-2263
-normal zo
-2261
-normal zo
-2260
-normal zo
-2251
-normal zo
-2273
-normal zo
-2292
-normal zo
-2273
-normal zo
-2301
-normal zo
-2306
-normal zo
-2243
-normal zo
-2320
-normal zo
-2337
-normal zo
-2344
-normal zo
-2365
-normal zo
-2181
-normal zo
-let s:l = 1239 - ((16 * winheight(0) + 17) / 34)
+let s:l = 1239 - ((148 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -2925,18 +1797,6 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-183
-normal zo
-183
-normal zo
-851
-normal zo
-901
-normal zo
-901
-normal zo
-851
-normal zo
 let s:l = 153 - ((50 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
@@ -3050,7 +1910,7 @@ exe s:l
 normal! zt
 44
 normal! 0
-tabnext 6
+tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
