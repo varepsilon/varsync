@@ -1191,6 +1191,7 @@ int32 read_int(int f)
 int recv_random_data(int f)
 {
     p1 = read_int(f);
+    printf("p1 == %d\n", p1);
     if (p1 <= 0 || p1 > base) { 
         return -1;
     }
