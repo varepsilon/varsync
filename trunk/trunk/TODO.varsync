@@ -1,3 +1,3 @@
-1) Rewrite run.rb to eliminate repeating copying
-2) Test p1 = const (e.g. 2) instead of a random
-3) Determine the EBS (effective bit strength)
+1) Rewrite rsync and run.rb to eliminate repeating copying 
+(need some changes in receiver.c and rsync.c: in finish_transfer() function).
+
