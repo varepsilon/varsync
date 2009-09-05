@@ -844,8 +844,12 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 	OFF_T offset = 0;
     uint32 randInit;
 
-    /* Initialize pseudo-random generator */
-    randInit = time(0);
+    /* Initialize pseudo-random generator for checksum2 */
+    randInit = time(NULL);
+    if (verbose > 2)
+    {
+        rprintf(FINFO, "Random number initializer is set to %d\n", randInit);
+    }
     srand(randInit);
 
 	sum_sizes_sqroot(&sum, len);

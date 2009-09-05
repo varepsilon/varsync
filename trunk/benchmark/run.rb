@@ -18,17 +18,24 @@ SSH_SERVER = 'localhost'
 # "random" --- both weak and strong sums are random
 # "randorig" --- weak sum is original while strong one is random
 
-RSYNC_TYPES_LIST = ["orig", "random", "randorig"]
+RSYNC_TYPES_LIST = ["orig", "random"]
 
+# ========== Table of test pairs (see info for adding new ones): =========== 
 
 # "ident" --- almost identical files (.xml)
 # "rsync" --- rsync sources (.tar.gz) [3.0.6 -> 20090507NIGHTLY, 809 KB]
-# "opera" --- opera qt3_amd64 binaries (.deb) [9.50 -> 9.51.2061, 8.9 MB]
+# "opera" --- opera qt3_amd64 package (.deb) [9.50 -> 9.51.2061, 8.9 MB]
 # "samba" --- samba sources (.tar) [3.4.0rc1 -> 3.4.0, 111.3 MB]
-# "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 3 MB]
 # "linux" --- linux sources (.tar) [2.6.29 -> 2.6.30, 353.2 MB]
+# "rsyncdir" --- rsync sources (source tree) [3.0.6 -> 20090507NIGHTLY, 3 MB]
+# "rsyncbin" --- rsync binaries [3.0.6 -> 20090507NIGHTLY, 1.2 MB]
+# "operabin" --- opera qt3_amd64 binaries [9.50 -> 9.51.2061, 13.6 MB]
+# "smbd" --- samba daemon binaries [3.4.0rc1 -> 3.4.0, 8.2 MB]
+# "libsmbclient" --- samba libraries (.so) [3.4.0rc1 -> 3.4.0, 5.4 MB]
 
-TEST_PAIRS_LIST = ["opera"] 
+#TEST_PAIRS_LIST = ["linux"]
+ TEST_PAIRS_LIST = ["ident", "rsync", "opera", "samba", "linux", "rsyncdir", 
+   "rsyncbin", "operabin", "smbd", "libsmbclient"]
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
@@ -76,8 +83,12 @@ TEST_PAIRS_LIST.each do |test_pair|
         # TODO: correct directory handling (trailing slash)
       FileUtils.rm_rf(old)
       FileUtils.cp_r(original_old, old)
+
+# If you add new test pair uncoment lines below!
+      
 #      FileUtils.rm_rf(new)
 #      FileUtils.cp_r(original_new, new)
+     
       # now run rsync itself
       run_time = Benchmark.realtime do
         # puts("Starting command: #{rsync_cmd}")

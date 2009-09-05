@@ -1200,9 +1200,18 @@ int recv_random_data(int f)
 
 int send_random_data(int f)
 {
+    uint32 randInit;
+    /* Initialize pseudo-random generator */
+    randInit = time(NULL); 
+    if (verbose > 2)
+    {
+        rprintf(FINFO, "Random number initializer is set to %d\n", randInit);
+    }
+    srand(randInit);
+
     p1 = rand() % base; 
-    if (verbose) {
-        rprintf(FCLIENT, "sending random data; p1 = %u\n", p1);
+    if (verbose > 1) {
+        rprintf(FINFO, "Sending random data: p1 = %u\n", p1);
     }
     write_int(f, p1);
     return 0;

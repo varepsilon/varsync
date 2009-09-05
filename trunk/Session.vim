@@ -338,20 +338,23 @@ endif
 set shortmess=aoO
 badd +58 ./benchmark/compare_sizes.rb
 badd +31 ./benchmark/run.rb
-badd +98 checksum.c
+badd +266 checksum.c
 badd +1 rsync.h
 badd +1344 io.c
 badd +294 match.c
-badd +1 generator.c
+badd +1996 generator.c
 badd +942 acls.c
-badd +1 byteorder.h
+badd +44 byteorder.h
 badd +317 sender.c
 badd +1 TODO
 badd +1 TODO.varsync
-badd +387 receiver.c
-badd +1 test/checksum_test.c
+badd +752 receiver.c
+badd +185 test/checksum_test.c
 badd +1 options.c
-badd +1 main.c
+badd +1030 main.c
+badd +1 clientserver.o
+badd +7 clientserver.c
+badd +552 rsync.c
 args ./benchmark/compare_sizes.rb
 edit ./benchmark/run.rb
 set splitbelow splitright
@@ -454,12 +457,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 31 - ((16 * winheight(0) + 17) / 34)
+let s:l = 71 - ((10 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-31
-normal! 047l
+71
+normal! 033l
 tabedit options.c
 set splitbelow splitright
 set nosplitbelow
@@ -567,6 +570,244 @@ exe s:l
 normal! zt
 930
 normal! 04l
+tabedit io.c
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'c'
+setlocal filetype=c
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'c'
+setlocal syntax=c
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+326
+normal zo
+345
+normal zo
+373
+normal zo
+345
+normal zo
+326
+normal zo
+1202
+normal zo
+1207
+normal zo
+1213
+normal zo
+1202
+normal zo
+1331
+normal zo
+1337
+normal zo
+1331
+normal zo
+let s:l = 1338 - ((25 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1338
+normal! 037l
+tabedit rsync.h
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'cpp'
+setlocal filetype=cpp
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=ccomplete#Complete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'cpp'
+setlocal syntax=cpp
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+let s:l = 105 - ((26 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+105
+normal! 041l
 tabedit checksum.c
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -793,802 +1034,15 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-46
-normal zo
-47
-normal zo
-53
-normal zo
-58
-normal zo
-47
-normal zo
-63
-normal zo
-75
-normal zo
-81
-normal zo
-91
-normal zo
-92
-normal zo
-101
-normal zo
-92
-normal zo
-107
-normal zo
-117
-normal zo
-120
-normal zo
-107
-normal zo
-91
-normal zo
-127
-normal zo
-132
-normal zo
-133
-normal zo
-136
-normal zo
-133
-normal zo
-141
-normal zo
-144
-normal zo
-146
-normal zo
-144
-normal zo
-132
-normal zo
-154
-normal zo
-162
-normal zo
-163
-normal zo
-166
-normal zo
-170
-normal zo
-182
-normal zo
-192
-normal zo
-200
-normal zo
-166
-normal zo
-163
-normal zo
-213
-normal zo
-218
-normal zo
-224
-normal zo
-228
-normal zo
-213
-normal zo
-162
-normal zo
-241
-normal zo
-242
-normal zo
-249
-normal zo
-241
-normal zo
-258
-normal zo
-259
-normal zo
-266
-normal zo
-258
-normal zo
-273
-normal zo
-288
-normal zo
-291
-normal zo
-304
-normal zo
-309
-normal zo
-288
-normal zo
-273
-normal zo
-328
-normal zo
-333
-normal zo
-328
-normal zo
-341
-normal zo
-350
-normal zo
-351
-normal zo
-356
-normal zo
-362
-normal zo
-370
-normal zo
-350
-normal zo
-382
-normal zo
-383
-normal zo
-382
-normal zo
-81
-normal zo
-63
-normal zo
-46
-normal zo
-90
-normal zo
-91
-normal zo
-100
-normal zo
-91
-normal zo
-106
-normal zo
-116
-normal zo
-119
-normal zo
-106
-normal zo
-90
-normal zo
-126
-normal zo
-131
-normal zo
-132
-normal zo
-135
-normal zo
-132
-normal zo
-140
-normal zo
-143
-normal zo
-145
-normal zo
-143
-normal zo
-131
-normal zo
-153
-normal zo
-161
-normal zo
-162
-normal zo
-165
-normal zo
-169
-normal zo
-181
-normal zo
-191
-normal zo
-199
-normal zo
-165
-normal zo
-162
-normal zo
-212
-normal zo
-218
-normal zo
-229
-normal zo
-236
-normal zo
-240
-normal zo
-218
-normal zo
-229
-normal zo
-236
-normal zo
-240
-normal zo
-212
-normal zo
-253
-normal zo
-254
-normal zo
-261
-normal zo
-253
-normal zo
-270
-normal zo
-271
-normal zo
-278
-normal zo
-270
-normal zo
-285
-normal zo
-300
-normal zo
-303
-normal zo
-316
-normal zo
-321
-normal zo
-300
-normal zo
-285
-normal zo
-340
-normal zo
-345
-normal zo
-340
-normal zo
-353
-normal zo
-362
-normal zo
-363
-normal zo
-368
-normal zo
-374
-normal zo
-382
-normal zo
-362
-normal zo
-394
-normal zo
-395
-normal zo
-394
-normal zo
-161
-normal zo
-253
-normal zo
-254
-normal zo
-261
-normal zo
-253
-normal zo
-270
-normal zo
-271
-normal zo
-278
-normal zo
-270
-normal zo
-285
-normal zo
-300
-normal zo
-303
-normal zo
-316
-normal zo
-321
-normal zo
-300
-normal zo
-285
-normal zo
-340
-normal zo
-345
-normal zo
-340
-normal zo
-353
-normal zo
-362
-normal zo
-363
-normal zo
-368
-normal zo
-374
-normal zo
-382
-normal zo
-362
-normal zo
-394
-normal zo
-395
-normal zo
-394
-normal zo
-let s:l = 231 - ((11 * winheight(0) + 16) / 33)
+let s:l = 220 - ((198 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-231
-normal! 037l
+220
+normal! 022l
 wincmd w
 exe 'vert 1resize ' . ((&columns * 30 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 80 + 55) / 111)
-tabedit test/checksum_test.c
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-3
-normal zo
-19
-normal zo
-21
-normal zo
-31
-normal zo
-21
-normal zo
-19
-normal zo
-41
-normal zo
-42
-normal zo
-44
-normal zo
-54
-normal zo
-57
-normal zo
-44
-normal zo
-41
-normal zo
-44
-normal zo
-44
-normal zo
-56
-normal zo
-60
-normal zo
-44
-normal zo
-44
-normal zo
-67
-normal zo
-72
-normal zo
-76
-normal zo
-81
-normal zo
-82
-normal zo
-85
-normal zo
-82
-normal zo
-90
-normal zo
-93
-normal zo
-95
-normal zo
-93
-normal zo
-81
-normal zo
-103
-normal zo
-111
-normal zo
-112
-normal zo
-114
-normal zo
-119
-normal zo
-125
-normal zo
-129
-normal zo
-114
-normal zo
-111
-normal zo
-114
-normal zo
-114
-normal zo
-119
-normal zo
-125
-normal zo
-129
-normal zo
-114
-normal zo
-114
-normal zo
-142
-normal zo
-143
-normal zo
-150
-normal zo
-142
-normal zo
-159
-normal zo
-160
-normal zo
-167
-normal zo
-159
-normal zo
-175
-normal zo
-193
-normal zo
-197
-normal zo
-202
-normal zo
-212
-normal zo
-216
-normal zo
-212
-normal zo
-175
-normal zo
-let s:l = 185 - ((11 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-185
-normal! 026l
-tabedit io.c
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-let s:l = 453 - ((190 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-453
-normal! 05l
-tabedit rsync.h
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-let s:l = 105 - ((26 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-105
-normal! 041l
 tabedit generator.c
 set splitbelow splitright
 set nosplitbelow
@@ -1690,227 +1144,985 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1239 - ((148 * winheight(0) + 17) / 34)
+840
+normal zo
+850
+normal zo
+868
+normal zo
+878
+normal zo
+887
+normal zo
+894
+normal zo
+868
+normal zo
+909
+normal zo
+918
+normal zo
+931
+normal zo
+932
+normal zo
+931
+normal zo
+947
+normal zo
+951
+normal zo
+918
+normal zo
+909
+normal zo
+962
+normal zo
+968
+normal zo
+979
+normal zo
+980
+normal zo
+979
+normal zo
+962
+normal zo
+997
+normal zo
+1003
+normal zo
+1008
+normal zo
+1012
+normal zo
+1008
+normal zo
+1036
+normal zo
+1043
+normal zo
+1045
+normal zo
+1050
+normal zo
+1045
+normal zo
+1043
+normal zo
+1064
+normal zo
+1074
+normal zo
+1064
+normal zo
+1003
+normal zo
+1089
+normal zo
+1095
+normal zo
+1107
+normal zo
+1117
+normal zo
+1124
+normal zo
+1128
+normal zo
+1148
+normal zo
+1152
+normal zo
+1171
+normal zo
+1175
+normal zo
+1124
+normal zo
+1185
+normal zo
+1192
+normal zo
+1201
+normal zo
+1202
+normal zo
+1201
+normal zo
+1214
+normal zo
+1220
+normal zo
+1192
+normal zo
+1095
+normal zo
+1231
+normal zo
+1235
+normal zo
+1246
+normal zo
+1252
+normal zo
+1231
+normal zo
+1265
+normal zo
+1270
+normal zo
+1283
+normal zo
+1287
+normal zo
+1309
+normal zo
+1317
+normal zo
+1318
+normal zo
+1317
+normal zo
+1330
+normal zo
+1331
+normal zo
+1330
+normal zo
+1353
+normal zo
+1355
+normal zo
+1365
+normal zo
+1367
+normal zo
+1370
+normal zo
+1367
+normal zo
+1376
+normal zo
+1365
+normal zo
+1389
+normal zo
+1353
+normal zo
+1399
+normal zo
+1400
+normal zo
+1410
+normal zo
+1399
+normal zo
+1422
+normal zo
+1432
+normal zo
+1435
+normal zo
+1436
+normal zo
+1435
+normal zo
+1449
+normal zo
+1454
+normal zo
+1459
+normal zo
+1468
+normal zo
+1472
+normal zo
+1475
+normal zo
+1472
+normal zo
+1482
+normal zo
+1486
+normal zo
+1489
+normal zo
+1486
+normal zo
+1509
+normal zo
+1513
+normal zo
+1515
+normal zo
+1513
+normal zo
+1526
+normal zo
+1527
+normal zo
+1526
+normal zo
+1534
+normal zo
+1432
+normal zo
+1543
+normal zo
+1545
+normal zo
+1557
+normal zo
+1560
+normal zo
+1561
+normal zo
+1560
+normal zo
+1570
+normal zo
+1577
+normal zo
+1590
+normal zo
+1597
+normal zo
+1599
+normal zo
+1597
+normal zo
+1570
+normal zo
+1611
+normal zo
+1616
+normal zo
+1621
+normal zo
+1631
+normal zo
+1616
+normal zo
+1557
+normal zo
+1642
+normal zo
+1644
+normal zo
+1649
+normal zo
+1651
+normal zo
+1662
+normal zo
+1680
+normal zo
+1682
+normal zo
+1680
+normal zo
+1649
+normal zo
+1694
+normal zo
+1699
+normal zo
+1704
+normal zo
+1709
+normal zo
+1704
+normal zo
+1642
+normal zo
+1725
+normal zo
+1732
+normal zo
+1733
+normal zo
+1732
+normal zo
+1740
+normal zo
+1741
+normal zo
+1740
+normal zo
+1750
+normal zo
+1763
+normal zo
+1770
+normal zo
+1773
+normal zo
+1778
+normal zo
+1770
+normal zo
+1790
+normal zo
+1796
+normal zo
+1798
+normal zo
+1801
+normal zo
+1798
+normal zo
+1796
+normal zo
+1812
+normal zo
+1814
+normal zo
+1812
+normal zo
+1830
+normal zo
+1831
+normal zo
+1830
+normal zo
+1850
+normal zo
+1859
+normal zo
+1869
+normal zo
+1870
+normal zo
+1875
+normal zo
+1870
+normal zo
+1869
+normal zo
+1884
+normal zo
+1891
+normal zo
+1897
+normal zo
+1891
+normal zo
+1906
+normal zo
+1907
+normal zo
+1911
+normal zo
+1915
+normal zo
+1923
+normal zo
+1925
+normal zo
+1931
+normal zo
+1923
+normal zo
+1906
+normal zo
+1942
+normal zo
+1960
+normal zo
+1980
+normal zo
+1992
+normal zo
+1996
+normal zo
+1992
+normal zo
+2006
+normal zo
+2011
+normal zo
+2018
+normal zo
+2006
+normal zo
+1283
+normal zo
+2039
+normal zo
+2044
+normal zo
+2039
+normal zo
+2059
+normal zo
+2065
+normal zo
+2071
+normal zo
+2073
+normal zo
+2078
+normal zo
+2089
+normal zo
+2095
+normal zo
+2073
+normal zo
+2059
+normal zo
+2106
+normal zo
+2112
+normal zo
+2114
+normal zo
+2124
+normal zo
+2175
+normal zo
+2112
+normal zo
+2106
+normal zo
+2185
+normal zo
+2192
+normal zo
+2222
+normal zo
+2232
+normal zo
+2239
+normal zo
+2247
+normal zo
+2249
+normal zo
+2255
+normal zo
+2264
+normal zo
+2265
+normal zo
+2267
+normal zo
+2265
+normal zo
+2264
+normal zo
+2255
+normal zo
+2277
+normal zo
+2296
+normal zo
+2277
+normal zo
+2305
+normal zo
+2310
+normal zo
+2247
+normal zo
+2324
+normal zo
+2341
+normal zo
+2348
+normal zo
+2369
+normal zo
+2185
+normal zo
+840
+normal zo
+909
+normal zo
+918
+normal zo
+931
+normal zo
+932
+normal zo
+931
+normal zo
+947
+normal zo
+951
+normal zo
+918
+normal zo
+909
+normal zo
+962
+normal zo
+968
+normal zo
+979
+normal zo
+980
+normal zo
+979
+normal zo
+962
+normal zo
+997
+normal zo
+1003
+normal zo
+1008
+normal zo
+1012
+normal zo
+1008
+normal zo
+1036
+normal zo
+1043
+normal zo
+1045
+normal zo
+1050
+normal zo
+1045
+normal zo
+1043
+normal zo
+1064
+normal zo
+1074
+normal zo
+1064
+normal zo
+1003
+normal zo
+1089
+normal zo
+1095
+normal zo
+1107
+normal zo
+1117
+normal zo
+1124
+normal zo
+1128
+normal zo
+1148
+normal zo
+1152
+normal zo
+1171
+normal zo
+1175
+normal zo
+1124
+normal zo
+1185
+normal zo
+1192
+normal zo
+1201
+normal zo
+1202
+normal zo
+1201
+normal zo
+1214
+normal zo
+1220
+normal zo
+1192
+normal zo
+1095
+normal zo
+1231
+normal zo
+1235
+normal zo
+1246
+normal zo
+1252
+normal zo
+1231
+normal zo
+1265
+normal zo
+1270
+normal zo
+1283
+normal zo
+1287
+normal zo
+1309
+normal zo
+1317
+normal zo
+1318
+normal zo
+1317
+normal zo
+1330
+normal zo
+1331
+normal zo
+1330
+normal zo
+1353
+normal zo
+1355
+normal zo
+1365
+normal zo
+1367
+normal zo
+1370
+normal zo
+1367
+normal zo
+1376
+normal zo
+1365
+normal zo
+1389
+normal zo
+1353
+normal zo
+1399
+normal zo
+1400
+normal zo
+1410
+normal zo
+1399
+normal zo
+1422
+normal zo
+1432
+normal zo
+1435
+normal zo
+1436
+normal zo
+1435
+normal zo
+1449
+normal zo
+1454
+normal zo
+1459
+normal zo
+1468
+normal zo
+1472
+normal zo
+1475
+normal zo
+1472
+normal zo
+1482
+normal zo
+1486
+normal zo
+1489
+normal zo
+1486
+normal zo
+1509
+normal zo
+1513
+normal zo
+1515
+normal zo
+1513
+normal zo
+1526
+normal zo
+1527
+normal zo
+1526
+normal zo
+1534
+normal zo
+1432
+normal zo
+1543
+normal zo
+1545
+normal zo
+1557
+normal zo
+1560
+normal zo
+1561
+normal zo
+1560
+normal zo
+1570
+normal zo
+1577
+normal zo
+1590
+normal zo
+1597
+normal zo
+1599
+normal zo
+1597
+normal zo
+1570
+normal zo
+1611
+normal zo
+1616
+normal zo
+1621
+normal zo
+1631
+normal zo
+1616
+normal zo
+1557
+normal zo
+1642
+normal zo
+1644
+normal zo
+1649
+normal zo
+1651
+normal zo
+1662
+normal zo
+1680
+normal zo
+1682
+normal zo
+1680
+normal zo
+1649
+normal zo
+1694
+normal zo
+1699
+normal zo
+1704
+normal zo
+1709
+normal zo
+1704
+normal zo
+1642
+normal zo
+1725
+normal zo
+1732
+normal zo
+1733
+normal zo
+1732
+normal zo
+1740
+normal zo
+1741
+normal zo
+1740
+normal zo
+1750
+normal zo
+1763
+normal zo
+1770
+normal zo
+1773
+normal zo
+1778
+normal zo
+1770
+normal zo
+1790
+normal zo
+1796
+normal zo
+1798
+normal zo
+1801
+normal zo
+1798
+normal zo
+1796
+normal zo
+1812
+normal zo
+1814
+normal zo
+1812
+normal zo
+1830
+normal zo
+1831
+normal zo
+1830
+normal zo
+1850
+normal zo
+1859
+normal zo
+1869
+normal zo
+1870
+normal zo
+1875
+normal zo
+1870
+normal zo
+1869
+normal zo
+1884
+normal zo
+1891
+normal zo
+1897
+normal zo
+1891
+normal zo
+1906
+normal zo
+1907
+normal zo
+1911
+normal zo
+1915
+normal zo
+1923
+normal zo
+1925
+normal zo
+1931
+normal zo
+1923
+normal zo
+1906
+normal zo
+1942
+normal zo
+1960
+normal zo
+1980
+normal zo
+1992
+normal zo
+1996
+normal zo
+1992
+normal zo
+2006
+normal zo
+2011
+normal zo
+2018
+normal zo
+2006
+normal zo
+1283
+normal zo
+2039
+normal zo
+2044
+normal zo
+2039
+normal zo
+2059
+normal zo
+2065
+normal zo
+2071
+normal zo
+2073
+normal zo
+2078
+normal zo
+2089
+normal zo
+2095
+normal zo
+2073
+normal zo
+2059
+normal zo
+2106
+normal zo
+2112
+normal zo
+2114
+normal zo
+2124
+normal zo
+2175
+normal zo
+2112
+normal zo
+2106
+normal zo
+2185
+normal zo
+2192
+normal zo
+2222
+normal zo
+2232
+normal zo
+2239
+normal zo
+2247
+normal zo
+2249
+normal zo
+2255
+normal zo
+2264
+normal zo
+2265
+normal zo
+2267
+normal zo
+2265
+normal zo
+2264
+normal zo
+2255
+normal zo
+2277
+normal zo
+2296
+normal zo
+2277
+normal zo
+2305
+normal zo
+2310
+normal zo
+2247
+normal zo
+2324
+normal zo
+2341
+normal zo
+2348
+normal zo
+2369
+normal zo
+2185
+normal zo
+let s:l = 857 - ((223 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1239
-normal! 04l
-tabedit main.c
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=0
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-let s:l = 153 - ((50 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-153
-normal! 04l
-tabedit byteorder.h
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=4
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-let s:l = 44 - ((43 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-44
-normal! 0
-tabnext 1
+857
+normal! 011l
+tabnext 6
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
