@@ -18,7 +18,7 @@ SSH_SERVER = 'localhost'
 # "random" --- both weak and strong sums are random
 # "randorig" --- weak sum is original while strong one is random
 
-RSYNC_TYPES_LIST = ["orig", "random"]
+RSYNC_TYPES_LIST = ["random"]
 
 # ========== Table of test pairs (see info for adding new ones): =========== 
 
@@ -33,14 +33,18 @@ RSYNC_TYPES_LIST = ["orig", "random"]
 # "smbd" --- samba daemon binaries [3.4.0rc1 -> 3.4.0, 8.2 MB]
 # "libsmbclient" --- samba libraries (.so) [3.4.0rc1 -> 3.4.0, 5.4 MB]
 
-#TEST_PAIRS_LIST = ["linux"]
- TEST_PAIRS_LIST = ["ident", "rsync", "opera", "samba", "linux", "rsyncdir", 
-   "rsyncbin", "operabin", "smbd", "libsmbclient"]
+#TEST_PAIRS_LIST = ["ident", "rsync", "opera", "samba", "linux", "rsyncdir", "rsyncbin", "operabin", "smbd", "libsmbclient"]
+
+#TEST_PAIRS_LIST = ["RND1", "RND2", "RND3", "RND4", "RND5", "RND6", "RND7"]
+# TEST_PAIRS_LIST = ["urandom4000000", "urandom8000000", "urandom16000000", "urandom32000000", "urandom64000000", "urandom128000000"]
+
+
+TEST_PAIRS_LIST = ["opera"] 
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
-OPTS = "-ahvv --stats "
+OPTS = "-ahvvv --stats "
 RSYNC_OLDORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_ORIG_BIN}'" 
 RSYNC_ORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN}'" 
 RSYNC_RANDOM_OPTS = OPTS + \
@@ -51,7 +55,6 @@ RSYNC_RANDORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
 #==============================================================================
 
 require 'benchmark'
-require 'ping'
 require 'fileutils'
 require 'open3'
 
