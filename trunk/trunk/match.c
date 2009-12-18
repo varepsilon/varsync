@@ -222,17 +222,18 @@ static void hash_search(int f, struct sum_struct *s,
 					(double)offset, (long)i, sum);
 			}
 			if (!done_csum2) {
-				map = (schar *)map_ptr(buf,offset,l);
-				get_checksum2((char *)map,l,sum2,s->sums[i].p);
+				map = (schar *)map_ptr(buf, offset, l);
+				get_checksum2((char *)map, l, sum2, s->sums[i].p);
 				done_csum2 = 1;
 			}
             /* compare strong checksums */
-			if (memcmp(sum2,s->sums[i].sum2,s->s2length) != 0) {
+			if (memcmp(sum2, s->sums[i].sum2, s->s2length) != 0) {
                 if (verbose > 3) {
                     rprintf(FINFO,
                             "False alarm! Original sum2 = %08x " \
-                            "while obtained sum2 = %08x\n",
-                            IVAL(s->sums[i].sum2, 0), IVAL(sum2, 0));
+                            "while obtained sum2 = %08x (s2length = %d)\n",
+                            IVAL(s->sums[i].sum2, 0), IVAL(sum2, 0), 
+                            s->s2length);
                 }
 				false_alarms++;
 				continue;

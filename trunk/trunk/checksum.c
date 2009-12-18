@@ -47,10 +47,10 @@ uint32 get_checksum1(char *buf1, int32 len)
     if (!use_random) {
         int32 i;
         uint32 s1, s2;
-        schar *buf = (schar *)buf1; //signed char
+        schar *buf = (schar *)buf1; // signed char
 
         s1 = s2 = 0;
-        for (i = 0; i < (len-4); i+=4) {
+        for (i = 0; i < (len-4); i += 4) {
             s2 += 4*(s1 + buf[i]) + 3*buf[i+1] + 2*buf[i+2] + buf[i+3] +
                 10*CHAR_OFFSET;
             s1 += (buf[i+0] + buf[i+1] + buf[i+2] + buf[i+3] + 4*CHAR_OFFSET);
@@ -72,7 +72,7 @@ uint32 get_checksum1(char *buf1, int32 len)
         s = 0;
         // TODO: why do we use only one buf entry for the field element?
         // We could use up to 3 of them, because base > 2^24!
-        for (i = 0; i < (len - 4); i+=4) {
+        for (i = 0; i < (len - 4); i += 4) {
             s = s * p_4 + (uint64)(buf[i+0]) * p_3 + 
                 (uint64)(buf[i+1]) * p_2 + (uint64)(buf[i+2]) * p + 
                 (uint64)(buf[i+3]);
