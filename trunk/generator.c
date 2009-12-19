@@ -753,8 +753,13 @@ int unchanged_file(char *fn, struct file_struct *file, STRUCT_STAT *st)
  * The checksum size is determined according to:
  *     blocksum_bits = BLOCKSUM_BIAS + 2*log2(file_len) - log2(block_len)
  * provided by Donovan Baarda which gives a probability of rsync
- * algorithm corrupting data and falling back using the whole md4
+ * algorithm corrupting data and falling back using the whole md4/md5
  * checksums.
+ * 
+ * The checksum1 size (in random implementation) is:
+ * log2(file_len * log2(file_len) / 2)
+ * rounded to the multiple of 8 (added for the speed optimization). 
+ * At the moment this field is ignored in original implementation.
  *
  * This might be made one of several selectable heuristics.
  */
@@ -762,6 +767,7 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 {
 	int32 blength;
 	int s2length;
+    int s1length;
 	int64 l;
 
 	if (block_size) {
@@ -795,26 +801,40 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
     }
     
     if (use_random2) {
-        s2length = RANDOM_SUM_LENGTH;
-    } else if (protocol_version < 27) {
+        // s2length = RANDOM_SUM_LENGTH;
+        int32 c;
+        int a = 0;
+        int b = 0;
+        /* calculate b = log2(file_length) */
+		for (l = len; l >>= 1; b++) {}
+        /* calculate a = log2(file_length * b / 2) */
+        for (c = len * b / 2; c >>= 1; a++) {}
+        s1length = a;
+    } else {
+        s1length = SUM1_DEFAULT_LENGTH;
+    }
+
+    if (protocol_version < 27) {
 		s2length = csum_length;
 	} else if (csum_length == SUM_LENGTH) {
 		s2length = SUM_LENGTH;
 	} else {
 		int32 c;
 		int b = BLOCKSUM_BIAS;
-        /* calculate log2(file_length) */
+        /* calculate 2*log2(file_length) */
 		for (l = len; l >>= 1; b += 2) {}
         /* calculate log2(block_length) */
 		for (c = blength; (c >>= 1) && b; b--) {}
 		/* add a bit, subtract rollsum, round up. */
-		s2length = (b + 1 - 32 + 7) / 8; /* --optimize in compiler-- */
+        /* --optimize in compiler-- */
+		s2length = (b + 1 + 7) / 8 - s1length; 
 		s2length = MAX(s2length, csum_length);
 		s2length = MIN(s2length, SUM_LENGTH);
 	}
 
 	sum->flength = len;
 	sum->blength = blength;
+	sum->s1length = s1length;
 	sum->s2length = s2length;
 	sum->remainder = (int32)(len % blength);
 	sum->count = (int32)(l = (len / blength) + (sum->remainder != 0));
@@ -824,9 +844,10 @@ static void sum_sizes_sqroot(struct sum_struct *sum, int64 len)
 
 	if (sum->count && verbose > 2) {
 		rprintf(FINFO,
-			"count=%.0f rem=%ld blength=%ld s2length=%d flength=%.0f\n",
+			"count=%.0f rem=%ld blength=%ld s1length=%d "\
+            "s2length=%d flength=%.0f\n",
 			(double)sum->count, (long)sum->remainder, (long)sum->blength,
-			sum->s2length, (double)sum->flength);
+			sum->s1length, sum->s2length, (double)sum->flength);
 	}
 }
 

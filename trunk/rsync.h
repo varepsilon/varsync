@@ -590,6 +590,7 @@ struct ht_int64_node {
 /* Different sum lengths in bytes */
 #define SUM_LENGTH 16
 #define RANDOM_SUM_LENGTH 4 
+#define SUM1_DEFAULT_LENGTH 4 
 #define SHORT_SUM_LENGTH 2
 #define BLOCKSUM_BIAS 10
 
@@ -767,6 +768,7 @@ struct sum_struct {
 	int32 count;		/**< how many chunks */
 	int32 blength;		/**< block_length */
 	int32 remainder;	/**< flength % block_length */
+	int s1length;		/**< sum1_length */
 	int s2length;		/**< sum2_length */
 };
 
