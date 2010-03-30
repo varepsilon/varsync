@@ -25,6 +25,7 @@ extern int checksum_seed;
 extern int protocol_version;
 extern int use_random;      
 extern int use_random2;
+extern int use_cyclic;      
 
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
@@ -35,6 +36,13 @@ const uint64 base2 = 2147483647; /* prime, equals 2^31-1 */
 static uint64 powers[MAX_BLOCK_SIZE];  /* tables with powers of p1 */ 
 static int32 pow_avail = 0;             /* maximum power available */
 
+/* table for get_transformation */
+static uint32 transformation_table[UCHAR_MAX + 1];
+/* table for shifts */
+static uint32 shifted_transformation_table[UCHAR_MAX + 1];
+/* maximum transformation_table index that has been precalculated */
+static int32 transformations_avail = 0;
+
 
 /*
   1) A simple 32 bit checksum that can be updated from either end
@@ -44,10 +52,10 @@ static int32 pow_avail = 0;             /* maximum power available */
 */
 uint32 get_checksum1(char *buf1, int32 len)
 {
-    if (!use_random) {
+    if (!use_random && !use_cyclic) { /* original sum */
         int32 i;
         uint32 s1, s2;
-        schar *buf = (schar *)buf1; // signed char
+        schar *buf = (schar *)buf1; /* signed char */
 
         s1 = s2 = 0;
         for (i = 0; i < (len-4); i += 4) {
@@ -59,8 +67,7 @@ uint32 get_checksum1(char *buf1, int32 len)
             s1 += (buf[i]+CHAR_OFFSET); s2 += s1;
         }
         return (s1 & 0xffff) | (s2 << 16);
-    }
-    else {
+    } else if (use_random) {
         int32 i;
         uint64 s;
         unsigned char *buf = (unsigned char *)buf1; 
@@ -82,44 +89,60 @@ uint32 get_checksum1(char *buf1, int32 len)
             s = s * p + (uint64)(buf[i]);
             s = mod1(s);
         }
-        return (s & 0xffffffff); 
+        return s & 0xffffffff; 
+    } else /* if (use_cyclic) */ {
+        int32 i;
+        unsigned char *buf = (unsigned char *)buf1;
+        uint32 s = 0;
+        for (i = 0; i < len; i++) {
+            s <<= 1;
+            s ^= get_transformation(buf[i], len);
+        }
+        return s & 0xffffffff;
     }
 }
 
 uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 {
-    if (!use_random) {
+    if (!use_random && !use_cyclic) { /* original sum */
         uint32 s1, s2;
         s1 = sum0 & 0xffff;
         s2 = sum0 >> 16;
-		/* Trim off the first byte from the checksum */
-		s1 -= map[0] + CHAR_OFFSET;
-		s2 -= k * (map[0] + CHAR_OFFSET);
+        /* Trim off the first byte from the checksum */
+        s1 -= map[0] + CHAR_OFFSET;
+        s2 -= k * (map[0] + CHAR_OFFSET);
 
-		/* Add on the next byte (if there is one) to the checksum */
-		if (more) {
-			s1 += map[k] + CHAR_OFFSET;
-			s2 += s1;
-		}
+        /* Add on the next byte (if there is one) to the checksum */
+        if (more) {
+          s1 += map[k] + CHAR_OFFSET;
+          s2 += s1;
+        }
         return (s1 & 0xffff) | (s2 << 16);
-    }
-    else {
+    } else if (use_random) {
         uint64 minus_p1_k;   
         uint64 s = (uint64)sum0;
         unsigned char *map1 = (unsigned char *)map;
 
         minus_p1_k = getminuspower(k);
 
-		/* Trim off the first byte from the checksum */
+        /* Trim off the first byte from the checksum */
         /* Add on the next byte (if there is one) to the checksum */
-        /* We must avoid using "-" sign due to C bug with negative residues */
-		if (more) {
-            s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]) + map1[k]);
-		}
+        /* We must avoid using minus sign due to C bug with negative residues */
+        if (more) {
+          s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]) + map1[k]);
+        }
         else {
             s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]));
         }
-        return (uint32)(s & 0xffffffff); 
+        return (uint32)(s & 0xffffffff);
+    } else /* if (use_cyclic) */ {
+        unsigned char *map1 = (unsigned char *)map;
+        sum0 <<= 1;
+        sum0 ^= get_shifted_transformation(map1[0], k);
+        if (more) {
+            sum0 ^= get_transformation(map1[k], k);
+        }
+        return sum0 & 0xffffffff;
     }
 }
 
@@ -149,6 +172,44 @@ uint64 getminuspower(int32 k)
         return powers[k];
     }
 }
+
+/*
+* Pseudo-random map: unsigned char -> uint32
+*/
+uint32 get_transformation(unsigned char c, int32 block_len)
+{
+    if (transformations_avail < UCHAR_MAX) {
+        fill_transformation_tables(block_len);
+    }
+    return transformation_table[c];
+}
+
+/*
+* Shifted transformation_table for update_checksum1
+*/
+uint32 get_shifted_transformation(unsigned char c, int32 block_len)
+{
+    if (transformations_avail < UCHAR_MAX) {
+        fill_transformation_tables(block_len);
+    }
+    return shifted_transformation_table[c];
+}
+
+/*
+* Implement memoization for get_*_transformation(...)
+*/
+void fill_transformation_tables(int32 block_len)
+{
+    int32 i;
+    srand(CYCLIC_SUM_SEED_VALUE);
+    for (i = 0; i <= UCHAR_MAX; i++) {
+        transformation_table[i] = rand();
+        shifted_transformation_table[i] = block_len < 32 ?
+            transformation_table[i] << block_len : 0;
+    }
+    transformations_avail = UCHAR_MAX;
+}
+
 
 /* 1) md5/md4 checksum will be written in the sum buffer and 0 will be
  * returned (p is ignored).

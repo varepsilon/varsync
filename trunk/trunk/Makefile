@@ -8,7 +8,8 @@ bindir=${exec_prefix}/bin
 mandir=${datarootdir}/man
 
 LIBS=-lacl -lpopt 
-CC=gcc -std=gnu99
+CC=colorgcc -std=gnu99
+CFLAGS=-O3 -DHAVE_CONFIG_H -Wall -W -Wextra -pedantic -finline-small-functions -fomit-frame-pointer -funroll-loops
 CPPFLAGS=
 EXEEXT=
 LDFLAGS=
@@ -194,7 +195,6 @@ clean: cleantests
 
 cleantests:
 	rm -rf ./testtmp*
-
 
 # We try to delete built files from both the source and build
 # directories, just in case somebody previously configured things in

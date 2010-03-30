@@ -1,24 +1,25 @@
 #!/usr/bin/ruby
 
 # Benchmark script for comparison of different rsync implementations
-# Copyright: Aleksandr Chuklin, 2009
+# Copyright: Aleksandr Chuklin, 2009-2010
 
 
 # ================== OPTIONS FOR LOCAL MACHINE ================================
-ROOT_DIR = "/home/fenix/progs/projects/varsync/trunk"
-BMTMP_ROOT = "/home/fenix/docs/tmp/bmtmp"
+ROOT_DIR = "/home/varepsilon/progs/projects/varsync/trunk"
+BMTMP_ROOT = "/home/varepsilon/docs/tmp/bmtmp"
 ORIGINAL_DIR = BMTMP_ROOT + "/" + "original"  
 SOURCE_DIR = BMTMP_ROOT + "/" + "source"  
 DESTINATION_DIR = BMTMP_ROOT + "/" + "destination"  
-SSH_USER = 'fenix'
+SSH_USER = 'varepsilon'
 SSH_SERVER = 'localhost'
 
 # "oldorig" --- original unchanged rsync binary
 # "orig" --- new binary with old options (backwards-compatible)
 # "random" --- both weak and strong sums are random
 # "randorig" --- weak sum is original while strong one is random
+# "cyclic" --- weak sum is cyclic
 
-RSYNC_TYPES_LIST = ["random"]
+RSYNC_TYPES_LIST = ["orig", "random", "cyclic"]
 
 # ========== Table of test pairs (see info for adding new ones): =========== 
 
@@ -39,12 +40,12 @@ RSYNC_TYPES_LIST = ["random"]
 # TEST_PAIRS_LIST = ["urandom4000000", "urandom8000000", "urandom16000000", "urandom32000000", "urandom64000000", "urandom128000000"]
 
 
-TEST_PAIRS_LIST = ["opera"] 
+TEST_PAIRS_LIST = ["ident", "rsync", "opera", "rsyncdir", "operabin"]
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
 RSYNC_RANDOM_BIN = ROOT_DIR + "/" + "rsync"
-OPTS = "-ahvvv --stats "
+OPTS = "-ahvv --stats "
 RSYNC_OLDORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_ORIG_BIN}'" 
 RSYNC_ORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN}'" 
 RSYNC_RANDOM_OPTS = OPTS + \
@@ -52,6 +53,8 @@ RSYNC_RANDOM_OPTS = OPTS + \
   "--random2 --random"
 RSYNC_RANDORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
   "--random2"
+RSYNC_CYCLIC_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --cyclic' " \
+  "--cyclic"
 #==============================================================================
 
 require 'benchmark'
@@ -75,6 +78,8 @@ TEST_PAIRS_LIST.each do |test_pair|
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM_OPTS} "
       elsif rsync_type == "randorig"
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDORIG_OPTS} "
+      elsif rsync_type == "cyclic"
+        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_CYCLIC_OPTS} "
       else 
         raise NotImplementedError, "Error. No such rsync type: #{rsync_type}"
       end
@@ -97,10 +102,13 @@ TEST_PAIRS_LIST.each do |test_pair|
         # puts("Starting command: #{rsync_cmd}")
         Open3::popen3(rsync_cmd) do |stdin, stdout, stderr|
           puts(stdout.read.strip)
+          $stdout.flush
           puts(stderr.read.strip)
+          $stderr.flush
         end 
       end
       puts("Execution time: #{run_time}")
+      $stdout.flush
     rescue NotImplementedError => message
       puts(message)
     end
