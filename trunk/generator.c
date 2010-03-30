@@ -22,7 +22,6 @@
 
 #include "rsync.h"
 
-extern int use_random;
 extern int use_random2;
 extern int small_blength;
 extern int verbose;
@@ -864,14 +863,16 @@ static int generate_and_send_sums(int fd, OFF_T len, int f_out, int f_copy)
 	struct sum_struct sum;
 	OFF_T offset = 0;
     uint32 randInit;
-
-    /* Initialize pseudo-random generator for checksum2 */
-    randInit = time(NULL);
-    if (verbose > 2)
-    {
-        rprintf(FINFO, "Random number initializer is set to %d\n", randInit);
+    
+    if (use_random2) {
+        /* Initialize pseudo-random generator for checksum2 */
+        randInit = time(NULL);
+        if (verbose > 2)
+        {
+            rprintf(FINFO,"Random number initializer is set to %d\n", randInit);
+        }
+        srand(randInit);
     }
-    srand(randInit);
 
 	sum_sizes_sqroot(&sum, len);
 	if (sum.count < 0)

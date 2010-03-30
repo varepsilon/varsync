@@ -398,7 +398,7 @@
 /* Define to 1 if the system has the type `struct stat64'. */
 #define HAVE_STRUCT_STAT64 1
 
-/* Define to 1 if `st_rdev' is member of `struct stat'. */
+/* Define to 1 if `st_rdev' is a member of `struct stat'. */
 #define HAVE_STRUCT_STAT_ST_RDEV 1
 
 /* Define to 1 if you have the "struct utimbuf" type */
@@ -561,6 +561,9 @@
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME ""
+
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION ""

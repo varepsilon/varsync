@@ -23,6 +23,7 @@
 
 extern int use_random;
 extern int use_random2;
+extern int use_cyclic;
 extern int verbose;
 extern int do_xfers;
 extern int am_server;
