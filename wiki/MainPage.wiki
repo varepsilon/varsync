@@ -20,4 +20,11 @@ Random implementation comprises this ideas:
   # Smaller block size (*--small-blength* option) for better speedup.
 First idea aims to give easy-to-calculate *weak checksum* with the same rolling property (see [http://rsync.samba.org/tech_report/node3.html original implementation]) based on random-generated numbers. More information about the idea can be found [http://code.google.com/p/varsync/wiki/idea here].
 
-Second idea is about security despite it's being easy-to-calculate also. It uses the same technique as first idea but is more stronger. Opposite to the original md4/md5-based technique it doesn't rely on the strength of any sum: it is random =) But we do not completely rely on the randomness: we leave the file md5 checksum. So even if the gods will dislike us md5 can still help us! 
+Second idea is about security despite it's being easy-to-calculate also. It uses the same technique as first idea but is more stronger. Opposite to the original md4/md5-based technique it doesn't rely on the strength of any sum: it is random =) But we do not completely rely on the randomness: we leave the file md5 checksum. So even if the gods will dislike us md5 can still help us!
+
+== Cyclic implementation ==
+The idea is that a hash value is a polynomial in a ring GF(2)`[`x`]`/(x^m + 1), which is obtained from the word by treating it as a polynomial coefficients and performing factorization procedure.
+
+More details coming soon...
+
+For exhaustive study of this (and some another) idea see article of Jonathan D.Cohen "Recursive Hashing Functions for n-Grams".
