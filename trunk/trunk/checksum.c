@@ -95,7 +95,7 @@ uint32 get_checksum1(char *buf1, int32 len)
         unsigned char *buf = (unsigned char *)buf1;
         uint32 s = 0;
         for (i = 0; i < len; i++) {
-            s <<= 1;
+            s = brotl(s, 1);
             s ^= get_transformation(buf[i], len);
         }
         return s & 0xffffffff;
@@ -137,7 +137,7 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
         return (uint32)(s & 0xffffffff);
     } else /* if (use_cyclic) */ {
         unsigned char *map1 = (unsigned char *)map;
-        sum0 <<= 1;
+        sum0 = brotl(sum0, 1);
         sum0 ^= get_shifted_transformation(map1[0], k);
         if (more) {
             sum0 ^= get_transformation(map1[k], k);
@@ -204,10 +204,19 @@ void fill_transformation_tables(int32 block_len)
     srand(CYCLIC_SUM_SEED_VALUE);
     for (i = 0; i <= UCHAR_MAX; i++) {
         transformation_table[i] = rand();
-        shifted_transformation_table[i] = block_len < 32 ?
-            transformation_table[i] << block_len : 0;
+        shifted_transformation_table[i] =
+            brotl(transformation_table[i], block_len); 
     }
     transformations_avail = UCHAR_MAX;
+}
+
+/*
+* Perform bitwise left rotation
+*/
+
+uint32 brotl(uint32 value, int32 shift) 
+{
+    return (value << shift % 32) ^ (value >> (32 - shift % 32));
 }
 
 

@@ -1,3 +1,4 @@
 1) Rewrite rsync and run.rb to eliminate repeating copying 
 (need some changes in receiver.c and rsync.c: in finish_transfer() function).
+2) Add hashing by primitive polynomial (see Cohen "Recursive hashing for n-grams").
 

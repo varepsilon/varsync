@@ -40,7 +40,8 @@ RSYNC_TYPES_LIST = ["orig", "random", "cyclic"]
 # TEST_PAIRS_LIST = ["urandom4000000", "urandom8000000", "urandom16000000", "urandom32000000", "urandom64000000", "urandom128000000"]
 
 
-TEST_PAIRS_LIST = ["ident", "rsync", "opera", "rsyncdir", "operabin"]
+TEST_PAIRS_LIST = ["ident", "rsync", "opera", "samba"]
+# TEST_PAIRS_LIST = ["ident"]
 
 RSYNC_ORIG_VERSION = "3.0.6"
 RSYNC_ORIG_BIN = ROOT_DIR + "/" + "orig/rsync-#{RSYNC_ORIG_VERSION}/rsync"
