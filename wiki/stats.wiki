@@ -1,6 +1,9 @@
-#summary Different statistics.
+#summary Various statistics.
 #labels Featured
 <wiki:toc max_depth="3" />
+
+More recent statistics: [stats2].
+
 = Statistcs. Comparison of different implementations. =
 Now we can compare only 2 different implementations: original rsync (*Orig*) and random implementation (*Random*). More recent statistical data can be found [http://code.google.com/p/varsync/wiki/stats2 here].
 == 10.07.09 ==
