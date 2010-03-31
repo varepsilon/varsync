@@ -238,7 +238,7 @@ sent 281493964 bytes  received 220147 bytes  2504125.43 bytes/sec
 total size is 353157120  speedup is 1.25
 Execution time: 116.359429121017
 
-== 30.03.10 (added new checksum implementation --- hashing by cyclic polynomial) ==
+== 31.03.10 (added new checksum implementation — hashing by cyclic polynomial) ==
 	 Stats for *Orig* rsync on ident test pair:
 total: matches=1010  hash_hits=1011  false_alarms=0 data=187
 Literal data: 187 bytes
@@ -246,95 +246,94 @@ Matched data: 1.02M bytes
 Total bytes sent: 4.32K
 sent 4.32K bytes  received 6.10K bytes  20.84K bytes/sec
 total size is 1.02M  speedup is 97.72
-Execution time: 0.189529180526733
+Execution time: 0.191035509109497
 	 Stats for *Random* rsync on ident test pair:
 total: matches=1010  hash_hits=1010  false_alarms=0 data=187
 Literal data: 187 bytes
 Matched data: 1.02M bytes
 Total bytes sent: 4.33K
-sent 4.33K bytes  received 10.14K bytes  9.64K bytes/sec
+sent 4.33K bytes  received 10.14K bytes  28.94K bytes/sec
 total size is 1.02M  speedup is 70.38
-Execution time: 0.194214105606079
+Execution time: 0.194039344787598
 	 Stats for *Cyclic* rsync on ident test pair:
-total: matches=1010  hash_hits=1010  false_alarms=1 data=187
+total: matches=1010  hash_hits=1010  false_alarms=0 data=187
 Literal data: 187 bytes
 Matched data: 1.02M bytes
 Total bytes sent: 4.32K
 sent 4.32K bytes  received 6.10K bytes  20.84K bytes/sec
 total size is 1.02M  speedup is 97.72
-Execution time: 0.198002576828003
+Execution time: 0.200145959854126
 	 Stats for *Orig* rsync on rsync test pair:
 total: matches=0  hash_hits=10941  false_alarms=2 data=808580
 Literal data: 808.58K bytes
 Matched data: 0 bytes
 Total bytes sent: 808.77K
-sent 808.77K bytes  received 5.35K bytes  1.63M bytes/sec
+sent 808.77K bytes  received 5.35K bytes  542.75K bytes/sec
 total size is 808.58K  speedup is 0.99
-Execution time: 0.25848388671875
+Execution time: 0.270391225814819
 	 Stats for *Random* rsync on rsync test pair:
-total: matches=0  hash_hits=10747  false_alarms=0 data=808580
+total: matches=0  hash_hits=10913  false_alarms=0 data=808580
 Literal data: 808.58K bytes
 Matched data: 0 bytes
 Total bytes sent: 808.78K
 sent 808.78K bytes  received 8.89K bytes  1.64M bytes/sec
 total size is 808.58K  speedup is 0.99
-Execution time: 0.272365093231201
+Execution time: 0.279773950576782
 	 Stats for *Cyclic* rsync on rsync test pair:
-total: matches=0  hash_hits=10774  false_alarms=0 data=808580
+total: matches=0  hash_hits=10906  false_alarms=0 data=808580
 Literal data: 808.58K bytes
 Matched data: 0 bytes
 Total bytes sent: 808.77K
-sent 808.77K bytes  received 5.35K bytes  542.75K bytes/sec
+sent 808.77K bytes  received 5.35K bytes  1.63M bytes/sec
 total size is 808.58K  speedup is 0.99
-Execution time: 0.273183822631836
+Execution time: 0.261476039886475
 	 Stats for *Orig* rsync on opera test pair:
 total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
 Literal data: 8.85M bytes
 Matched data: 8.90K bytes
 Total bytes sent: 8.85M
-sent 8.85M bytes  received 17.93K bytes  5.91M bytes/sec
+sent 8.85M bytes  received 17.93K bytes  3.55M bytes/sec
 total size is 8.86M  speedup is 1.00
-Execution time: 1.72835874557495
+Execution time: 1.34754681587219
 	 Stats for *Random* rsync on opera test pair:
-total: matches=3  hash_hits=392451  false_alarms=6 data=8851292
+total: matches=3  hash_hits=392980  false_alarms=10 data=8851292
 Literal data: 8.85M bytes
 Matched data: 8.90K bytes
 Total bytes sent: 8.85M
 sent 8.85M bytes  received 29.86K bytes  5.92M bytes/sec
 total size is 8.86M  speedup is 1.00
-Execution time: 1.54466104507446
+Execution time: 1.42158937454224
 	 Stats for *Cyclic* rsync on opera test pair:
-total: matches=3  hash_hits=394996  false_alarms=16 data=8851292
+total: matches=3  hash_hits=392694  false_alarms=10 data=8851292
 Literal data: 8.85M bytes
 Matched data: 8.90K bytes
 Total bytes sent: 8.85M
-sent 8.85M bytes  received 17.93K bytes  3.55M bytes/sec
+sent 8.85M bytes  received 17.93K bytes  5.91M bytes/sec
 total size is 8.86M  speedup is 1.00
-Execution time: 1.39056324958801
-	 Stats for *Orig* rsync on operabin test pair:
-total: matches=117  hash_hits=723924  false_alarms=12 data=13167984
-Literal data: 13.17M bytes
-Matched data: 430.56K bytes
-Total bytes sent: 13.17M
-sent 13.17M bytes  received 22.18K bytes  3.77M bytes/sec
-total size is 13.60M  speedup is 1.03
-Execution time: 2.40900850296021
-	 Stats for *Random* rsync on operabin test pair:
-total: matches=117  hash_hits=718579  false_alarms=22 data=13167984
-Literal data: 13.17M bytes
-Matched data: 430.56K bytes
-Total bytes sent: 13.17M
-sent 13.17M bytes  received 36.95K bytes  3.77M bytes/sec
-total size is 13.60M  speedup is 1.03
-Execution time: 2.40251302719116
-	 Stats for *Cyclic* rsync on operabin test pair:
-total: matches=241  hash_hits=1486597  false_alarms=506175 data=26310208
-Literal data: 26.31M bytes
-Matched data: 886.88K bytes
-Total bytes sent: 26.31M
-sent 26.31M bytes  received 96.04K bytes  4.80M bytes/sec
-total size is 13.60M  speedup is 0.51
-WARNING: operabin_new failed verification -- update discarded (will try again).
-Execution time: 4.86250257492065
+Execution time: 1.39001393318176
+	 Stats for *Orig* rsync on samba test pair:
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+Literal data: 44.81M bytes
+Matched data: 66.46M bytes
+Total bytes sent: 44.84M
+sent 44.84M bytes  received 73.89K bytes  3.10M bytes/sec
+total size is 111.27M  speedup is 2.48
+Execution time: 13.6031637191772
+	 Stats for *Random* rsync on samba test pair:
+total: matches=6302  hash_hits=6660755  false_alarms=236 data=44819552
+Literal data: 44.82M bytes
+Matched data: 66.45M bytes
+Total bytes sent: 44.85M
+sent 44.85M bytes  received 105.55K bytes  2.19M bytes/sec
+total size is 111.27M  speedup is 2.47
+Execution time: 20.2334520816803
+	 Stats for *Cyclic* rsync on samba test pair:
+total: matches=6303  hash_hits=6668282  false_alarms=270 data=44809008
+Literal data: 44.81M bytes
+Matched data: 66.46M bytes
+Total bytes sent: 44.84M
+sent 44.84M bytes  received 73.89K bytes  2.30M bytes/sec
+total size is 111.27M  speedup is 2.48
+Execution time: 19.5770318508148
 
-*_REMARK_*: generally hashing by cyclic polynomial is a bit faster, but it is very unstable and sometimes gets a very huge number of false alarms.
+*_REMARK_*: You see, that *without any optimization* cyclic hash function performs similar to random hash function (and even slightly better)! And in addition it allows us to choose *any bit-strength* we need (for random sum we were forced to use bit-strength equal to 31, because we lack of primes around 2^32)
