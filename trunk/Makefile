@@ -9,7 +9,7 @@ mandir=${datarootdir}/man
 
 LIBS=-lacl -lpopt 
 CC=colorgcc -std=gnu99
-CFLAGS=-O3 -DHAVE_CONFIG_H -Wall -W -Wextra -pedantic -finline-small-functions -fomit-frame-pointer -funroll-loops
+CFLAGS=-O3 -DHAVE_CONFIG_H -Wall -W -Wextra -pedantic -finline-small-functions
 CPPFLAGS=
 EXEEXT=
 LDFLAGS=
