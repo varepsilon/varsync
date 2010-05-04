@@ -597,8 +597,8 @@ struct ht_int64_node {
 /* Max unsigned char value */
 //#define UCHAR_MAX 255
 
-/* Seed value for cyclic sum shuffle */
-#define CYCLIC_SUM_SEED_VALUE 42
+/* Seed value for irreducible_poly sum shuffle */
+#define IRREDUCIBLE_POLY_SUM_SEED_VALUE 42
 
 #ifndef MAXPATHLEN
 #define MAXPATHLEN 1024

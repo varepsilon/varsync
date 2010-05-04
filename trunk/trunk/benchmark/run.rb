@@ -19,7 +19,7 @@ SSH_SERVER = 'localhost'
 # "randorig" --- weak sum is original while strong one is random
 # "cyclic" --- weak sum is cyclic
 
-RSYNC_TYPES_LIST = ["orig", "random", "cyclic"]
+RSYNC_TYPES_LIST = ["orig", "random", "irreducible_poly"]
 
 # ========== Table of test pairs (see info for adding new ones): =========== 
 
@@ -40,7 +40,9 @@ RSYNC_TYPES_LIST = ["orig", "random", "cyclic"]
 # TEST_PAIRS_LIST = ["urandom4000000", "urandom8000000", "urandom16000000", "urandom32000000", "urandom64000000", "urandom128000000"]
 
 
-TEST_PAIRS_LIST = ["ident", "rsync", "opera", "samba"]
+TEST_PAIRS_LIST = ["rsync", "opera", "samba", "linux", "rsyncbin", "operabin",
+  "smbd", "libsmbclient", "RND0"]
+
 # TEST_PAIRS_LIST = ["ident"]
 
 RSYNC_ORIG_VERSION = "3.0.6"
@@ -54,8 +56,9 @@ RSYNC_RANDOM_OPTS = OPTS + \
   "--random2 --random"
 RSYNC_RANDORIG_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --random2' " \
   "--random2"
-RSYNC_CYCLIC_OPTS = OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --cyclic' " \
-  "--cyclic"
+RSYNC_IRREDUCIBLE_POLY_OPTS = 
+  OPTS + " --rsync-path='#{RSYNC_RANDOM_BIN} --irreducible_poly' " \
+  "--irreducible_poly"
 #==============================================================================
 
 require 'benchmark'
@@ -79,8 +82,8 @@ TEST_PAIRS_LIST.each do |test_pair|
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDOM_OPTS} "
       elsif rsync_type == "randorig"
         rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_RANDORIG_OPTS} "
-      elsif rsync_type == "cyclic"
-        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_CYCLIC_OPTS} "
+      elsif rsync_type == "irreducible_poly"
+        rsync_cmd = "#{RSYNC_RANDOM_BIN} #{RSYNC_IRREDUCIBLE_POLY_OPTS} "
       else 
         raise NotImplementedError, "Error. No such rsync type: #{rsync_type}"
       end

@@ -1,0 +1,107 @@
+Stats for *Orig* rsync on rsync test pair:
+total: matches=0  hash_hits=10941  false_alarms=2 data=808580
+Execution time: 0.379429578781128
+
+Stats for *Random* rsync on rsync test pair:
+total: matches=0  hash_hits=10799  false_alarms=0 data=808580
+Execution time: 0.362908363342285
+
+Stats for *Irreducible_poly* rsync on rsync test pair:
+total: matches=0  hash_hits=10864  false_alarms=0 data=808580
+Execution time: 0.374320268630981
+	 
+Stats for *Orig* rsync on opera test pair:
+total: matches=3  hash_hits=392716  false_alarms=34 data=8851292
+Execution time: 2.1068286895752
+
+Stats for *Random* rsync on opera test pair:
+total: matches=3  hash_hits=395047  false_alarms=16 data=8851292
+Execution time: 1.53496885299683
+
+Stats for *Irreducible_poly* rsync on opera test pair:
+total: matches=3  hash_hits=393716  false_alarms=12 data=8851292
+Execution time: 1.53401350975037
+
+Stats for *Orig* rsync on samba test pair:
+total: matches=6303  hash_hits=6688507  false_alarms=116 data=44809008
+Execution time: 15.525160074234
+
+Stats for *Random* rsync on samba test pair:
+total: matches=6303  hash_hits=6646252  false_alarms=208 data=44809008
+Execution time: 17.540604352951
+
+Stats for *Irreducible_poly* rsync on samba test pair:
+total: matches=6303  hash_hits=6668306  false_alarms=229 data=44809008
+Execution time: 16.5120165348053
+
+Stats for *Orig* rsync on linux test pair:
+total: matches=0  hash_hits=6425197  false_alarms=304 data=59435895
+Execution time: 10.6463415622711
+
+Stats for *Random* rsync on linux test pair:
+total: matches=0  hash_hits=6487671  false_alarms=218 data=59435895
+Execution time: 11.3650288581848
+
+Stats for *Irreducible_poly* rsync on linux test pair:
+total: matches=0  hash_hits=6450541  false_alarms=215 data=59435895
+Execution time: 12.8040063381195
+
+Stats for *Orig* rsync on rsyncbin test pair:
+total: matches=69  hash_hits=18031  false_alarms=0 data=1131736
+Execution time: 0.297895193099976
+
+Stats for *Random* rsync on rsyncbin test pair:
+total: matches=69  hash_hits=18157  false_alarms=1 data=1131736
+Execution time: 0.315798282623291
+
+Stats for *Irreducible_poly* rsync on rsyncbin test pair:
+total: matches=69  hash_hits=17937  false_alarms=2 data=1131736
+Execution time: 0.304558038711548
+
+Stats for *Orig* rsync on operabin test pair:
+total: matches=117  hash_hits=723924  false_alarms=12 data=13167984
+Execution time: 2.15317368507385
+
+Stats for *Random* rsync on operabin test pair:
+total: matches=117  hash_hits=720853  false_alarms=19 data=13167984
+Execution time: 2.4374520778656
+
+Stats for *Irreducible_poly* rsync on operabin test pair:
+total: matches=117  hash_hits=721745  false_alarms=29 data=13167984
+Execution time: 2.68063879013062
+
+Stats for *Orig* rsync on smbd test pair:
+total: matches=503  hash_hits=294136  false_alarms=7 data=6834830
+Execution time: 1.24923419952393
+
+Stats for *Random* rsync on smbd test pair:
+total: matches=502  hash_hits=292635  false_alarms=16 data=6837639
+Execution time: 1.25136399269104
+
+Stats for *Irreducible_poly* rsync on smbd test pair:
+total: matches=502  hash_hits=292799  false_alarms=10 data=6837639
+Execution time: 1.27134847640991
+
+Stats for *Orig* rsync on libsmbclient test pair:
+total: matches=837  hash_hits=122891  false_alarms=0 data=3477699
+Execution time: 0.71699070930481
+
+Stats for *Random* rsync on libsmbclient test pair:
+total: matches=836  hash_hits=123016  false_alarms=3 data=3479853
+Execution time: 0.751386404037476
+
+Stats for *Irreducible_poly* rsync on libsmbclient test pair:
+total: matches=836  hash_hits=123030  false_alarms=2 data=3479853
+Execution time: 0.743765115737915
+
+Stats for *Orig* rsync on RND0 test pair:
+total: matches=0  hash_hits=90746  false_alarms=9 data=3473408
+Execution time: 0.652028560638428
+
+Stats for *Random* rsync on RND0 test pair:
+total: matches=0  hash_hits=90542  false_alarms=4 data=3473408
+Execution time: 0.705552101135254
+
+Stats for *Irreducible_poly* rsync on RND0 test pair:
+total: matches=0  hash_hits=89944  false_alarms=2 data=3473408
+Execution time: 0.691276073455811

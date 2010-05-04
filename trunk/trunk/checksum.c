@@ -25,7 +25,7 @@ extern int checksum_seed;
 extern int protocol_version;
 extern int use_random;      
 extern int use_random2;
-extern int use_cyclic;      
+extern int use_irreducible_poly;
 
 int csum_length = SHORT_SUM_LENGTH; /* initial value */
 extern uint32 p1;
@@ -44,6 +44,11 @@ static uint32 shifted_transformation_table[UCHAR_MAX + 1];
 static int32 transformations_avail = 0;
 
 
+/* primitive polynomial in octal. degree = 31 */
+static uint32 polynomial = 020000000017;
+static uint32 poly_degree = 31;
+
+
 /*
   1) A simple 32 bit checksum that can be updated from either end
   (inspired by Mark Adler's Adler-32 checksum)
@@ -52,7 +57,7 @@ static int32 transformations_avail = 0;
 */
 uint32 get_checksum1(char *buf1, int32 len)
 {
-    if (!use_random && !use_cyclic) { /* original sum */
+    if (!use_random && !use_irreducible_poly) { /* original sum */
         int32 i;
         uint32 s1, s2;
         schar *buf = (schar *)buf1; /* signed char */
@@ -90,12 +95,15 @@ uint32 get_checksum1(char *buf1, int32 len)
             s = mod1(s);
         }
         return s & 0xffffffff; 
-    } else /* if (use_cyclic) */ {
+    } else /* if (use_irreducible_poly) */ {
         int32 i;
         unsigned char *buf = (unsigned char *)buf1;
         uint32 s = 0;
         for (i = 0; i < len; i++) {
-            s = brotl(s, 1);
+            s <<= 1;
+            if (btst(s, poly_degree)) {
+                s ^= polynomial;
+            }
             s ^= get_transformation(buf[i], len);
         }
         return s & 0xffffffff;
@@ -104,7 +112,7 @@ uint32 get_checksum1(char *buf1, int32 len)
 
 uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
 {
-    if (!use_random && !use_cyclic) { /* original sum */
+    if (!use_random && !use_irreducible_poly) { /* original sum */
         uint32 s1, s2;
         s1 = sum0 & 0xffff;
         s2 = sum0 >> 16;
@@ -135,9 +143,12 @@ uint32 update_checksum1(uint32 sum0, schar *map, int32 k, int more)
             s = mod1((uint64)p1 * s + minus_p1_k * (uint64)(map1[0]));
         }
         return (uint32)(s & 0xffffffff);
-    } else /* if (use_cyclic) */ {
+    } else /* if (use_irreducible_poly) */ {
         unsigned char *map1 = (unsigned char *)map;
-        sum0 = brotl(sum0, 1);
+        sum0 <<= 1;
+        if (btst(sum0, poly_degree)) {
+            sum0 ^= polynomial;
+        }
         sum0 ^= get_shifted_transformation(map1[0], k);
         if (more) {
             sum0 ^= get_transformation(map1[k], k);
@@ -201,22 +212,43 @@ uint32 get_shifted_transformation(unsigned char c, int32 block_len)
 void fill_transformation_tables(int32 block_len)
 {
     int32 i;
-    srand(CYCLIC_SUM_SEED_VALUE);
+    srand(IRREDUCIBLE_POLY_SUM_SEED_VALUE);
+
     for (i = 0; i <= UCHAR_MAX; i++) {
-        transformation_table[i] = rand();
-        shifted_transformation_table[i] =
-            brotl(transformation_table[i], block_len); 
+        int32 j;
+        uint32 c;
+
+        c = rand();
+        if (btst(c, poly_degree)) {
+            c ^= polynomial;
+        }
+        transformation_table[i] = c;
+
+        for (j = 0; j < block_len; j++) {
+            c <<= 1;
+            if (btst(c, poly_degree)) {
+                c ^= polynomial;
+            }
+        }
+        shifted_transformation_table[i] = c;
     }
     transformations_avail = UCHAR_MAX;
 }
 
 /*
-* Perform bitwise left rotation
-*/
-
+ * Perform bitwise left rotation
+ */
 uint32 brotl(uint32 value, int32 shift) 
 {
     return (value << shift % 32) ^ (value >> (32 - shift % 32));
+}
+
+/*
+ * Test n-th bit of value
+ */
+uint32 btst(uint32 value, int32 n)
+{
+    return (value >> n) & 1;
 }
 
 

@@ -1,2 +1,2 @@
-./run.rb | grep -e "\(Orig\|Random\|Cyclic\|Stats\|Matched\|Literal\|total\|Execution\|sent\|WARNING\)"
+./run.rb | grep -e "\(Orig\|Random\|Irreducible_poly\|Stats\|total:\|false\|alarms\|Execution\|time\|WARNING\)"
 
