@@ -28,6 +28,7 @@ uint32 get_transformation(unsigned char c, int32 block_len);
 uint32 get_shifted_transformation(unsigned char c, int32 block_len);
 void fill_transformation_tables(int32 block_len);
 uint32 brotl(uint32 value, int32 shift) ;
+uint32 btst(uint32 value, int32 n);
 uint32 get_checksum2(char *buf, int32 len, char *sum, uint32 p1);
 uint64 mod1(uint64 x);
 uint64 mod2(uint64 x);
