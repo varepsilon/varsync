@@ -7,7 +7,10 @@ Work is in progress now. Currently you can play with these options:
   * _--random_ *client and server* option
   * _--random2_ *client and server* option
   * _--small-blength_ *server* option
-  * _--cyclic_ *client and server* option
+  * _--irreducible`_`poly_ *client and server* option
+
+See *benchmark/run.rb* script to get to know how to use these options.
+
 
 = Statistics =
 Stats can be viewed [http://code.google.com/p/varsync/wiki/stats here].
