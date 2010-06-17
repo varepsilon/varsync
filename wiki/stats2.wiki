@@ -1,4 +1,5 @@
 #summary Statistics, page 2.
+#labels Featured
 <wiki:toc max_depth="3" />
 = Statistics. Page two. =
 
