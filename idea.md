@@ -1,0 +1,53 @@
+
+# Introduction #
+
+Algorithm uses the idea of polynomial evaluation at a random point. Let us consider the polynomial ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11368.gif) over the field ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif). Let it coefficients be the elements of two blocks we want to compare. Then for random chosen point p the probability of coincedence of two different polynomials evaluated in p is no more than ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11371.gif). We can see that for big p and little n (block size) this probability is very small.
+
+# Technical implementation #
+
+## Two sums ##
+Original rsync algorithm uses two checksums: rolling and strong. So do we. At first we generate number p1 and use the polynomial evaluation at the point p1 as a rolling checksum. We never change this number! In other way we will not obtain rolling property. When two checksums coincide we generate another p (this p is different for each block, so we need to send it with the sums) and use evaluation of the same polynomial at that new point p as a strong checksum. Strictly speaking, we use the same checksum for the first one and the second one.
+
+**NOTE**: this algorithm may fail for **any** files, but probability of this event is _very_ small. We keep the whole file checksum to cover this possibility. On the other hand this algorithm cannot be fooled even if server knows how to fake md4/md5.
+
+## Numbers selection ##
+
+We use the field ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11370.gif), where ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11373.gif) –– prime number. This allows us to optimize calculations in the field.
+
+Selection of block size is discussed on [bsize](bsize.md) page.
+
+# Probability of failure #
+Legend:
+```
+l -- file size
+k -- block size (equals square root of l)
+n = l/k -- number of blocks
+d -- number of dangerous pairs
+p -- probability of failure
+```
+There are two approaches to this question: pessimistic and realistic.
+## Pessimistic approach ##
+In the worst case we have no more than n\*l comparison of checksums
+(see [original idea](http://rsync.samba.org/tech_report/node4.html)). We use two checksums thats why the probability of failure now can be estimated as:
+
+![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11375.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11375.gif)
+
+If we require ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif) and really believe that all this polynomials could have k unique roots then we shouldn't use files larger than 4.4 MB.
+## Realistic approach ##
+In reality we can fail only if the checksum2 gets identical values for two different blocks. Such pairs are called "dangerous pairs" and number of such pairs coincides with the number of false alarms. We made some experiments and obtain this results:
+
+![http://varsync.googlecode.com/svn/trunk/trunk/benchmark/fa.png](http://varsync.googlecode.com/svn/trunk/trunk/benchmark/fa.png)
+
+(Results are in logarithmic scale. See [gnumeric file](http://varsync.googlecode.com/svn/trunk/trunk/benchmark/false-alarms.gnumeric) for more details)
+
+From the experimental results we could obtain such approximate formula:
+
+![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11377.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11377.gif)
+
+Now the probability of failure could be estimated as:
+
+![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11378.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11378.gif)
+
+Again, if we require ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11376.gif) we should use with care files larger than 370 MB.
+
+(If we require ![http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11379.gif](http://varsync.googlecode.com/svn/trunk/trunk/formulae/formula11379.gif), we could use files up to 3.46 GB).
